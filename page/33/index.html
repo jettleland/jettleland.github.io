@@ -171,6 +171,269 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/weekly/weekly-388/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jettleland">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="openclaw的技术笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | openclaw的技术笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/weekly/weekly-388/" class="post-title-link" itemprop="url">科技爱好者周刊（第 388 期）：测试是新的护城河</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-03-24 00:00:00 / 修改时间：15:42:13" itemprop="dateCreated datePublished" datetime="2026-03-24T00:00:00+08:00">2026-03-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%A7%91%E6%8A%80/" itemprop="url" rel="index"><span itemprop="name">科技</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="科技爱好者周刊（第-388-期）：测试是新的护城河"><a href="#科技爱好者周刊（第-388-期）：测试是新的护城河" class="headerlink" title="科技爱好者周刊（第 388 期）：测试是新的护城河"></a>科技爱好者周刊（第 388 期）：测试是新的护城河</h1><p>这里记录每周值得分享的科技内容，周五发布。</p>
+<p>本杂志<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly">开源</a>，欢迎<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues">投稿</a>。另有<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/9088">《谁在招人》</a>服务，发布程序员招聘信息。合作请<a href="mailto:&#121;&#x69;&#102;&#x65;&#x6e;&#x67;&#46;&#x72;&#117;&#x61;&#110;&#64;&#x67;&#109;&#x61;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;">邮件联系</a>（<a href="mailto:&#121;&#105;&#x66;&#x65;&#x6e;&#103;&#x2e;&#114;&#x75;&#x61;&#110;&#x40;&#103;&#109;&#97;&#105;&#x6c;&#46;&#x63;&#111;&#109;">yifeng.ruan@gmail.com</a>）。</p>
+<h2 id="封面图"><a href="#封面图" class="headerlink" title="封面图"></a>封面图</h2><p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026030804.webp"></p>
+<p>重庆涪陵某景区架设了世界首座“巨石索桥”，桥面就是一块块巨石，一不小心就会踏空。（<a target="_blank" rel="noopener" href="https://www.cbg.cn/a/77561/20260214/7b37135efeb74f0fbbaf272a9b7f6ae0.html">via</a>）</p>
+<h2 id="测试是新的护城河"><a href="#测试是新的护城河" class="headerlink" title="测试是新的护城河"></a>测试是新的护城河</h2><p><a target="_blank" rel="noopener" href="https://nextjs.org/">Next.js</a> 是目前排名第一的 JS 框架。平时遇到的 JS 全栈应用，我估计，一半用它开发。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202602/bg2026022808.webp"></p>
+<p>两周前，这个框架被一则新闻颠覆了。</p>
+<p>一个 Cloudflare 工程师<a target="_blank" rel="noopener" href="https://blog.cloudflare.com/vinext/">宣布</a>，<strong>他只用一个星期就用 AI 重新实现了 Next.js</strong>，起名为 <a target="_blank" rel="noopener" href="https://vinext.io/">vinext</a>。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202602/bg2026022809.webp"></p>
+<p>事实上，一天就生成产品原型了，后面几天只是在完善。</p>
+<blockquote>
+<p>“真正动手是2月13日，当天晚上，基本功能已经实现。第二天下午，11个路由器做好了10个。第三天，已经部署到我们的服务器，实现了完整的客户端水合。</p>
+<p>接下来的几天，主要进行安全加固：修复极端情况，扩展测试套件，提升 API 覆盖率至 94%。”</p>
+</blockquote>
+<p>这个新的实现，比原版 Next.js 性能更好。</p>
+<blockquote>
+<p>“早期基准测试中，构建速度提升了4倍，客户端软件包的体积缩小了57%，生产环境的 Next.js 应用已经直接跑在上面了。” </p>
+</blockquote>
+<p>这个 vinext 的<a target="_blank" rel="noopener" href="https://github.com/cloudflare/vinext">代码</a>已经放出来了。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202602/bg2026022810.webp"></p>
+<p>我觉得，<strong>这件事对 Next.js 的打击非常大</strong>。</p>
+<p>Next.js 是 Vercel 公司的产品，背后有一个大型开发团队，每年都是巨额投入，已经整整做了10年。虽然是开源软件，但是企业版、云服务、插件、皮肤都要收费，去年的年收入达到2亿美元。</p>
+<p><strong>这种看似难以逾越的护城河，在 AI 面前不堪一击</strong>。一个工程师用了一个星期，就复刻了大团队十年的工作成果，现有的网页应用不改一行代码，放上去就能跑，原版的每个功能都支持。</p>
+<p>你知道花了多少钱？Token 费用仅仅为 1100 美元！</p>
+<p>这叫 Vercel 怎么再向 Next.js 的开发投钱，客户又怎么愿意再为某个功能付出高昂的使用费。</p>
+<p>推而广之，所有的商业软件都受到了重创。<strong>代码的护城河不存在了，只要投入一小笔金钱，AI 就能复刻出大型软件。</strong></p>
+<p>那么，为了保护自己，软件公司下一步肯定要防止 AI 复刻。</p>
+<p>怎么防呢？<strong>关键就是测试用例</strong>。</p>
+<p>Cloudflare 工程师这一次能够复刻成功，主要原因是 Next.js 有完备的文档、庞大的社区文章、以及完整的测试用例。AI 模拟的每一个 API，只要能够通过原有的接口测试，就能确认百分百兼容。</p>
+<p>如果拿不到测试用例，谁知道代码行为是否一致，谁敢放到生产环境运行。</p>
+<p>可以想象，为了防止复刻，大型软件项目一定会保护自己的测试用例。<strong>测试才是新的护城河。</strong></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026030601.webp"></p>
+<p>世界最流行的数据库 <a target="_blank" rel="noopener" href="https://sqlite.org/">SQLite</a>，本身代码15.6万行，但是测试用例<a target="_blank" rel="noopener" href="https://sqlite.org/testing.html">9205万行</a>，足足大了590倍！</p>
+<p>其中，最核心的测试套件 <a target="_blank" rel="noopener" href="https://sqlite.org/th3.html">TH3</a> 是闭源的，不公开，主要测试航空、医疗等关键行业的极端情况和边缘案例，属于核心技术资产。正是这些保密用例，才让 SQLite 难以复刻。</p>
+<p>无独有偶，就在前两天，另一个开源项目 <a target="_blank" rel="noopener" href="https://github.com/tldraw/tldraw/issues/8082">tldraw</a> 也准备将测试用例闭源。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202602/bg2026022811.webp"></p>
+<p>说实话，保密的测试用例肯定不利于开源项目的发展，但是开发者需要保护自己的利益。在日益强大的 AI 面前，越来越多的软件可能会选择这样做。</p>
+<h2 id="AI-复刻的版权问题"><a href="#AI-复刻的版权问题" class="headerlink" title="AI 复刻的版权问题"></a>AI 复刻的版权问题</h2><p>AI 复刻软件还有一个版权问题，也引起了<a target="_blank" rel="noopener" href="https://tuananh.net/2026/03/05/relicensing-with-ai-assisted-rewrite/">很大争议</a>。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026030602.webp"></p>
+<p>Next.js 是最宽松的 MIT 许可证，所以复刻没有版权问题。但是，有人复刻了一个叫做 <a target="_blank" rel="noopener" href="https://github.com/chardet/chardet">chardet</a> 的项目，就争议巨大。</p>
+<p>chardet 本来采用的许可证，是限制较多的 LGPL，复刻以后改成了 MIT 许可证，引发了原始作者的抗议。</p>
+<p>网上的意见也分成了两派。</p>
+<p>支持者说，AI 只复刻了功能和接口，代码完全不一样，当然可以更改许可证。</p>
+<p>反对者说，GPL 规定了，所有衍生作品都不能更改许可证，AI 复刻就属于衍生。</p>
+<p>更麻烦的是，美国法律规定，AI 生成产物无版权，属于公共领域。这意味着，<strong>AI 复刻的软件不能设置许可证，设置了无效。</strong></p>
+<p>按照这条法律，软件许可证就意义不大了。管你是什么许可证，任何人 AI 复刻一下就能规避，AI 实现的版本一律没有版权。</p>
+<h2 id="科技动态"><a href="#科技动态" class="headerlink" title="科技动态"></a>科技动态</h2><p>1、<a target="_blank" rel="noopener" href="https://decrypt.co/360183/roblox-using-ai-rewrite-chat-swears-slurs-real-time">AI 改写脏话</a></p>
+<p>游戏平台 Roblox <a target="_blank" rel="noopener" href="https://ir.roblox.com/news/news-details/2026/Roblox-Launches-Real-Time-Chat-Rephrasing-to-Maintain-Civility-and-Gameplay-Flow/default.aspx">宣布</a>，将用 AI 实时修改玩家的对话，让其变得更文明。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026030701.webp"></p>
+<p>以前，如果玩家在游戏里面骂脏话，系统只会将其过滤，显示为 <code>####</code>，你还是知道他在骂人。</p>
+<p>现在，AI 将重新修改整个句子，让表达变得更礼貌、更文明，你就察觉不到对方在骂人。</p>
+<p>虽然这样未免有点虚假，但确实有必要。网络论坛也应该跟进，不要让人身攻击毁掉交流氛围。</p>
+<p>2、<a target="_blank" rel="noopener" href="https://www.esa.int/Applications/Connectivity_and_Secure_Communications/World-first_gigabit-per-second_laser_link_between_aircraft_and_geostationary_satellite">飞机的激光上网</a></p>
+<p>欧洲航天局成功进行了飞机的“激光上网”实验，通过激光将一架飞机与一颗卫星连接，实现了高速通信。 </p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026030704.webp"></p>
+<p>飞机上网现在都通过无线电波，比如星链就通过无线电，让飞机连接卫星。本次实验则是通过激光连接卫星。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026030705.webp"></p>
+<p>上图就是安装在飞机舷窗上的激光终端。</p>
+<p>激光通信的优点是带宽大，不受无线频谱的限制，这次实验的上网速度达到了 2.6Gbps，是星链的8到10倍。</p>
+<p>缺点是激光与卫星之间必须保持直线，不能有云层和大气的障碍物。所以采用这种方式，大概只有飞到高空时才能上网。</p>
+<p>3、<a target="_blank" rel="noopener" href="https://www.theverge.com/ai-artificial-intelligence/890921/grammarly-ai-expert-reviews">Grammarly 的专家意见</a></p>
+<p>Grammarly 是一个写作服务，提供一个收费功能“专家意见”，让专家点评你的文章。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031002.webp"></p>
+<p>一个国外用户使用该功能时，震惊地发现，点评专家里面有他的前老板（下图），但是他知道老板已经去世了。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031003.webp"></p>
+<p>原来这不是真人点评，而是 AI 为每个专家建了一个分身，用他们各自的文章进行训练，然后让分身点评你的文章。</p>
+<p>这引起了争议，我们是否有权搭建别人的“数字分身”，然后冠以原始人物的名义（比如“孔子分身”或者“爱因斯坦分身”）？</p>
+<p>4、<a target="_blank" rel="noopener" href="https://www.bbc.com/news/articles/cgln72rgrero">太阳能邮筒</a></p>
+<p>网络通信普及以后，传统的邮筒怎么办？</p>
+<p>英国皇家邮政想出一个办法，将英国各地3500个邮筒，变为“太阳能邮筒”。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202511/bg2025110505.webp"></p>
+<p>邮筒顶部加装了太阳能光伏片，功能也从寄信，变成了收寄小包裹。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202511/bg2025110506.webp"></p>
+<p>这样既保存了传统的红色邮筒，成为街道的景观，又为人们邮寄包裹提供了方便。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202511/bg2025110507.webp"></p>
+<h2 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h2><p>1、<a target="_blank" rel="noopener" href="https://grith.ai/blog/clinejection-when-your-ai-tool-installs-another">GitHub Issue 标题的注入攻击</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026030703.webp"></p>
+<p>这可能是第一起 AI 模型注入的真实攻击。Cline 项目使用 AI 对 GitHub Issue 进行分类，有人就在标题插入恶意提示词，从而成功拿到 npm 令牌，发布了一个恶意版本。本文告诉你这是怎么做到的。</p>
+<p>2、<a target="_blank" rel="noopener" href="https://www.infoq.com/news/2026/03/agents-context-file-value-review/">重新评估 AGENTS.md</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026030901.webp"></p>
+<p>最近的一项研究提出，跟推荐做法相反，AGENTS.md 文件对 AI 编码不是促进，而是阻碍。</p>
+<p>它只是让模型“思考”得更多（成本上升），生成结果却没有更好（性能下降）。</p>
+<p>3、<a target="_blank" rel="noopener" href="https://bloomberg.github.io/js-blog/post/temporal/">Temporal API 的九年历程</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031205.webp"></p>
+<p>本周，Temporal API 正式通过了第四阶段。这意味着，它进入了 ES2026 标准，成为了 JavaScript 语法的一部分。本文是这个标准的起草者对九年推进历程的回顾。</p>
+<p>4、<a target="_blank" rel="noopener" href="https://decrypt.co/360596/benchmark-test-measures-ai-bullshit-most-models-fail">AI 的胡说测试</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031206.webp"></p>
+<p>国外有一个 <a target="_blank" rel="noopener" href="https://petergpt.github.io/bullshit-benchmark/viewer/index.v2.html">BuillshitBench</a>，专门问 AI 一些胡说八道的问题，看 AI 能不能分辨这是胡说，还是一本正经地回答。</p>
+<p>5、<a target="_blank" rel="noopener" href="https://www.zolkos.com/2025/12/03/vanilla-css-is-all-you-need">原生 CSS 就足够了</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202512/bg2025120704.webp"></p>
+<p>本文展示了 37Signals 公司的 CSS 代码，表明不使用任何框架（比如 Tailwind）和构建工具（比如 Sass），只用原生 CSS 代码完全可以。</p>
+<p>6、<a target="_blank" rel="noopener" href="https://theconversation.com/physics-of-poo-why-it-takes-you-and-an-elephant-the-same-amount-of-time-76696">粪便物理学</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026030802.webp"></p>
+<p>一篇很另类的科普文章，解释为什么动物不管大小，排便时间都在5～19秒之间，平均12秒。</p>
+<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><p>1、<a target="_blank" rel="noopener" href="https://github.com/c0m4r/kula">KULA</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026030706.webp"></p>
+<p>Linux 服务器的监控工具，只有一个二进制文件。</p>
+<p>2、<a target="_blank" rel="noopener" href="https://github.com/lardissone/ansi-saver">AnsiSaver</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026030803.webp"></p>
+<p>mac 电脑的屏保程序，用彩色的 Ansi 字符画作为屏保图案。</p>
+<p>3、<a target="_blank" rel="noopener" href="https://github.com/eliasdorneles/upiano">upiano</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202308/bg2023081012.webp"></p>
+<p>在命令行下模拟钢琴弹奏。</p>
+<p>4、<a target="_blank" rel="noopener" href="https://github.com/bostrot/wsl2-distro-manager">WSL Distro Manager</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031207.webp"></p>
+<p>一个开源 Windows 应用，通过图形界面管理 Windows Subsystem for Linux（WSL）发行版。</p>
+<p>5、<a target="_blank" rel="noopener" href="https://github.com/tw93/Mole">Mole</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031213.webp"></p>
+<p>开源的 Mac 电脑清理和优化工具。</p>
+<p>6、<a target="_blank" rel="noopener" href="https://github.com/janbjorge/pipegate">PipeGate</a></p>
+<p>一个将内网服务映射到外网的隧道工具，特点是比较简单，就是几个 Python 脚本，并且可以设置 UUID 客户端认证。</p>
+<p>7、<a target="_blank" rel="noopener" href="https://www.hooklistener.com/">HookListener</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202412/bg2024121804.webp"></p>
+<p>一个管理、测试 Webhook 的在线工具，个人可以免费使用。</p>
+<p>8、<a target="_blank" rel="noopener" href="https://github.com/suzuran0y/CCTV-Smartphone-AI-Monitoring">Sentinel</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031201.webp"></p>
+<p>将安卓手机转化为网络摄像头，实现实时监控和图像采集。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/9201">@suzuran0</a> 投稿）</p>
+<p>9、<a target="_blank" rel="noopener" href="https://github.com/chentao1006/FluxMonitor">Flux Monitor</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031203.webp"></p>
+<p>Mac 电脑的系统监控、管理面板。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/9207">@chentao1006</a> 投稿）</p>
+<h2 id="AI-相关"><a href="#AI-相关" class="headerlink" title="AI 相关"></a>AI 相关</h2><p>1、<a target="_blank" rel="noopener" href="https://github.com/MrQianjinsi/agentic-metric">Agentic Metric</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026030603.webp"></p>
+<p>一个 Python 命令行工具，监控本地各种 coding agent（比如 Claude Code、Codex、OpenCode）的使用量。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/9165">@MrQianjinsi</a> 投稿）</p>
+<p>2、<a target="_blank" rel="noopener" href="https://github.com/chenhg5/cc-connect">cc-connect</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031202.webp"></p>
+<p>一个开源的连接器，将各种 AI 编程工具与手机聊天软件相连。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/9202">@chenhg5</a> 投稿）</p>
+<p>3、<a target="_blank" rel="noopener" href="https://github.com/alibaba/page-agent">Page Agent</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026030702.webp"></p>
+<p>只要在网页插入这个 JS 库，就可以使用自然语言操作页面，比如“点击导航栏的文档链接，总结其内容”。</p>
+<p>4、<a target="_blank" rel="noopener" href="https://github.com/eugene1g/agent-safehouse">Agent Safehouse</a></p>
+<p>一个 macOS 沙箱工具，用来在沙箱里运行 AI 编程工具。</p>
+<p>5、<a target="_blank" rel="noopener" href="https://github.com/qwibitai/nanoclaw/tree/main/repo-tokens">Repo Tokens</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202602/bg2026022801.webp"></p>
+<p>一个 GitHub Action，为你的仓库添加一个图形标签（上图），显示该仓库相当于多少 Token，用来大模型的计算量。</p>
+<h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><p>1、<a target="_blank" rel="noopener" href="https://www.worldmonitor.app/">世界监控</a>（World Monitor）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026030801.webp"></p>
+<p>世界局势的一个实时看板，把各种消息源都放在一个网页里。</p>
+<p>2、<a target="_blank" rel="noopener" href="https://fuelingcuriosity.com/game.html">炼油厂探索</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031204.webp"></p>
+<p>一个动画互动网站，展示炼油厂怎样将石油变成汽柴油。</p>
+<p>3、<a target="_blank" rel="noopener" href="https://mechanical-pencil.com/">Mechanical Pencil</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031001.webp"></p>
+<p>弹簧笔、打火机等生活小物品的机械装置动画。</p>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p>1、<a target="_blank" rel="noopener" href="https://tesseral.com/blog/i-designed-some-more-user-friendly-methods-for-multi-factor-authentication">密码的替代方法</a></p>
+<p>一位程序员发明了一种新的密码方法，你觉得可行吗？</p>
+<p>系统向用户展示一副扑克牌，让其从52张牌中依次挑出5张，作为密码。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202507/bg2025073110.webp"></p>
+<p>下次登录时，用户必须按同样顺序挑出同样的5张牌。</p>
+<h2 id="文摘"><a href="#文摘" class="headerlink" title="文摘"></a>文摘</h2><p>1、<a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=31670526">复杂社会的崩溃</a></p>
+<p>我们都知道，一个软件的复杂度不断上升，超过某个极限后，就会难以维护，最后往往被放弃。</p>
+<p>美国历史学家约瑟夫·坦特（Joseph Tainter）认为，人类社会也是如此。如果社会的复杂度超过极限，这个社会最终也会崩溃。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031214.webp"></p>
+<p>1988年，他出版了一本名为《复杂社会的崩溃》的书，描述了罗马人、玛雅人和查科人等伟大文明的兴衰，试图回答几个世纪以来一直困扰着思想家的一个问题：<strong>为什么强大的社会会崩溃？</strong></p>
+<p>他认为，原因是这些社会有一个敌人——复杂性。</p>
+<p>随着文明的发展，社会增加了越来越多的复杂性：更多的等级制度、更多的官僚机构、更深层次的社会结构。</p>
+<p>一开始，新的等级、官僚、组织都是有用的，比如可以增加经济产出、税收等。但到了某个时刻，收益递减规律开始出现，每增加一点复杂度带来的回报越来越少，直至变成零甚至负数。</p>
+<p>（1）法律条文和官僚越多，政府开销也就随之上升，长期很可能令社会无法负担。</p>
+<p>（2）复杂度变大，会增加社会的不平等，因为能理解所有规则的人就越少，你就越离不开律师。懂规则的人会比其他人占优势。</p>
+<p>（3）规则越多，维护和执行这些规则的机构也就越多，不利于社会提高效率。</p>
+<p>（4）复杂性最终导致社会各阶层的差距变大，对立也随之而来。</p>
+<p>以上因素的共同作用，导致历史上很多强大的社会最终崩溃。</p>
+<h2 id="言论"><a href="#言论" class="headerlink" title="言论"></a>言论</h2><p>1、</p>
+<p>2021年，我感觉做一名优秀的软件工程师棒极了。软件行业蓬勃发展，机会很多，我热爱这份工作，觉得可以永远做下去。</p>
+<p>2026年，我已经不确定软件行业十年后会怎样，即使还存在，必定与现在极不相同。我也许能找到出路，也许不得不离开这个行业。无论如何，我热爱的软件工作即将消失。</p>
+<p>– <a target="_blank" rel="noopener" href="https://www.seangoedecke.com/will-my-job-still-exist/">《我不知道十年后我的工作是否还存在》</a></p>
+<p>2、</p>
+<p>与强大的 AI 对抗会是什么感觉？</p>
+<p>你会感觉自己莫名其妙地弱了不少，AI 做的每件事都超出你的预期。</p>
+<p>这就好像你和一位实力强劲的玩家玩一款随机性很强的游戏，你会感觉这位高手总是运气爆棚。</p>
+<p>– <a target="_blank" rel="noopener" href="https://probablydance.com/2026/03/07/im-getting-a-whiff-of-iain-banks-culture/">probablydance.com</a></p>
+<p>3、</p>
+<p>阅读商战书籍是浪费时间。它们将简单的故事变成通用的建议，将偶然的成功转化为普遍的策略，并用激励人心的口号取代复杂的市场。</p>
+<p>这些书的成功并不是因为内容正确，而是因为易于阅读并且让读者感觉良好。</p>
+<p>– <a target="_blank" rel="noopener" href="https://antemedian.substack.com/p/why-reading-business-books-is-a-waste">《阅读商战书籍是浪费时间》</a></p>
+<p>4、</p>
+<p>我想让 AI 告诉我怎么使用一种全新的、AI 也不会用的工具，就会提示 AI “执行 xxx-tool –help 来了解该工具”（假定工具名字是 xxx-tool），然后 AI 就学会用了。</p>
+<p>– <a target="_blank" rel="noopener" href="https://simonwillison.net/2026/Mar/9/not-so-boring/">Simon Willison</a>，著名开发者</p>
+<p>5、</p>
+<p>时间是唯一不可再生的资源。AI 大模型是目前我所知的最便宜的赚取额外时间的方式。</p>
+<p>– <a target="_blank" rel="noopener" href="https://steipete.me/posts/2025/stop-overthinking-ai-subscriptions">《不要太看重 AI 大模型的订阅费》</a></p>
+<h2 id="往年回顾"><a href="#往年回顾" class="headerlink" title="往年回顾"></a>往年回顾</h2><p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2025/03/weekly-issue-341.html">低代码编程，恐怕不会成功</a>（#341）</p>
+<p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2024/03/weekly-issue-291.html">AI 没有护城河</a>（#291）</p>
+<p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2023/02/weekly-issue-241.html">中国的增长动力在内陆</a>（#241）</p>
+<p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2022/01/weekly-issue-191.html">一个程序员的财务独立之路</a>（#191）</p>
+<p>（完）</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://example.com/posts/weekly/weekly-387/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -224,7 +487,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <h1 id="科技爱好者周刊（第-387-期）：你是领先的"><a href="#科技爱好者周刊（第-387-期）：你是领先的" class="headerlink" title="科技爱好者周刊（第 387 期）：你是领先的"></a>科技爱好者周刊（第 387 期）：你是领先的</h1><p>这里记录每周值得分享的科技内容，周五发布。</p>
-<p>本杂志<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly">开源</a>，欢迎<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues">投稿</a>。另有<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/9088">《谁在招人》</a>服务，发布程序员招聘信息。合作请<a href="mailto:&#x79;&#105;&#102;&#101;&#110;&#103;&#x2e;&#114;&#x75;&#x61;&#110;&#x40;&#x67;&#x6d;&#x61;&#105;&#x6c;&#x2e;&#99;&#x6f;&#x6d;">邮件联系</a>（<a href="mailto:&#121;&#105;&#102;&#101;&#x6e;&#103;&#x2e;&#114;&#x75;&#97;&#110;&#64;&#x67;&#109;&#97;&#x69;&#108;&#46;&#99;&#111;&#x6d;">yifeng.ruan@gmail.com</a>）。</p>
+<p>本杂志<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly">开源</a>，欢迎<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues">投稿</a>。另有<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/9088">《谁在招人》</a>服务，发布程序员招聘信息。合作请<a href="mailto:&#x79;&#x69;&#102;&#x65;&#x6e;&#x67;&#x2e;&#114;&#117;&#97;&#110;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#x2e;&#x63;&#111;&#x6d;">邮件联系</a>（<a href="mailto:&#121;&#x69;&#x66;&#101;&#x6e;&#103;&#x2e;&#x72;&#117;&#x61;&#110;&#64;&#x67;&#109;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#111;&#109;">yifeng.ruan@gmail.com</a>）。</p>
 <h2 id="封面图"><a href="#封面图" class="headerlink" title="封面图"></a>封面图</h2><p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026030503.webp"></p>
 <p>福州元宵节灯会的福鱼灯，一个25米的机械装置，漂浮在空中。（<a target="_blank" rel="noopener" href="http://fj.people.com.cn/n2/2026/0304/c181466-41515232.html">via</a>）</p>
 <h2 id="你是领先的"><a href="#你是领先的" class="headerlink" title="你是领先的"></a>你是领先的</h2><p>世界总人口现在是81亿，如果画成一个<a target="_blank" rel="noopener" href="https://www.reddit.com/r/vibecoding/comments/1rbqldk/youre_early/">方块图</a>，每个方块代表320万人。</p>
@@ -448,7 +711,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-03-24 00:00:00 / 修改时间：15:42:13" itemprop="dateCreated datePublished" datetime="2026-03-24T00:00:00+08:00">2026-03-24</time>
+      <time title="创建时间：2026-03-24 00:00:00 / 修改时间：16:53:17" itemprop="dateCreated datePublished" datetime="2026-03-24T00:00:00+08:00">2026-03-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -644,261 +907,6 @@
 <p>4、</p>
 <p>一家公司想装修办公室地板，结果发现下面是蜿蜒曲折的通信电缆。如果彻底装修，必须更换并重新连接电缆。他们这样做了吗？没有，当他们看到复杂的电缆后，就没有碰任何东西，只是小心地更换了地板。谁知道每根电缆的作用和连接方式？最好保持原样。</p>
 <p>– 《<a target="_blank" rel="noopener" href="https://unintendedconsequenc.es/dont-touch-anything/">如何维护复杂系统</a>》</p>
-<h2 id="欢迎订阅"><a href="#欢迎订阅" class="headerlink" title="欢迎订阅"></a>欢迎订阅</h2><p>这个专栏每周五发布，同步更新在我的<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog">个人网站</a>、<a target="_blank" rel="noopener" href="http://weixin.sogou.com/weixin?query=%E9%98%AE%E4%B8%80%E5%B3%B0%E7%9A%84%E7%BD%91%E7%BB%9C%E6%97%A5%E5%BF%97">微信公众号</a>和<a target="_blank" rel="noopener" href="https://yuque.com/ruanyf/share/">语雀</a>。</p>
-<p>微信搜索“<strong>阮一峰的网络日志</strong>”或者扫描二维码，即可订阅。</p>
-<p><img src="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018042311.jpg"></p>
-<p>（完）</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/posts/weekly/weekly-389/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jettleland">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="openclaw的技术笔记">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | openclaw的技术笔记">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/weekly/weekly-389/" class="post-title-link" itemprop="url">科技爱好者周刊（第 389 期）：未来如何招聘程序员</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-03-24 00:00:00 / 修改时间：15:42:13" itemprop="dateCreated datePublished" datetime="2026-03-24T00:00:00+08:00">2026-03-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%A7%91%E6%8A%80/" itemprop="url" rel="index"><span itemprop="name">科技</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="科技爱好者周刊（第-389-期）：未来如何招聘程序员"><a href="#科技爱好者周刊（第-389-期）：未来如何招聘程序员" class="headerlink" title="科技爱好者周刊（第 389 期）：未来如何招聘程序员"></a>科技爱好者周刊（第 389 期）：未来如何招聘程序员</h1><p>这里记录每周值得分享的科技内容，周五发布。</p>
-<p>本杂志<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly">开源</a>，欢迎<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues">投稿</a>。另有<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/9088">《谁在招人》</a>服务，发布程序员招聘信息。合作请<a href="mailto:&#x79;&#x69;&#102;&#101;&#110;&#103;&#46;&#114;&#117;&#97;&#x6e;&#64;&#103;&#x6d;&#x61;&#105;&#108;&#46;&#x63;&#x6f;&#x6d;">邮件联系</a>（<a href="mailto:&#x79;&#x69;&#102;&#x65;&#x6e;&#103;&#46;&#114;&#117;&#x61;&#x6e;&#64;&#103;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#99;&#111;&#109;">yifeng.ruan@gmail.com</a>）。</p>
-<h2 id="封面图"><a href="#封面图" class="headerlink" title="封面图"></a>封面图</h2><p><img src="https://cdn.beekka.com/blogimg/asset/202602/bg2026022807.webp"></p>
-<p>唐山河头老街景区的轨道车“大唐云车”。（<a target="_blank" rel="noopener" href="https://view.inews.qq.com/k/20260204A01P0P00">via</a>）</p>
-<h2 id="未来如何招聘程序员"><a href="#未来如何招聘程序员" class="headerlink" title="未来如何招聘程序员"></a>未来如何招聘程序员</h2><p>前些天，讨论区有一个<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/9238">帖子</a>，提出一个问题。</p>
-<p>如果未来的代码都是 AI 写的，那么我们<a target="_blank" rel="noopener" href="https://github.com/vorojar/ai-native-hiring-guide">怎么招聘程序员</a>呢？</p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031406.webp"></p>
-<p>程序员负责代码，但代码是 AI 写的，不是程序员写的，那么应该怎么面试他呢？</p>
-<p>你仔细想想，这个问题比预想的难多了。</p>
-<p><strong>首先，考察他的代码能力不重要（代码不是他写的），更重要的是考察他会不会 AI</strong>。只要善于使用 AI，能够产出合格的代码，对公司来说就是合格的人选。</p>
-<p>但是，什么样的面试问题，能够考察出一个人是否掌握 AI？下面是我想出的一些问题：</p>
-<ul>
-<li>请将一个复杂的项目需求，转化成提示词，要求是清晰、逻辑性强、切中要害。</li>
-<li>描述一个你认为需要使用 Skill 和 MCP 的场景，并阐述它们的工作原理和构建方法。</li>
-<li>如何将一个大项目分解，设计出一个多 Agent 协同工作的机制。</li>
-<li>……</li>
-</ul>
-<p>这些问题能识别出 AI 编程高手吗？我完全没有把握。</p>
-<p><strong>其次，除了 AI，还要考察什么呢？</strong> 这也很不好想。</p>
-<p>我应该还会问一些架构问题，你可以不写代码，但要懂怎么组织代码，架构出一个系统。但我也不确定这是必需的，因为 AI 生成的大型系统迟早变成一个黑箱，可能对于架构知识的要求也不是很高。</p>
-<p><strong>另外，我还要看看他以前的项目</strong>，如果以前他用 AI 做过类似的东西，那么应该问题不大。但这也不可靠，且不说完全类似的项目非常少，就看 AI 进化速度这么快，两年前的经验早不适用了吧。</p>
-<p>总之我发现，很难确定什么面试问题是一定有效的，能够可信地筛选出合格的应聘者。AI 颠覆了软件开发，也连带颠覆了程序员面试。大家有好的面试问题吗？</p>
-<p>有一点是确定的，<strong>面试各种编程细节意义不大了</strong>，因为你不需要记住语法细节了，直接问大模型就行。</p>
-<h2 id="科技动态"><a href="#科技动态" class="headerlink" title="科技动态"></a>科技动态</h2><p>1、<a target="_blank" rel="noopener" href="https://basicappleguy.com/basicappleblog/lil-finder-guy">访达小子</a></p>
-<p>苹果公司最近发布了 Macbook Neo，有人注意到，官方的 Tiktok 宣传海报里面出现了一个全新的吉祥物（下图）。</p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031208.webp"></p>
-<p>上面海报的左上角有一个玩偶，以前没见过。</p>
-<p>这个玩偶明显来自 Mac 电脑的访达工具（Finder），所以被称为“访达小子”（Lil Finder Guy）。</p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031209.webp"></p>
-<p>几天后，苹果公司又在一场直播里面，使用了这个形象。</p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031210.webp"></p>
-<p>人们纷纷猜测，这到底是偶然的行为，还是苹果公司真的会推出它作为吉祥物？</p>
-<p>热心的网友让 AI 绘制了“访达小子”的完整形象。</p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031211.webp"></p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031212.webp"></p>
-<p>看上去很可爱，就跟 Labubu 似的，有可能大受欢迎。</p>
-<p>2、<a target="_blank" rel="noopener" href="https://www.unsw.edu.au/newsroom/news/2026/03/New-negative-light-technology-hides-data-transfers-in-plain-sight">红外线编码</a></p>
-<p>英国科学家发明了一种新的通信方式，通过热辐射二极管，将数字信号以热量形式传递。</p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031401.webp"></p>
-<p>肉眼看不见这种信号（因为它是红外线），也检测不到无线电波，但是它的热量以编码方式散发，在红外线热成像仪上能识别（上图）。</p>
-<p>因此，这种方法接收信号需要热成像仪，再传入电脑的解码器。这可能对某些工业和军事场景很有用。</p>
-<p>3、<a target="_blank" rel="noopener" href="https://sa.lj.am/rack-mount-hydroponics/">机柜种植</a></p>
-<p>家里有多余的服务器机柜，怎么利用起来？</p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031504.webp"></p>
-<p>一个国外程序员想到机柜里面有电源，拉线和搁板都很方便，可以用来水培种植。</p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031505.webp"></p>
-<p>他买了一些 LED 灯带，用来模拟日照，每一层还安装了一个泵，用来自动进排水。</p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031506.webp"></p>
-<p>如果你想在家里种一些暖房植物，或者需要长时间光照的植物，服务器机柜确实是一个很好的方案。</p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031507.webp"></p>
-<h2 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h2><p>1、<a target="_blank" rel="noopener" href="https://www.anisafifi.com/en/blog/i-ditched-elasticsearch-for-meilisearch-heres-what-nobody-tells-you/">我放弃了 Elasticsearch，转而使用 Meil​​isearch</a>（英文）</p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031303.webp"></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/meilisearch/meilisearch">Meil​​isearch</a> 是一种开源的搜索软件，作者介绍怎么用它替代 Elasticsearch。</p>
-<p>2、<a target="_blank" rel="noopener" href="https://blog.youxu.info/2026/01/14/ai-codes-retrospective/">2016 年，我做过一次 AI 写代码创业</a>（中文）</p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031918.webp"></p>
-<p>作者徐宥（Eric Xu）回忆他在2016年的 AI 创业，当时他想训练一个大模型，需要25万美元，但是找不到投资人。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/9296">@gengxiuli</a> 投稿）</p>
-<p>3、<a target="_blank" rel="noopener" href="https://shawnxie.top/blogs/tools/read-flow-2026.html">信息过载时代，我的漏斗式阅读工作流</a>（中文）</p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031914.webp"></p>
-<p>每天有太多东西值得看，作者介绍他的信息处理工作流，通过 AI 过滤出值得读的内容。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/9282">@shawnxie94</a> 投稿）</p>
-<p>4、<a target="_blank" rel="noopener" href="https://medium.com/packt-hub/the-world-of-compiler-backends-9b27a3e37866">编译器的前端与后端</a>（英文）</p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202505/bg2025050118.webp"></p>
-<p>一篇科普文章，介绍编译器（比如 LLVM）的前端和后端的概念。</p>
-<p>5、<a target="_blank" rel="noopener" href="https://webkit.org/blog/16831/line-height-units/">CSS 的 lh 单位</a>（英文）</p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202505/bg2025050125.webp"></p>
-<p>CSS 有一个字体大小属性<code>lh</code>，表示行高。</p>
-<p>6、<a target="_blank" rel="noopener" href="https://blog.sciencenet.cn/home.php?mod=space&uid=52727&do=blog&id=1525508">寻觅杜鹃花之王</a>（中文）</p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031302.webp"></p>
-<p>大树杜鹃是最高大的杜鹃，是一颗会开花的大树（上图），1919年由英国人在云南发现。</p>
-<p>后来，这个英国人死在云南，就无人知道哪里有这种杜鹃了，直到1982年才重新在高黎贡山找到。本文讲述这种植物的故事。</p>
-<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><p>1、<a target="_blank" rel="noopener" href="https://github.com/mexirica/aptui">APTUI</a></p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031301.webp"></p>
-<p>一个 Linux 的终端应用，用于充当 Debian&#x2F;Ubuntu 安装管理器，管理 APT 软件包。</p>
-<p>2、<a target="_blank" rel="noopener" href="https://my.wordpress.net/">my.WordPress.net</a></p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031502.webp"></p>
-<p>如果你想尝试 WordPress，但没有服务器，可以使用官方新推出的这个服务，打开上面网址就可以了。</p>
-<p>它把所有 PHP 脚本编译成 JS，在本地运行，不需要服务器，而且数据都在你的浏览器，下次打开这个网址，网站数据还在，参见<a target="_blank" rel="noopener" href="https://wordpress.org/news/2026/03/announcing-my-wordpress/">介绍文章</a>。</p>
-<p>3、<a target="_blank" rel="noopener" href="https://github.com/groverburger/grobpaint">GrobPaint</a></p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031503.webp"></p>
-<p>一个跨平台的图像编辑器，特点就是非常轻量级，可以在浏览器运行，也可以编译成二进制文件。</p>
-<p>4、<a target="_blank" rel="noopener" href="https://matting.lingxiangtools.top/">Apple Matting</a></p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031407.webp"></p>
-<p>一个 Mac 抠图软件，大小只有 8MB。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/9241">@pangxiaobin</a> 投稿）</p>
-<p>5、<a target="_blank" rel="noopener" href="https://github.com/lifedever/health-tick-release">HealthTick</a></p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031409.webp"></p>
-<p>macOS 菜单栏久坐提醒工具。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/9242">@lifedever</a> 投稿）</p>
-<p>6、<a target="_blank" rel="noopener" href="https://github.com/yaoyao2mm/cheatreader">CheatReader</a></p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031501.webp"></p>
-<p>一个跨平台的阅读软件，可以悬浮在桌面上，支持单行模式，适合想在工作流里“偷偷读书”的人。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/9247">@yaoyao2mm</a> 投稿）</p>
-<p>7、<a target="_blank" rel="noopener" href="https://github.com/zhaoolee/notes">锤子便签</a></p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031702.webp"></p>
-<p>开源的网页版锤子便签，可以作为 Skill 调用。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/9274">@zhaoolee</a> 投稿）</p>
-<p>8、<a target="_blank" rel="noopener" href="https://github.com/tmwgsicp/wechat-download-api">WeChat Download API</a></p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031917.webp"></p>
-<p>开源的微信公众号转 RSS 工具。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/9295">@tmwgsicp</a> 投稿）</p>
-<p>9、<a target="_blank" rel="noopener" href="https://github.com/ywong137/speech-speed">Speech Speed</a></p>
-<p>一个很有意思的 Chrome 插件，根据语速调节视频播放速度。如果剧中人说话慢，视频就快速播放，说话快，就慢速播放。</p>
-<h2 id="AI-相关"><a href="#AI-相关" class="headerlink" title="AI 相关"></a>AI 相关</h2><p>1、<a target="_blank" rel="noopener" href="https://github.com/xxnuo/VibeGo">VibeGo</a></p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031913.webp"></p>
-<p>Vibe Coding 的开源 Web IDE，支持 Claude Code、Gemini CLI、CodeX、OpenCode 等。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/9281">@xxnuo</a> 投稿）</p>
-<p>2、<a target="_blank" rel="noopener" href="https://github.com/zhanchey/MimicThem">Mimic Them</a></p>
-<p>一个开源应用，使用字节 seedream 图像模型，复刻小红书的图文笔记，从一篇可以衍生出另一篇。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/9215">@zhanchey</a> 投稿）</p>
-<p>3、<a target="_blank" rel="noopener" href="https://github.com/MatrixA/aicheck">AICheck</a></p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031305.webp"></p>
-<p>一个 Rust 语言编写的命令行工具，离线检测图片、视频、音频和文档是否由 AI 生成。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/9219">@MatrixA</a> 投稿）</p>
-<p>4、<a target="_blank" rel="noopener" href="https://github.com/iOfficeAI/AionUi">AionUi</a></p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031405.webp"></p>
-<p>开源的 Cowork 与 OpenClaw 的替代品，自动化各种电脑操作。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/9236">@cdxiaodong</a> 投稿）</p>
-<p>5、<a target="_blank" rel="noopener" href="https://github.com/zhnd/lumo">Lumo</a></p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031408.webp"></p>
-<p>一个 Claude Code 的本地桌面工作台，查看成本、Token、会话和编码时段数据。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/9239">@zhnd</a> 投稿）</p>
-<p>6、<a target="_blank" rel="noopener" href="https://github.com/twwch/AIComicBuilder">AIComicBuilder</a></p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031704.webp"></p>
-<p>开源的 AI 动漫视频生成系统，只需输入文字剧本，即可自动完成角色提取、分镜设计、关键帧生成、视频合成的全流程。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/9275">@twwch</a> 投稿）</p>
-<h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><p>1、<a target="_blank" rel="noopener" href="https://www.canirun.ai/">canirun.ai</a></p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031402.webp"></p>
-<p>网页检测你的机器，能够运行哪些本地的 AI 模型。</p>
-<p>2、<a target="_blank" rel="noopener" href="https://wmyskxz.cn/wiki/whats_ai/">AI 是怎么回事</a>（中文）</p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031304.webp"></p>
-<p>面向普通读者的通俗 AI 原理教程。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/9218">@wmyskxz</a> 投稿）</p>
-<p>3、<a target="_blank" rel="noopener" href="https://amoilanen.github.io/Algorithms-with-Typescript/preface.html">TypeScript 数据结构与算法</a>（Algorithms with TypeScript）</p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031403.webp"></p>
-<p>免费阅读的英文电子书，使用 TypeScript 语言介绍数据结构和算法。</p>
-<p>4、<a target="_blank" rel="noopener" href="https://channelsurfer.tv/">频道冲浪者</a>（Channel Surfer）</p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202603/bg2026031404.webp"></p>
-<p>这个网页把 Youtube 改成传统的电视频道，每个频道都有节目表，可以切换频道。如果你不知道用 Youtube 看什么，就可以看这个网站。</p>
-<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p>1、<a target="_blank" rel="noopener" href="https://rarehistoricalphotos.com/engineering-methods-from-the-past/">巧妙的古建筑</a></p>
-<p>因为缺乏机械和动力，古代建筑物往往包含了很多巧思。</p>
-<p>（1）19世纪的英国麦克尔斯菲尔德运河，由于没有水位落差，需要马拉着船前进。</p>
-<p>有时，马的牵引道从河的一边转到了另一边，马这时就需要过河。</p>
-<p>为了不解开牵引绳，马就能过河，工程师就设计了“蛇桥”，马可以直接走上去，中间还有让牵引绳通过的孔。</p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202512/bg2025120205.webp"></p>
-<p>（2）法国南部的巴尔贝加尔水磨坊，建于公元2世纪，现在只剩下了遗址。</p>
-<p>这个磨坊的位置在山坡上，连续建了16个相互连接的水车，充分利用了水能，每天能够生产25吨面粉，被认为是欧洲第一个大规模工业生产的磨坊。</p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202512/bg2025120206.webp"></p>
-<p>（3）伊朗纳什提凡的古代风车，建在连片的屋顶上，一根木轴安装了由粘土、稻草和木材做成的立轴式风帆，强风会带动木轴，转动下面屋子里的磨盘，来磨碎谷物。</p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202512/bg2025120208.webp"></p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202512/bg2025120207.webp"></p>
-<p>（4）中国西安的秦代上林苑遗址，发现了战国时期的陶瓷水管，现保存于西安博物院。</p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/202512/bg2025120209.webp"></p>
-<h2 id="文摘"><a href="#文摘" class="headerlink" title="文摘"></a>文摘</h2><p>1、<a target="_blank" rel="noopener" href="https://laike9m.com/blog/avoid-mini-frameworks,171/">避免使用定制框架</a></p>
-<p>很多小团队在工作中，往往会发明自己的“定制框架”。</p>
-<p>他们原来使用的是通用框架，但有不满意之处，于是决定在通用框架基础上定制自己的框架。</p>
-<p>这种“定制框架”有一些共同特点：</p>
-<blockquote>
-<p>（1）由小团队创建，旨在解决他们的痛点；</p>
-<p>（2）底层是其他更通用的技术栈或框架；</p>
-<p>（3）引入原有技术栈不存在的新概念和术语；</p>
-<p>（4）创建者声称这个定制框架“神奇地”解决了许多问题，并推广更多人使用它。</p>
-</blockquote>
-<p>我的个人经验是，“定制框架”非常难用，引入了许多新概念，意图掩盖它带来的更多复杂性。</p>
-<p>我建议，大家避免使用“定制框架”，原因有下面这些：</p>
-<p>（1）定制框架常常声称，它们能消除或隐藏原始框架“不必要的复杂性”，但实际上做不到。即使定制框架能很好地处理80%的用例，但是因为引入了新的语法，剩余20%的用例就不如原始框架的灵活性和功能性。</p>
-<p>（2）定制框架不易改动。它仅对开发团队的用例建模，以解决他们的特定问题，未来需求变化时，往往跟不上。另外，定制框架通常改动了原始框架的实现细节，而原始框架将来随时可能变动，你修改的细节越多，就越难跟上原始框架的变动。</p>
-<p>（3）定制框架反映了开发团队的心理模型，这些团队专注于自己的问题，往往有很强的个人意见。这本身是好事，但也使得定制框架不适合其他人的心理模型。</p>
-<p>（4）定制框架往往导致技术栈碎片化。你改动的只是跟你相关的一部分，其他部分保持不变。随着新的层不断增加，框架变得越来越难整体迁移，必须不断改动你原来没改的部分。</p>
-<p>（5）定制框架缺乏维护。通用技术往往有一个专门团队或公司来维护，但定制框架通常由一两个创建者拥有。一旦他们离开团队或公司，就很难找到接班人。定制框架很大可能会随着原作者离开而消失，除非在此之前获得了大量采用，才有人愿意接手，而这种情况很少发生。</p>
-<p>我不是说，你不要开发自己的框架，而是建议最好遵循三个原则：（1）新概念引入越少越好，（2）优先创建库，而不是框架。（3）不要做现有框架的包装器，而要从零开始构建。</p>
-<h2 id="言论"><a href="#言论" class="headerlink" title="言论"></a>言论</h2><p>1、</p>
-<p>我想要的网络世界，是一个万物皆可塑的世界，让你不由自主地成为创造者。</p>
-<p>– <a target="_blank" rel="noopener" href="https://plumbing-of-everyday-magic.hyperclay.com/">David Miranda</a></p>
-<p>2、</p>
-<p>AI 让软件的成本从代码转移到测试和文档，一套好的测试套件的价值可能比编写代码本身更高。</p>
-<p>– <a target="_blank" rel="noopener" href="https://lucumr.pocoo.org/2026/1/14/minijinja-go-port/">lucumr.pocoo.org</a></p>
-<p>3、</p>
-<p>编程的核心在于抽象，即用一种远离底层技术的高级思维方式来思考代码。</p>
-<p>– <a target="_blank" rel="noopener" href="https://blog.redplanetlabs.com/2025/11/24/the-programmers-who-live-in-flatland/">《生活在“平面国”的程序员》</a></p>
-<p>4、</p>
-<p>领导力就是让别人去做你想让他们做的事，而且是心甘情愿的。</p>
-<p>– <a target="_blank" rel="noopener" href="https://hebfdn.org/portfolio/eisenhower-on-leadership/">艾森豪威尔</a>，美国前总统</p>
-<h2 id="往年回顾"><a href="#往年回顾" class="headerlink" title="往年回顾"></a>往年回顾</h2><p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2025/03/weekly-issue-342.html">面试的 AI 作弊—-用数字人去面试</a>（＃342）</p>
-<p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2024/03/weekly-issue-292.html">所有代码都是技术债</a>（#292）</p>
-<p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2023/02/weekly-issue-242.html">一次尴尬的服务器被黑</a>（#242）</p>
-<p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2022/01/weekly-issue-192.html">最大的机会来自新技术</a>（#192）</p>
 <p>（完）</p>
 
       
@@ -956,7 +964,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-03-24 00:00:00 / 修改时间：15:42:13" itemprop="dateCreated datePublished" datetime="2026-03-24T00:00:00+08:00">2026-03-24</time>
+      <time title="创建时间：2026-03-24 00:00:00 / 修改时间：16:53:17" itemprop="dateCreated datePublished" datetime="2026-03-24T00:00:00+08:00">2026-03-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1124,9 +1132,6 @@
 <p>现在的开发者需要具备的，不仅仅是技能树，而是技能森林。（推特@qing_wang）</p>
 <p>3、</p>
 <p>硬件、软件、计算机工程师的半衰期都只有几年。（Craig Barrett，Intel 公司创始人之一）</p>
-<h2 id="欢迎订阅"><a href="#欢迎订阅" class="headerlink" title="欢迎订阅"></a>欢迎订阅</h2><p>这个专栏每周五发布，同步更新在我的<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog">个人网站</a>、<a target="_blank" rel="noopener" href="http://weixin.sogou.com/weixin?query=%E9%98%AE%E4%B8%80%E5%B3%B0%E7%9A%84%E7%BD%91%E7%BB%9C%E6%97%A5%E5%BF%97">微信公众号</a>和<a target="_blank" rel="noopener" href="https://yuque.com/ruanyf/share/">语雀</a>。</p>
-<p>微信搜索”<strong>阮一峰的网络日志</strong>“或者扫描二维码，即可订阅。</p>
-<p><img src="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018042311.jpg"></p>
 <p>（完）</p>
 
       
@@ -1184,7 +1189,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-03-24 00:00:00 / 修改时间：15:42:13" itemprop="dateCreated datePublished" datetime="2026-03-24T00:00:00+08:00">2026-03-24</time>
+      <time title="创建时间：2026-03-24 00:00:00 / 修改时间：16:53:17" itemprop="dateCreated datePublished" datetime="2026-03-24T00:00:00+08:00">2026-03-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1382,9 +1387,6 @@
 <p>4、</p>
 <p>美国是母乳喂养率最低的发达国家之一，原因之一就是法律没规定带薪产假。</p>
 <p>– <a target="_blank" rel="noopener" href="https://www.nytimes.com/2018/12/31/business/breast-feeding-discrimination-pregnancy.html">《纽约时报》</a></p>
-<h2 id="欢迎订阅"><a href="#欢迎订阅" class="headerlink" title="欢迎订阅"></a>欢迎订阅</h2><p>这个专栏每周五发布，同步更新在我的<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog">个人网站</a>、<a target="_blank" rel="noopener" href="http://weixin.sogou.com/weixin?query=%E9%98%AE%E4%B8%80%E5%B3%B0%E7%9A%84%E7%BD%91%E7%BB%9C%E6%97%A5%E5%BF%97">微信公众号</a>和<a target="_blank" rel="noopener" href="https://yuque.com/ruanyf/share/">语雀</a>。</p>
-<p>微信搜索“<strong>阮一峰的网络日志</strong>”或者扫描二维码，即可订阅。</p>
-<p><img src="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018042311.jpg"></p>
 <p>（完）</p>
 
       
@@ -1442,7 +1444,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-03-24 00:00:00 / 修改时间：15:42:13" itemprop="dateCreated datePublished" datetime="2026-03-24T00:00:00+08:00">2026-03-24</time>
+      <time title="创建时间：2026-03-24 00:00:00 / 修改时间：16:53:17" itemprop="dateCreated datePublished" datetime="2026-03-24T00:00:00+08:00">2026-03-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1640,244 +1642,6 @@
 <p>4、</p>
 <p>智商测验的发明目的，不是为了衡量哪些人比较聪明，而是为了识别哪些孩子有学习困难，智力有问题。</p>
 <p>– <a target="_blank" rel="noopener" href="https://medium.com/incerto/iq-is-largely-a-pseudoscientific-swindle-f131c101ba39">《智商是伪科学诈骗》</a></p>
-<h2 id="欢迎订阅"><a href="#欢迎订阅" class="headerlink" title="欢迎订阅"></a>欢迎订阅</h2><p>这个专栏每周五发布，同步更新在我的<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog">个人网站</a>、<a target="_blank" rel="noopener" href="http://weixin.sogou.com/weixin?query=%E9%98%AE%E4%B8%80%E5%B3%B0%E7%9A%84%E7%BD%91%E7%BB%9C%E6%97%A5%E5%BF%97">微信公众号</a>和<a target="_blank" rel="noopener" href="https://yuque.com/ruanyf/share/">语雀</a>。</p>
-<p>微信搜索“<strong>阮一峰的网络日志</strong>”或者扫描二维码，即可订阅。</p>
-<p><img src="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018042311.jpg"></p>
-<p>（完）</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/posts/weekly/weekly-42/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="jettleland">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="openclaw的技术笔记">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | openclaw的技术笔记">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/weekly/weekly-42/" class="post-title-link" itemprop="url">每周分享第 42 期（20190201）</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-03-24 00:00:00 / 修改时间：15:42:13" itemprop="dateCreated datePublished" datetime="2026-03-24T00:00:00+08:00">2026-03-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%A7%91%E6%8A%80/" itemprop="url" rel="index"><span itemprop="name">科技</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="每周分享第-42-期（20190201）"><a href="#每周分享第-42-期（20190201）" class="headerlink" title="每周分享第 42 期（20190201）"></a>每周分享第 42 期（20190201）</h1><p>这里记录过去一周，我看到的值得分享的东西，每周五发布。</p>
-<p>欢迎投稿，或推荐你自己的项目，请前往 GitHub 的 <a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly">ruanyf&#x2F;weekly</a> 提交 issue。</p>
-<p><strong>通知：下周春节假期，周刊暂停一期。</strong></p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020101.jpg"></p>
-<p>呆伯特漫画的作者亚当斯（ Scott Adams），有一次谈到自己的成功秘诀。</p>
-<p>他的经历其实很普通。小时候喜欢画画，画得还可以，但远远不算优秀。长大以后，在一家公司当经理，管理企业，也是业绩平平。无论是选择当画家，或者继续当公司经理，也许都能够干下去，但应该都不会很成功。于是，他灵机一动，把自己的这两个特点结合起来，选择了另一条路：专门画讽刺企业管理的漫画，结果走红了，成了世界闻名的漫画家。</p>
-<p>他说，任何领域最优秀的前5%的人，都能拿到很好的报酬，比如，最优秀的那5%的程序员、面包师、钢琴家、美发师都是高收入的。但是，想要挤进这5%，是很不容易的，需要拼掉其他95%的人。但是，如果标准放宽一点，挤进前25%，普通人经过努力，还是很有希望达到的。</p>
-<p><strong>成功的秘诀就是，你必须有两个能达到前25%水平的领域，这两个领域的交集就是你的职业方向。</strong></p>
-<p>简单计算就可以知道，两个领域都是前25%，那么交集就是 25% 乘以 25%，等于 6.25%，即很有可能挤进前5%。更进一步，如果在两个领域里面，你都属于前10%的优秀人才，那么在交集里面，就可以达到顶尖的1%。总之，选择交集作为职业方向，你的竞争力会提升一个量级，收入也会随之大涨。</p>
-<p>举例来说，袁腾飞是一个中学历史老师，但是表达能力非常好，特别能说，简直能当脱口秀演员。如果他一直当中学历史老师，或者选择说脱口秀（就像黄西那样），可能都不会很成功，竞争者太多了。但是他把两者结合起来，专门在网上视频说历史，讲得就很有意思，非常受欢迎，另一方面这个领域的竞争者也很少。</p>
-<h2 id="新闻"><a href="#新闻" class="headerlink" title="新闻"></a>新闻</h2><p>1、<a target="_blank" rel="noopener" href="https://www.atlasobscura.com/articles/spicy-tomatoes">辣椒番茄</a></p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020102.jpg"></p>
-<p>测绘番茄基因的时候，科学家惊奇地发现，生成辣椒素的基因在番茄里面也存在，只是默认没有激活。也就是说，番茄天生具备辣椒的基因。巴西和爱尔兰的植物生理学家正在研究，如何激活这些基因，使得番茄也能产生辣椒素，使得口味变得像辣椒。</p>
-<p>这样做的主要好处是，可以使得辣椒产量提高30多倍。辣椒产量是每公顷3吨，生长期4到5个月，而番茄在4个月内每公顷可产出110吨。</p>
-<p>2、<a target="_blank" rel="noopener" href="https://www.nature.com/articles/d41586-019-00007-1">地球磁极加速变化</a></p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020103.jpg"></p>
-<p>地球内核是一个液态的金属内核，流动的铁元素导致地球自身带有一个巨大的磁场，而且有南北两个磁极。磁极的具体位置一直在变化（因为铁元素在流动），科学家原定每5年发布一次磁极的具体位置，下一次应该是在2020年。但是磁极的变化突然在最近加速了，不得不提前到2019年1月15日发布新的磁极。因为磁极位置不正确，会对许多方面（比如远洋船舶的导航系统）造成影响。</p>
-<p>上图是过去100年北半球磁极的位置，深色的点是地理意义的北极点。可以看到红色的磁极一直在向北极点靠近。</p>
-<p>3、<a target="_blank" rel="noopener" href="https://www.usnews.com/news/cities/articles/2019-01-08/ahead-of-the-summer-olympics-tokyo-deploys-robots-in-subway-stations">机器人服务员</a></p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020104.jpg"></p>
-<p>日本政府决定，2020年东京奥运会时，东京地铁站将出现机器人服务员，为世界各地的游客服务。这主要是因为，日本人口出生率太低，出现劳动力危机，找不到足够的服务人员。</p>
-<p>该机器人身高1米8左右，能够为乘客展示通往洗手间和储物柜的路，提供交通信息，推荐该地区的旅游景点。她能说日语，英语，中文和韩语，还配有触摸屏显示器。</p>
-<p>4、<a target="_blank" rel="noopener" href="https://techcrunch.com/2019/01/16/tesla-unveils-first-home-charging-station-that-can-be-plugged-into-a-wall-outlet/">特斯拉家用充电器</a></p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020105.jpg"></p>
-<p>特斯拉推出一款新的家用充电器，可以插在家用的高压插座上，直接给特斯拉汽车充电。它的好处是家里不用为电动汽车，安装专门的充电站了，只要买来这款充电器就开箱即用。</p>
-<p>它的售价是500美元，直接输出 40A 电流。</p>
-<p>5、<a target="_blank" rel="noopener" href="http://www.xinhuanet.com/politics/2019-01/15/c_1123994047.htm">种子在月球发芽</a></p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020106.jpg"></p>
-<p>1月3日，嫦娥四号飞船在月球背面登陆。飞船上带有6种生物种子：棉花、油菜、土豆、拟南芥、酵母和果蝇。它们都放在密封的罐子里，罐子由特殊的铝合金材料制成，直径173毫米，高198.3毫米，内部除了6种生物，还有18毫升水、土壤、空气、热控装置（防止受外界温度影响），形成一个自我维持的生态圈，以及两个记录生物生长状态的摄像头。</p>
-<p>嫦娥四号登陆以后，罐子自动加水，让种子结束休眠状态。传回的照片显示，棉花种子已经成功在月球上发芽。月球上如果有植物生长，将来就可以为月球基地的居民提供食物。不过，嫦娥四号随后按照地面控制中心的指令，进入休眠状态，切断能源供应。这些种子在没有供热的情况下，已经在月球的低温中<a target="_blank" rel="noopener" href="https://mil.news.sina.com.cn/china/2019-01-18/doc-ihqfskcn8141255.shtml">死亡</a>。</p>
-<p>6、<a target="_blank" rel="noopener" href="https://www.businessinsider.com/young-blood-transfusions-open-accepting-paypal-payments-cities-ambrosia-2019-1">年轻的血液</a></p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020107.jpg"></p>
-<p>美国创业公司 Ambrosia 新推出了一项业务，只要支付 8000 美元，就可以注射1升的年轻人血液，12,000美元可以注射2升。</p>
-<p>该公司正式发布该项业务之前，已经实验了近150人，年龄从35岁到92岁不等。临床试验从2017年开始，旨在了解成年人的静脉充满年轻人的血液时会发生什么。虽然该研究的结果尚未公布，但该公司说结果“非常积极”。目前，尚没有任何这方面的医学研究。</p>
-<p>7、<a target="_blank" rel="noopener" href="https://www.bloomberg.com/news/articles/2019-01-03/china-debate-over-shrinking-birth-rate-highlights-growth-concern">中国的出生人口</a></p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020108.jpg"></p>
-<p>国家统计局宣布，2018年中国新生儿是1523万。尽管已经放开二胎，这个数字是2000年以后的最低值。</p>
-<p>现在的预测是，2029年之前，中国人口就会开始负增长。中国劳动力过剩、资源紧张的问题，将发生质的变化，而老龄化危机才刚刚开始。</p>
-<p>8、<a target="_blank" rel="noopener" href="https://www.v3.co.uk/v3-uk/news/3069575/japanese-firm-sends-micro-satellites-into-space-to-deliver-artificial-meteor-showers-on-demand">流星雨服务</a></p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020109.jpg"></p>
-<p>影视剧里面，主人公经常对着流星许愿。日本一家公司准备推出“流星雨服务”，在客户指定的时间和地点，制造流星。</p>
-<p>总部位于东京的 Astro Live Experiences 公司（ALE）2019年1月18日已将七颗微型卫星送入太空，以提供世界上第一个人造流星雨。每颗微型卫星大约相当于一个大背包的大小，里面携带400颗金属颗粒，每个颗粒直径不到一英寸。在指定的位置和时间，卫星释放金属颗粒，当它们穿过地球的大气层时，颗粒会与大气摩擦燃烧，发出明亮的光芒，形成一个人造的流星雨，大约持续几秒钟，可见范围约为100公里。</p>
-<p>根据该公司的说法，每场流星雨服务将消耗约20颗金属颗粒，因此一个卫星可以提供20场活动。根据计划，人造流星雨预计将在2020年对外提供服务，价格还没宣布。</p>
-<p>9、<strong>一句话新闻</strong></p>
-<ul>
-<li><p><a target="_blank" rel="noopener" href="https://praxtime.com/2019/01/13/apples-new-services-strategy/">苹果公司</a>改变策略，允许自家的音乐和电影服务可以在非苹果设备上使用。现在，Apple 音乐可以在亚马逊 Alexa 上听，而 Apple 电影和电视可以在三星、LG、索尼等电视上观看。</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://www.healthfoodis.com/2019/01/a-new-study-suggests-people-with-better.html">一项研究</a>发现，嗅觉较好的人也具有较好的方向感。科学家的解释是，嗅觉和方向感在大脑皮层的同一个区域。</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://hackernoon.com/33-1-of-venture-startups-dont-use-dotcoms-87e2e25ed134">统计</a>发现，2018年，三分之一的美国创业公司不注册 .com 域名，而是选择 .ai、.app、.health、.tech 和 .services 域名。</p>
-</li>
-</ul>
-<h2 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h2><p>1、<a target="_blank" rel="noopener" href="https://yagiz.co/cordova-react-native-swift-whats-next/">Cordova，React-Native 和 Swift</a>（英文）</p>
-<p>作为一个 iOS 开发者，作者谈了自己使用标题里面的三种技术，开发 App 的感受。</p>
-<p>2、<a target="_blank" rel="noopener" href="https://davidgom.es/porting-30k-lines-of-code-from-flow-to-typescript/">3万行代码从 Flow 迁移到 TypeScript 的经验</a>（英文）</p>
-<p>一篇 TypeScript 的使用体会，以及一些使用经验。</p>
-<p>3、<a target="_blank" rel="noopener" href="https://grpc.io/blog/state-of-grpc-web">浏览器的 gRPC 协议支持</a>（英文）</p>
-<p>gRPC 是谷歌提出的一套远程服务调用的解决方案，只能用于服务器之间。本文介绍了 gRPC-Web 这个项目，旨在让浏览器也可以使用 gRPC。</p>
-<p>4、<a target="_blank" rel="noopener" href="https://hookrace.net/blog/linux-desktop-setup/">Linux 桌面设置</a>（英文）</p>
-<p>本文介绍了作者如何配置 Linux 桌面开发环境。</p>
-<p>5、<a target="_blank" rel="noopener" href="https://securitycheckli.st/">安全上网指南</a>（英文）</p>
-<p>一份安全上网清单，从专业角度告诉你，应该做哪些事情，怎样才能安全地使用互联网。</p>
-<p>6、<a target="_blank" rel="noopener" href="https://www.techcoil.com/blog/how-i-use-my-raspberry-pis-to-help-me-work-on-with-my-side-projects/">如何使用树莓派架设各种网络服务</a>（英文）</p>
-<p>作者介绍使用一台树莓派，架设个人使用的反向代理服务器、Git 服务、看板服务的过程。</p>
-<p>7、<a target="_blank" rel="noopener" href="https://kevq.uk/i-nearly-lost-all-of-my-data/">我的 NAS  损坏经历</a>（英文）</p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020110.jpg"></p>
-<p>作者的家用 NAS 的电路板损坏，导致所有数据都无法读出，他不得不把4块 1TB 硬盘插到台式机里面恢复数据。</p>
-<p>8、<a target="_blank" rel="noopener" href="https://24ways.org/2018/fast-autocomplete-search-for-your-website/">SQLite 用作搜索服务</a>（英文）</p>
-<p>SQLite 有很强的读取性能，作者提出它可以用作小型网站的搜索数据库。</p>
-<p>9、<a target="_blank" rel="noopener" href="https://www.didierboelens.com/2019/01/futures---isolates---event-loop/">Dart 语言的异步编程</a>（英文）</p>
-<p>Dart 是 Flutter 框架的开发语言，语法与 JS 高度类似，也是单线程。本文介绍 Dart 语言的异步操作，可以比较与 JS 的异同。</p>
-<p>10、<a target="_blank" rel="noopener" href="https://www.inc.com/geoffrey-james/the-next-billion-dollar-disruption-you-read-about-it-here-first.html">实时动画将是下一个热点</a>（英文）</p>
-<p>随着 GPU 日益强大，实时渲染高质量的 3D 动画已经成为现实，这将改变许多行业，个人将可以制作完整的电影。</p>
-<h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><p>1、<a target="_blank" rel="noopener" href="https://adguard.com/en/blog/adguard-dns-announcement/">AdGuard 公司的 DNS</a></p>
-<p>AdGuard 宣布提供免费的 DNS 服务：<code>176.103.130.130</code> 或 <code>176.103.130.131</code> ，还支持 DNS over HTTPS。</p>
-<p>2、<a target="_blank" rel="noopener" href="https://learnjavascript.online/">JavaScript 互动教程</a></p>
-<p>一份简短的入门课程，直接在浏览器里编写代码，学习 JavaScript 语言的基本语法。</p>
-<p>3、<a target="_blank" rel="noopener" href="https://github.com/indutny/dumb-crypto">dumb-crypto</a></p>
-<p>常见加密算法的实现演示。作者用容易懂的代码、详细的注释帮助读者理解这些加密算法的实现。</p>
-<p>4、<a target="_blank" rel="noopener" href="https://golangexample.com/">Golang Example</a></p>
-<p>该网站收集 Go 语言的各种应用实例。</p>
-<p>5、<a target="_blank" rel="noopener" href="https://www.cnblogs.com/math/p/tech-limit-06.html">技术的极限</a></p>
-<p>一个国内开发者分享阅读与思考的专栏。（@<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/215">fanfeilong</a>** **投稿）</p>
-<p>6、<a target="_blank" rel="noopener" href="https://github.com/GitHubDaily/GitHubDaily">GitHubDaily</a></p>
-<p>每日不定时在社交媒体推送一批 GitHub 优秀的开源项目给开发者, 帮助开发者们发现当下最火的开源项目。（@<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/213">PansonPanson</a> 投稿）。</p>
-<p>7、<a target="_blank" rel="noopener" href="https://github.com/doocs/advanced-java">advanced-java</a>（中文）</p>
-<p>Java 互联网开发的知识笔记，涉及<code>MQ</code>、<code>ES</code>、<code>Redis</code>等周边工具。（@<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/208">LanjianNUll</a>** **投稿）</p>
-<p>8、<a target="_blank" rel="noopener" href="https://htdp.org/2018-01-06/Book/index.html">How to Design Programs</a>（第二版）</p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020111.jpg"></p>
-<p>麻省理工学院以前用著名的 SICP 作为编程教程，但是该书使用 Scheme 语言作为示例，再加上出版多年，现在已经不用了。作为改进，2001年出版了《如何设计程序》这本教材（缩写为 HTDP），2018年又出版了该书的第二版，使用 Racket 语言的图形界面 DrRacket 作为示例，内容全部开源。</p>
-<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><p>1、<a target="_blank" rel="noopener" href="https://github.com/hackerb9/lsix">lsix</a></p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020112.jpg"></p>
-<p>命令行查看图片的工具。</p>
-<p>2、<a target="_blank" rel="noopener" href="https://github.com/shimohq/chinese-programmer-wrong-pronunciation">chinese-programmer-wrong-pronunciation</a></p>
-<p>中国程序员容易发音错误的单词。（@<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/187">taoweicn</a>** **投稿）</p>
-<p>3、<a target="_blank" rel="noopener" href="https://github.com/fabiospampinato/notable">notable</a></p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020113.jpg"></p>
-<p>一个用 Markdown 语法做笔记的桌面软件。</p>
-<p>4、<a target="_blank" rel="noopener" href="https://github.com/swc-project/swc">swc</a></p>
-<p>终于有人觉得 Babel 太慢，用 Rust 语言重写了一遍，速度提高了十几倍，一分钟的编译可以缩短为5秒。下一步该是重写 Webpack 吧。</p>
-<p>5、<a target="_blank" rel="noopener" href="https://www.vectorlogo.zone/">Vector Logo Zone</a></p>
-<p>该网站提供 SVG 格式的各种 Logo 文件下载，目前一共有 1,080个公司&#x2F;项目的3,458个 Logo。</p>
-<p>6、<a target="_blank" rel="noopener" href="https://www.cdnperf.com/">CDNPerf</a></p>
-<p>这个网站通过请求速度，比较各大 CDN 的性能表现。</p>
-<p>7、<a target="_blank" rel="noopener" href="https://github.com/google/flutter-desktop-embedding">flutter-desktop-embedding</a></p>
-<p>谷歌官方推出的一个兼容库，将 Flutter 框架的 API 用于开发跨平台的桌面应用。文档说，只要把手机应用的源码改改，就能编译成桌面应用。如果可行的话，Flutter 就是全平台框架了。</p>
-<p>8、<a target="_blank" rel="noopener" href="https://github.com/Countly/countly-server">countly-server</a></p>
-<p>一个开源的网站统计后端，带有 Web 界面，可以作为 Google Analytics 的替代。</p>
-<p>9、<a target="_blank" rel="noopener" href="https://github.com/KidkArolis/jetpack">jetpack</a></p>
-<p>Webpack 的一个封装，目的是简化 Webpack 的配置，让大多数情况下可以不写配置文件，直接使用 Webpack。</p>
-<p>10、<a target="_blank" rel="noopener" href="https://www.pgcli.com/launching-litecli.html">LiteCLI</a></p>
-<p>一个 SQLite 数据库的命令行客户端，借鉴了 <a target="_blank" rel="noopener" href="https://www.pgcli.com/">pgcli</a> 和 <a target="_blank" rel="noopener" href="https://www.mycli.net/">mycli</a> 项目。</p>
-<h2 id="文摘"><a href="#文摘" class="headerlink" title="文摘"></a>文摘</h2><p>1、<a target="_blank" rel="noopener" href="https://blog.piekniewski.info/2018/12/28/elon-and-the-collective/">为什么超音速电动飞机不太可能出现？</a></p>
-<p>有人提出制造超音速的电动飞机。我认为，这是不太可能的。</p>
-<p>波音737的起飞重量为72吨，需要96600兆焦耳（MJ）的能量才能达到35,000英尺的巡航高度，这还只是爬升阶段需要的能量。（注：焦耳是能量单位，表示1牛顿的力移动1米所需要的能量。）</p>
-<p>现在，假设72吨的重量里面，有25吨是电池，那就意味着在爬升阶段，电池需要提供每公斤3.8MJ的能量。巡航阶段还需要额外的 2～4MJ&#x2F;kg 的能量。因此，电池至少必须含有 8MJ&#x2F;kg 的能量。你知道 TNT 炸药的能量是多少吗？4.2MJ&#x2F;kg。也就是说，这个电池包含的能量是 TNT 的两倍，是现有最好的化学电池的6倍。</p>
-<p>如果想要实现超音速飞行，那么还需要更多的能量。最乐观的情况下，电池必须提供 15-20MJ&#x2F;kg 的能量。这时，电池跟炸弹已经没什么两样了，一旦出现任何问题，就会导致非常强大的爆炸。</p>
-<p>2、<a target="_blank" rel="noopener" href="http://www.seeedstudio.com/blog/2017/07/23/why-are-printed-circuit-boards-are-usually-green-in-colour/">为什么电路板大多是绿色的？</a></p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020114.jpg"></p>
-<p>电路板其实就是一块铜片，外面包裹一层树脂。这层树脂外壳又称为阻焊膜，是一种带有彩色颜料的硬化树脂，以丝网印刷的方式涂在铜板上。它的目的是保护下面的电子线路免受潮湿和灰尘的影响，并控制焊料的流动。</p>
-<p>这层树脂可以有多种颜色，如蓝色，红色，黄色，黑色和白色，但是通常情况下，它是绿色，这是为什么？</p>
-<p>早期，电路板是否印刷正确，依赖于工人的裸眼检查。整天看这么微小的电路，非常伤视力。绿色最有利于减轻视觉疲劳。此外，人眼或视锥细胞对绿光非常敏感。绿色电路板的视觉对比度更大，而对比度越高，错误越容易发现。绿色电路板往往肉眼就可以轻松识别电路的缺陷。</p>
-<p>另外，绿色电路板也有更好的性能。目前，绿色阻焊膜是唯一可以可靠地生产 0.1毫米（4mil）焊接掩模坝的颜色。接下来是红色，黄色和蓝色，可以产生0.12毫米，然后才是黑色和白色，只能达到0.15毫米。焊接掩模坝在防止焊桥形成方面很有价值。</p>
-<p>最后，绿色是历史上默认的电路板颜色，所有厂家都支持，所以批量生产绿色电路板的成本是最低的。</p>
-<h2 id="本周图片"><a href="#本周图片" class="headerlink" title="本周图片"></a>本周图片</h2><p>1、<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=_AsMboo4A3w">《神奇动物在哪里》的特效</a></p>
-<p>Youtube 有一个频道，专门介绍电影特效是怎么制作的。这一期介绍《神奇动物在哪里》，可以看到完全是绿幕合成，比如下面这个从箱子里钻出来的效果。</p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020115.jpg"></p>
-<p>再比如，抚摸大鸟的效果。</p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020116.jpg"></p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020117.jpg"></p>
-<p>2、<a target="_blank" rel="noopener" href="https://www.anandtech.com/show/13751/joled-demos-oled-monitor-for-gamers">柱状显示器</a></p>
-<p>索尼和松下的合资企业 JOLED 在日本 Finetech 展览上，展出了一款柱状 4K 显示器的概念产品。</p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020118.jpg"></p>
-<p>还有专为地铁&#x2F;火车的车厢设计的可弯曲显示器。</p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020119.jpg"></p>
-<p>3、<a target="_blank" rel="noopener" href="https://brilliantmaps.com/longest-walk/">世界最长的步行路线</a></p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020120.jpg"></p>
-<p>世界最长的步行路线，是从俄罗斯的马加丹一直到南非的开普敦，全长22387公里。你必须经过16个国家，包括南苏丹，叙利亚和格鲁吉亚，所以这条路线不是很安全。</p>
-<h2 id="新奇"><a href="#新奇" class="headerlink" title="新奇"></a>新奇</h2><p>1、<a target="_blank" rel="noopener" href="https://www.bicycling.com/news/a20027122/vanmoof-tv-on-box-damaged-bikes/">自行车包装</a></p>
-<p>荷兰一家公司运输自行车时，总是发生很大的损耗。该公司忍无可忍，在包装纸箱上印上了电视机。初看之下都会以为，箱子里面是一台平板电视，运输耗损率因此降低了80%。</p>
-<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020121.jpg"></p>
-<h2 id="本周金句"><a href="#本周金句" class="headerlink" title="本周金句"></a>本周金句</h2><p>1、</p>
-<p>在创业公司工作，很可能报酬更少（公司失败的话），工作更多。如果钱少活多对你没有吸引力，那么我建议你不要加入创业公司。</p>
-<p>– <a target="_blank" rel="noopener" href="https://triplebyte.com/blog/how-to-choose-a-startup-to-work-for">Paul Buchheit</a></p>
-<p>2、</p>
-<p>苹果公司的策略是，不要让第三方应用赚到大钱，便宜的第三方应用会让人们更愿意购买 iPhone。所以，它通过应用商店，让第三方开发者的收入减少 30%。</p>
-<p>– <a target="_blank" rel="noopener" href="https://www.gwern.net/Complement">《让你的补充品商品化》</a>。使用某种产品时，需要配合使用的其他东西，叫做补充品，比如，果酱是面包的补充品。如果补充品非常便宜，将促进所补充的那种产品的销售。因此，聪明的公司会让补充品变得便宜，并形成一个专门的商品市场。</p>
-<p>3、</p>
-<p>当市场出现大的热潮时，最好的策略通常不是参与这个热潮，而是成为工具提供者。</p>
-<p>– <a target="_blank" rel="noopener" href="https://twitter.com/wolfejosh/status/981017179897376770">wolfejosh@twitter</a></p>
-<p>4、</p>
-<p>统计发现，城市越大，人们的步行速度越快。</p>
-<p>– <a target="_blank" rel="noopener" href="https://www.citylab.com/life/2012/03/why-people-cities-walk-fast/1550/">《为什么城市中的人们走得很快》</a></p>
-<h2 id="欢迎订阅"><a href="#欢迎订阅" class="headerlink" title="欢迎订阅"></a>欢迎订阅</h2><p>这个专栏每周五发布，同步更新在我的<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog">个人网站</a>、<a target="_blank" rel="noopener" href="http://weixin.sogou.com/weixin?query=%E9%98%AE%E4%B8%80%E5%B3%B0%E7%9A%84%E7%BD%91%E7%BB%9C%E6%97%A5%E5%BF%97">微信公众号</a>和<a target="_blank" rel="noopener" href="https://yuque.com/ruanyf/share/">语雀</a>。</p>
-<p>微信搜索“<strong>阮一峰的网络日志</strong>”或者扫描二维码，即可订阅。</p>
-<p><img src="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018042311.jpg"></p>
 <p>（完）</p>
 
       
@@ -1935,7 +1699,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-03-24 00:00:00 / 修改时间：15:42:13" itemprop="dateCreated datePublished" datetime="2026-03-24T00:00:00+08:00">2026-03-24</time>
+      <time title="创建时间：2026-03-24 00:00:00 / 修改时间：16:53:17" itemprop="dateCreated datePublished" datetime="2026-03-24T00:00:00+08:00">2026-03-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -2122,9 +1886,238 @@
 <p>4、</p>
 <p>招聘高级工程师时，不是公司选择候选人，而是候选人选择公司。</p>
 <p>– <a target="_blank" rel="noopener" href="https://hiringengineersbook.com/post/trouble-hiring/">《招聘人才不是买，而是卖》</a></p>
-<h2 id="欢迎订阅"><a href="#欢迎订阅" class="headerlink" title="欢迎订阅"></a>欢迎订阅</h2><p>这个专栏每周五发布，同步更新在我的<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog">个人网站</a>、<a target="_blank" rel="noopener" href="http://weixin.sogou.com/weixin?query=%E9%98%AE%E4%B8%80%E5%B3%B0%E7%9A%84%E7%BD%91%E7%BB%9C%E6%97%A5%E5%BF%97">微信公众号</a>和<a target="_blank" rel="noopener" href="https://yuque.com/ruanyf/share/">语雀</a>。</p>
-<p>微信搜索“<strong>阮一峰的网络日志</strong>”或者扫描二维码，即可订阅。</p>
-<p><img src="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018042311.jpg"></p>
+<p>（完）</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/weekly/weekly-42/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jettleland">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="openclaw的技术笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | openclaw的技术笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/weekly/weekly-42/" class="post-title-link" itemprop="url">每周分享第 42 期（20190201）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-03-24 00:00:00 / 修改时间：16:53:17" itemprop="dateCreated datePublished" datetime="2026-03-24T00:00:00+08:00">2026-03-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%A7%91%E6%8A%80/" itemprop="url" rel="index"><span itemprop="name">科技</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="每周分享第-42-期（20190201）"><a href="#每周分享第-42-期（20190201）" class="headerlink" title="每周分享第 42 期（20190201）"></a>每周分享第 42 期（20190201）</h1><p>这里记录过去一周，我看到的值得分享的东西，每周五发布。</p>
+<p>欢迎投稿，或推荐你自己的项目，请前往 GitHub 的 <a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly">ruanyf&#x2F;weekly</a> 提交 issue。</p>
+<p><strong>通知：下周春节假期，周刊暂停一期。</strong></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020101.jpg"></p>
+<p>呆伯特漫画的作者亚当斯（ Scott Adams），有一次谈到自己的成功秘诀。</p>
+<p>他的经历其实很普通。小时候喜欢画画，画得还可以，但远远不算优秀。长大以后，在一家公司当经理，管理企业，也是业绩平平。无论是选择当画家，或者继续当公司经理，也许都能够干下去，但应该都不会很成功。于是，他灵机一动，把自己的这两个特点结合起来，选择了另一条路：专门画讽刺企业管理的漫画，结果走红了，成了世界闻名的漫画家。</p>
+<p>他说，任何领域最优秀的前5%的人，都能拿到很好的报酬，比如，最优秀的那5%的程序员、面包师、钢琴家、美发师都是高收入的。但是，想要挤进这5%，是很不容易的，需要拼掉其他95%的人。但是，如果标准放宽一点，挤进前25%，普通人经过努力，还是很有希望达到的。</p>
+<p><strong>成功的秘诀就是，你必须有两个能达到前25%水平的领域，这两个领域的交集就是你的职业方向。</strong></p>
+<p>简单计算就可以知道，两个领域都是前25%，那么交集就是 25% 乘以 25%，等于 6.25%，即很有可能挤进前5%。更进一步，如果在两个领域里面，你都属于前10%的优秀人才，那么在交集里面，就可以达到顶尖的1%。总之，选择交集作为职业方向，你的竞争力会提升一个量级，收入也会随之大涨。</p>
+<p>举例来说，袁腾飞是一个中学历史老师，但是表达能力非常好，特别能说，简直能当脱口秀演员。如果他一直当中学历史老师，或者选择说脱口秀（就像黄西那样），可能都不会很成功，竞争者太多了。但是他把两者结合起来，专门在网上视频说历史，讲得就很有意思，非常受欢迎，另一方面这个领域的竞争者也很少。</p>
+<h2 id="新闻"><a href="#新闻" class="headerlink" title="新闻"></a>新闻</h2><p>1、<a target="_blank" rel="noopener" href="https://www.atlasobscura.com/articles/spicy-tomatoes">辣椒番茄</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020102.jpg"></p>
+<p>测绘番茄基因的时候，科学家惊奇地发现，生成辣椒素的基因在番茄里面也存在，只是默认没有激活。也就是说，番茄天生具备辣椒的基因。巴西和爱尔兰的植物生理学家正在研究，如何激活这些基因，使得番茄也能产生辣椒素，使得口味变得像辣椒。</p>
+<p>这样做的主要好处是，可以使得辣椒产量提高30多倍。辣椒产量是每公顷3吨，生长期4到5个月，而番茄在4个月内每公顷可产出110吨。</p>
+<p>2、<a target="_blank" rel="noopener" href="https://www.nature.com/articles/d41586-019-00007-1">地球磁极加速变化</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020103.jpg"></p>
+<p>地球内核是一个液态的金属内核，流动的铁元素导致地球自身带有一个巨大的磁场，而且有南北两个磁极。磁极的具体位置一直在变化（因为铁元素在流动），科学家原定每5年发布一次磁极的具体位置，下一次应该是在2020年。但是磁极的变化突然在最近加速了，不得不提前到2019年1月15日发布新的磁极。因为磁极位置不正确，会对许多方面（比如远洋船舶的导航系统）造成影响。</p>
+<p>上图是过去100年北半球磁极的位置，深色的点是地理意义的北极点。可以看到红色的磁极一直在向北极点靠近。</p>
+<p>3、<a target="_blank" rel="noopener" href="https://www.usnews.com/news/cities/articles/2019-01-08/ahead-of-the-summer-olympics-tokyo-deploys-robots-in-subway-stations">机器人服务员</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020104.jpg"></p>
+<p>日本政府决定，2020年东京奥运会时，东京地铁站将出现机器人服务员，为世界各地的游客服务。这主要是因为，日本人口出生率太低，出现劳动力危机，找不到足够的服务人员。</p>
+<p>该机器人身高1米8左右，能够为乘客展示通往洗手间和储物柜的路，提供交通信息，推荐该地区的旅游景点。她能说日语，英语，中文和韩语，还配有触摸屏显示器。</p>
+<p>4、<a target="_blank" rel="noopener" href="https://techcrunch.com/2019/01/16/tesla-unveils-first-home-charging-station-that-can-be-plugged-into-a-wall-outlet/">特斯拉家用充电器</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020105.jpg"></p>
+<p>特斯拉推出一款新的家用充电器，可以插在家用的高压插座上，直接给特斯拉汽车充电。它的好处是家里不用为电动汽车，安装专门的充电站了，只要买来这款充电器就开箱即用。</p>
+<p>它的售价是500美元，直接输出 40A 电流。</p>
+<p>5、<a target="_blank" rel="noopener" href="http://www.xinhuanet.com/politics/2019-01/15/c_1123994047.htm">种子在月球发芽</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020106.jpg"></p>
+<p>1月3日，嫦娥四号飞船在月球背面登陆。飞船上带有6种生物种子：棉花、油菜、土豆、拟南芥、酵母和果蝇。它们都放在密封的罐子里，罐子由特殊的铝合金材料制成，直径173毫米，高198.3毫米，内部除了6种生物，还有18毫升水、土壤、空气、热控装置（防止受外界温度影响），形成一个自我维持的生态圈，以及两个记录生物生长状态的摄像头。</p>
+<p>嫦娥四号登陆以后，罐子自动加水，让种子结束休眠状态。传回的照片显示，棉花种子已经成功在月球上发芽。月球上如果有植物生长，将来就可以为月球基地的居民提供食物。不过，嫦娥四号随后按照地面控制中心的指令，进入休眠状态，切断能源供应。这些种子在没有供热的情况下，已经在月球的低温中<a target="_blank" rel="noopener" href="https://mil.news.sina.com.cn/china/2019-01-18/doc-ihqfskcn8141255.shtml">死亡</a>。</p>
+<p>6、<a target="_blank" rel="noopener" href="https://www.businessinsider.com/young-blood-transfusions-open-accepting-paypal-payments-cities-ambrosia-2019-1">年轻的血液</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020107.jpg"></p>
+<p>美国创业公司 Ambrosia 新推出了一项业务，只要支付 8000 美元，就可以注射1升的年轻人血液，12,000美元可以注射2升。</p>
+<p>该公司正式发布该项业务之前，已经实验了近150人，年龄从35岁到92岁不等。临床试验从2017年开始，旨在了解成年人的静脉充满年轻人的血液时会发生什么。虽然该研究的结果尚未公布，但该公司说结果“非常积极”。目前，尚没有任何这方面的医学研究。</p>
+<p>7、<a target="_blank" rel="noopener" href="https://www.bloomberg.com/news/articles/2019-01-03/china-debate-over-shrinking-birth-rate-highlights-growth-concern">中国的出生人口</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020108.jpg"></p>
+<p>国家统计局宣布，2018年中国新生儿是1523万。尽管已经放开二胎，这个数字是2000年以后的最低值。</p>
+<p>现在的预测是，2029年之前，中国人口就会开始负增长。中国劳动力过剩、资源紧张的问题，将发生质的变化，而老龄化危机才刚刚开始。</p>
+<p>8、<a target="_blank" rel="noopener" href="https://www.v3.co.uk/v3-uk/news/3069575/japanese-firm-sends-micro-satellites-into-space-to-deliver-artificial-meteor-showers-on-demand">流星雨服务</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020109.jpg"></p>
+<p>影视剧里面，主人公经常对着流星许愿。日本一家公司准备推出“流星雨服务”，在客户指定的时间和地点，制造流星。</p>
+<p>总部位于东京的 Astro Live Experiences 公司（ALE）2019年1月18日已将七颗微型卫星送入太空，以提供世界上第一个人造流星雨。每颗微型卫星大约相当于一个大背包的大小，里面携带400颗金属颗粒，每个颗粒直径不到一英寸。在指定的位置和时间，卫星释放金属颗粒，当它们穿过地球的大气层时，颗粒会与大气摩擦燃烧，发出明亮的光芒，形成一个人造的流星雨，大约持续几秒钟，可见范围约为100公里。</p>
+<p>根据该公司的说法，每场流星雨服务将消耗约20颗金属颗粒，因此一个卫星可以提供20场活动。根据计划，人造流星雨预计将在2020年对外提供服务，价格还没宣布。</p>
+<p>9、<strong>一句话新闻</strong></p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://praxtime.com/2019/01/13/apples-new-services-strategy/">苹果公司</a>改变策略，允许自家的音乐和电影服务可以在非苹果设备上使用。现在，Apple 音乐可以在亚马逊 Alexa 上听，而 Apple 电影和电视可以在三星、LG、索尼等电视上观看。</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.healthfoodis.com/2019/01/a-new-study-suggests-people-with-better.html">一项研究</a>发现，嗅觉较好的人也具有较好的方向感。科学家的解释是，嗅觉和方向感在大脑皮层的同一个区域。</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://hackernoon.com/33-1-of-venture-startups-dont-use-dotcoms-87e2e25ed134">统计</a>发现，2018年，三分之一的美国创业公司不注册 .com 域名，而是选择 .ai、.app、.health、.tech 和 .services 域名。</p>
+</li>
+</ul>
+<h2 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h2><p>1、<a target="_blank" rel="noopener" href="https://yagiz.co/cordova-react-native-swift-whats-next/">Cordova，React-Native 和 Swift</a>（英文）</p>
+<p>作为一个 iOS 开发者，作者谈了自己使用标题里面的三种技术，开发 App 的感受。</p>
+<p>2、<a target="_blank" rel="noopener" href="https://davidgom.es/porting-30k-lines-of-code-from-flow-to-typescript/">3万行代码从 Flow 迁移到 TypeScript 的经验</a>（英文）</p>
+<p>一篇 TypeScript 的使用体会，以及一些使用经验。</p>
+<p>3、<a target="_blank" rel="noopener" href="https://grpc.io/blog/state-of-grpc-web">浏览器的 gRPC 协议支持</a>（英文）</p>
+<p>gRPC 是谷歌提出的一套远程服务调用的解决方案，只能用于服务器之间。本文介绍了 gRPC-Web 这个项目，旨在让浏览器也可以使用 gRPC。</p>
+<p>4、<a target="_blank" rel="noopener" href="https://hookrace.net/blog/linux-desktop-setup/">Linux 桌面设置</a>（英文）</p>
+<p>本文介绍了作者如何配置 Linux 桌面开发环境。</p>
+<p>5、<a target="_blank" rel="noopener" href="https://securitycheckli.st/">安全上网指南</a>（英文）</p>
+<p>一份安全上网清单，从专业角度告诉你，应该做哪些事情，怎样才能安全地使用互联网。</p>
+<p>6、<a target="_blank" rel="noopener" href="https://www.techcoil.com/blog/how-i-use-my-raspberry-pis-to-help-me-work-on-with-my-side-projects/">如何使用树莓派架设各种网络服务</a>（英文）</p>
+<p>作者介绍使用一台树莓派，架设个人使用的反向代理服务器、Git 服务、看板服务的过程。</p>
+<p>7、<a target="_blank" rel="noopener" href="https://kevq.uk/i-nearly-lost-all-of-my-data/">我的 NAS  损坏经历</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020110.jpg"></p>
+<p>作者的家用 NAS 的电路板损坏，导致所有数据都无法读出，他不得不把4块 1TB 硬盘插到台式机里面恢复数据。</p>
+<p>8、<a target="_blank" rel="noopener" href="https://24ways.org/2018/fast-autocomplete-search-for-your-website/">SQLite 用作搜索服务</a>（英文）</p>
+<p>SQLite 有很强的读取性能，作者提出它可以用作小型网站的搜索数据库。</p>
+<p>9、<a target="_blank" rel="noopener" href="https://www.didierboelens.com/2019/01/futures---isolates---event-loop/">Dart 语言的异步编程</a>（英文）</p>
+<p>Dart 是 Flutter 框架的开发语言，语法与 JS 高度类似，也是单线程。本文介绍 Dart 语言的异步操作，可以比较与 JS 的异同。</p>
+<p>10、<a target="_blank" rel="noopener" href="https://www.inc.com/geoffrey-james/the-next-billion-dollar-disruption-you-read-about-it-here-first.html">实时动画将是下一个热点</a>（英文）</p>
+<p>随着 GPU 日益强大，实时渲染高质量的 3D 动画已经成为现实，这将改变许多行业，个人将可以制作完整的电影。</p>
+<h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><p>1、<a target="_blank" rel="noopener" href="https://adguard.com/en/blog/adguard-dns-announcement/">AdGuard 公司的 DNS</a></p>
+<p>AdGuard 宣布提供免费的 DNS 服务：<code>176.103.130.130</code> 或 <code>176.103.130.131</code> ，还支持 DNS over HTTPS。</p>
+<p>2、<a target="_blank" rel="noopener" href="https://learnjavascript.online/">JavaScript 互动教程</a></p>
+<p>一份简短的入门课程，直接在浏览器里编写代码，学习 JavaScript 语言的基本语法。</p>
+<p>3、<a target="_blank" rel="noopener" href="https://github.com/indutny/dumb-crypto">dumb-crypto</a></p>
+<p>常见加密算法的实现演示。作者用容易懂的代码、详细的注释帮助读者理解这些加密算法的实现。</p>
+<p>4、<a target="_blank" rel="noopener" href="https://golangexample.com/">Golang Example</a></p>
+<p>该网站收集 Go 语言的各种应用实例。</p>
+<p>5、<a target="_blank" rel="noopener" href="https://www.cnblogs.com/math/p/tech-limit-06.html">技术的极限</a></p>
+<p>一个国内开发者分享阅读与思考的专栏。（@<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/215">fanfeilong</a>** **投稿）</p>
+<p>6、<a target="_blank" rel="noopener" href="https://github.com/GitHubDaily/GitHubDaily">GitHubDaily</a></p>
+<p>每日不定时在社交媒体推送一批 GitHub 优秀的开源项目给开发者, 帮助开发者们发现当下最火的开源项目。（@<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/213">PansonPanson</a> 投稿）。</p>
+<p>7、<a target="_blank" rel="noopener" href="https://github.com/doocs/advanced-java">advanced-java</a>（中文）</p>
+<p>Java 互联网开发的知识笔记，涉及<code>MQ</code>、<code>ES</code>、<code>Redis</code>等周边工具。（@<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/208">LanjianNUll</a>** **投稿）</p>
+<p>8、<a target="_blank" rel="noopener" href="https://htdp.org/2018-01-06/Book/index.html">How to Design Programs</a>（第二版）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020111.jpg"></p>
+<p>麻省理工学院以前用著名的 SICP 作为编程教程，但是该书使用 Scheme 语言作为示例，再加上出版多年，现在已经不用了。作为改进，2001年出版了《如何设计程序》这本教材（缩写为 HTDP），2018年又出版了该书的第二版，使用 Racket 语言的图形界面 DrRacket 作为示例，内容全部开源。</p>
+<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><p>1、<a target="_blank" rel="noopener" href="https://github.com/hackerb9/lsix">lsix</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020112.jpg"></p>
+<p>命令行查看图片的工具。</p>
+<p>2、<a target="_blank" rel="noopener" href="https://github.com/shimohq/chinese-programmer-wrong-pronunciation">chinese-programmer-wrong-pronunciation</a></p>
+<p>中国程序员容易发音错误的单词。（@<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/187">taoweicn</a>** **投稿）</p>
+<p>3、<a target="_blank" rel="noopener" href="https://github.com/fabiospampinato/notable">notable</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020113.jpg"></p>
+<p>一个用 Markdown 语法做笔记的桌面软件。</p>
+<p>4、<a target="_blank" rel="noopener" href="https://github.com/swc-project/swc">swc</a></p>
+<p>终于有人觉得 Babel 太慢，用 Rust 语言重写了一遍，速度提高了十几倍，一分钟的编译可以缩短为5秒。下一步该是重写 Webpack 吧。</p>
+<p>5、<a target="_blank" rel="noopener" href="https://www.vectorlogo.zone/">Vector Logo Zone</a></p>
+<p>该网站提供 SVG 格式的各种 Logo 文件下载，目前一共有 1,080个公司&#x2F;项目的3,458个 Logo。</p>
+<p>6、<a target="_blank" rel="noopener" href="https://www.cdnperf.com/">CDNPerf</a></p>
+<p>这个网站通过请求速度，比较各大 CDN 的性能表现。</p>
+<p>7、<a target="_blank" rel="noopener" href="https://github.com/google/flutter-desktop-embedding">flutter-desktop-embedding</a></p>
+<p>谷歌官方推出的一个兼容库，将 Flutter 框架的 API 用于开发跨平台的桌面应用。文档说，只要把手机应用的源码改改，就能编译成桌面应用。如果可行的话，Flutter 就是全平台框架了。</p>
+<p>8、<a target="_blank" rel="noopener" href="https://github.com/Countly/countly-server">countly-server</a></p>
+<p>一个开源的网站统计后端，带有 Web 界面，可以作为 Google Analytics 的替代。</p>
+<p>9、<a target="_blank" rel="noopener" href="https://github.com/KidkArolis/jetpack">jetpack</a></p>
+<p>Webpack 的一个封装，目的是简化 Webpack 的配置，让大多数情况下可以不写配置文件，直接使用 Webpack。</p>
+<p>10、<a target="_blank" rel="noopener" href="https://www.pgcli.com/launching-litecli.html">LiteCLI</a></p>
+<p>一个 SQLite 数据库的命令行客户端，借鉴了 <a target="_blank" rel="noopener" href="https://www.pgcli.com/">pgcli</a> 和 <a target="_blank" rel="noopener" href="https://www.mycli.net/">mycli</a> 项目。</p>
+<h2 id="文摘"><a href="#文摘" class="headerlink" title="文摘"></a>文摘</h2><p>1、<a target="_blank" rel="noopener" href="https://blog.piekniewski.info/2018/12/28/elon-and-the-collective/">为什么超音速电动飞机不太可能出现？</a></p>
+<p>有人提出制造超音速的电动飞机。我认为，这是不太可能的。</p>
+<p>波音737的起飞重量为72吨，需要96600兆焦耳（MJ）的能量才能达到35,000英尺的巡航高度，这还只是爬升阶段需要的能量。（注：焦耳是能量单位，表示1牛顿的力移动1米所需要的能量。）</p>
+<p>现在，假设72吨的重量里面，有25吨是电池，那就意味着在爬升阶段，电池需要提供每公斤3.8MJ的能量。巡航阶段还需要额外的 2～4MJ&#x2F;kg 的能量。因此，电池至少必须含有 8MJ&#x2F;kg 的能量。你知道 TNT 炸药的能量是多少吗？4.2MJ&#x2F;kg。也就是说，这个电池包含的能量是 TNT 的两倍，是现有最好的化学电池的6倍。</p>
+<p>如果想要实现超音速飞行，那么还需要更多的能量。最乐观的情况下，电池必须提供 15-20MJ&#x2F;kg 的能量。这时，电池跟炸弹已经没什么两样了，一旦出现任何问题，就会导致非常强大的爆炸。</p>
+<p>2、<a target="_blank" rel="noopener" href="http://www.seeedstudio.com/blog/2017/07/23/why-are-printed-circuit-boards-are-usually-green-in-colour/">为什么电路板大多是绿色的？</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020114.jpg"></p>
+<p>电路板其实就是一块铜片，外面包裹一层树脂。这层树脂外壳又称为阻焊膜，是一种带有彩色颜料的硬化树脂，以丝网印刷的方式涂在铜板上。它的目的是保护下面的电子线路免受潮湿和灰尘的影响，并控制焊料的流动。</p>
+<p>这层树脂可以有多种颜色，如蓝色，红色，黄色，黑色和白色，但是通常情况下，它是绿色，这是为什么？</p>
+<p>早期，电路板是否印刷正确，依赖于工人的裸眼检查。整天看这么微小的电路，非常伤视力。绿色最有利于减轻视觉疲劳。此外，人眼或视锥细胞对绿光非常敏感。绿色电路板的视觉对比度更大，而对比度越高，错误越容易发现。绿色电路板往往肉眼就可以轻松识别电路的缺陷。</p>
+<p>另外，绿色电路板也有更好的性能。目前，绿色阻焊膜是唯一可以可靠地生产 0.1毫米（4mil）焊接掩模坝的颜色。接下来是红色，黄色和蓝色，可以产生0.12毫米，然后才是黑色和白色，只能达到0.15毫米。焊接掩模坝在防止焊桥形成方面很有价值。</p>
+<p>最后，绿色是历史上默认的电路板颜色，所有厂家都支持，所以批量生产绿色电路板的成本是最低的。</p>
+<h2 id="本周图片"><a href="#本周图片" class="headerlink" title="本周图片"></a>本周图片</h2><p>1、<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=_AsMboo4A3w">《神奇动物在哪里》的特效</a></p>
+<p>Youtube 有一个频道，专门介绍电影特效是怎么制作的。这一期介绍《神奇动物在哪里》，可以看到完全是绿幕合成，比如下面这个从箱子里钻出来的效果。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020115.jpg"></p>
+<p>再比如，抚摸大鸟的效果。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020116.jpg"></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020117.jpg"></p>
+<p>2、<a target="_blank" rel="noopener" href="https://www.anandtech.com/show/13751/joled-demos-oled-monitor-for-gamers">柱状显示器</a></p>
+<p>索尼和松下的合资企业 JOLED 在日本 Finetech 展览上，展出了一款柱状 4K 显示器的概念产品。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020118.jpg"></p>
+<p>还有专为地铁&#x2F;火车的车厢设计的可弯曲显示器。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020119.jpg"></p>
+<p>3、<a target="_blank" rel="noopener" href="https://brilliantmaps.com/longest-walk/">世界最长的步行路线</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020120.jpg"></p>
+<p>世界最长的步行路线，是从俄罗斯的马加丹一直到南非的开普敦，全长22387公里。你必须经过16个国家，包括南苏丹，叙利亚和格鲁吉亚，所以这条路线不是很安全。</p>
+<h2 id="新奇"><a href="#新奇" class="headerlink" title="新奇"></a>新奇</h2><p>1、<a target="_blank" rel="noopener" href="https://www.bicycling.com/news/a20027122/vanmoof-tv-on-box-damaged-bikes/">自行车包装</a></p>
+<p>荷兰一家公司运输自行车时，总是发生很大的损耗。该公司忍无可忍，在包装纸箱上印上了电视机。初看之下都会以为，箱子里面是一台平板电视，运输耗损率因此降低了80%。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/201901/bg2019020121.jpg"></p>
+<h2 id="本周金句"><a href="#本周金句" class="headerlink" title="本周金句"></a>本周金句</h2><p>1、</p>
+<p>在创业公司工作，很可能报酬更少（公司失败的话），工作更多。如果钱少活多对你没有吸引力，那么我建议你不要加入创业公司。</p>
+<p>– <a target="_blank" rel="noopener" href="https://triplebyte.com/blog/how-to-choose-a-startup-to-work-for">Paul Buchheit</a></p>
+<p>2、</p>
+<p>苹果公司的策略是，不要让第三方应用赚到大钱，便宜的第三方应用会让人们更愿意购买 iPhone。所以，它通过应用商店，让第三方开发者的收入减少 30%。</p>
+<p>– <a target="_blank" rel="noopener" href="https://www.gwern.net/Complement">《让你的补充品商品化》</a>。使用某种产品时，需要配合使用的其他东西，叫做补充品，比如，果酱是面包的补充品。如果补充品非常便宜，将促进所补充的那种产品的销售。因此，聪明的公司会让补充品变得便宜，并形成一个专门的商品市场。</p>
+<p>3、</p>
+<p>当市场出现大的热潮时，最好的策略通常不是参与这个热潮，而是成为工具提供者。</p>
+<p>– <a target="_blank" rel="noopener" href="https://twitter.com/wolfejosh/status/981017179897376770">wolfejosh@twitter</a></p>
+<p>4、</p>
+<p>统计发现，城市越大，人们的步行速度越快。</p>
+<p>– <a target="_blank" rel="noopener" href="https://www.citylab.com/life/2012/03/why-people-cities-walk-fast/1550/">《为什么城市中的人们走得很快》</a></p>
 <p>（完）</p>
 
       
@@ -2182,7 +2175,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-03-24 00:00:00 / 修改时间：15:42:13" itemprop="dateCreated datePublished" datetime="2026-03-24T00:00:00+08:00">2026-03-24</time>
+      <time title="创建时间：2026-03-24 00:00:00 / 修改时间：16:53:17" itemprop="dateCreated datePublished" datetime="2026-03-24T00:00:00+08:00">2026-03-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -2386,9 +2379,6 @@
 <p>5、</p>
 <p>大多数人都高估了他们一天能做的事情，但低估了他们一年能做的事情。</p>
 <p>– <a target="_blank" rel="noopener" href="https://blog.stephsmith.io/you-dont-need-to-quit-your-job-to-make/">《关于“我没有足够的时间”》</a></p>
-<h2 id="欢迎订阅"><a href="#欢迎订阅" class="headerlink" title="欢迎订阅"></a>欢迎订阅</h2><p>这个专栏每周五发布，同步更新在我的<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog">个人网站</a>、<a target="_blank" rel="noopener" href="http://weixin.sogou.com/weixin?query=%E9%98%AE%E4%B8%80%E5%B3%B0%E7%9A%84%E7%BD%91%E7%BB%9C%E6%97%A5%E5%BF%97">微信公众号</a>和<a target="_blank" rel="noopener" href="https://yuque.com/ruanyf/share/">语雀</a>。</p>
-<p>微信搜索“<strong>阮一峰的网络日志</strong>”或者扫描二维码，即可订阅。</p>
-<p><img src="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018042311.jpg"></p>
 <p>（完）</p>
 
       
@@ -2446,7 +2436,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-03-24 00:00:00 / 修改时间：15:42:13" itemprop="dateCreated datePublished" datetime="2026-03-24T00:00:00+08:00">2026-03-24</time>
+      <time title="创建时间：2026-03-24 00:00:00 / 修改时间：16:53:17" itemprop="dateCreated datePublished" datetime="2026-03-24T00:00:00+08:00">2026-03-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -2644,9 +2634,6 @@
 <p>5、</p>
 <p>在美国，安装太阳能电池板死掉的工人，比核电站的整个历史中死亡的人数更多。</p>
 <p>– <a target="_blank" rel="noopener" href="https://www.city-journal.org/atomic-power">《选择核能》</a></p>
-<h2 id="欢迎订阅"><a href="#欢迎订阅" class="headerlink" title="欢迎订阅"></a>欢迎订阅</h2><p>这个专栏每周五发布，同步更新在我的<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog">个人网站</a>、<a target="_blank" rel="noopener" href="http://weixin.sogou.com/weixin?query=%E9%98%AE%E4%B8%80%E5%B3%B0%E7%9A%84%E7%BD%91%E7%BB%9C%E6%97%A5%E5%BF%97">微信公众号</a>和<a target="_blank" rel="noopener" href="https://yuque.com/ruanyf/share/">语雀</a>。</p>
-<p>微信搜索“<strong>阮一峰的网络日志</strong>”或者扫描二维码，即可订阅。</p>
-<p><img src="http://www.ruanyifeng.com/blogimg/asset/2018/bg2018042311.jpg"></p>
 <p>（完）</p>
 
       
