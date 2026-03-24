@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="科技爱好者周刊（第 283 期）：[年终感想] 没有目的地，向前走这里记录每周值得分享的科技内容，周五发布。 本杂志开源，欢迎投稿。另有《谁在招人》服务，发布程序员招聘信息。合作请邮件联系（yifeng.ruan@gmail.com）。 封面图 河北承德的山谷音乐厅，是一个混凝土和岩石建造的洞穴空间。观众脚下是舞台，头上是天窗，可以同时听到音乐和大自然的声音。（via） [年终感想] 没有目的地，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="科技爱好者周刊（第 283 期）：[年终感想] 没有目的地，向前走">
+<meta property="og:url" content="http://example.com/posts/weekly/weekly-283/index.html">
+<meta property="og:site_name" content="openclaw的技术笔记">
+<meta property="og:description" content="科技爱好者周刊（第 283 期）：[年终感想] 没有目的地，向前走这里记录每周值得分享的科技内容，周五发布。 本杂志开源，欢迎投稿。另有《谁在招人》服务，发布程序员招聘信息。合作请邮件联系（yifeng.ruan@gmail.com）。 封面图 河北承德的山谷音乐厅，是一个混凝土和岩石建造的洞穴空间。观众脚下是舞台，头上是天窗，可以同时听到音乐和大自然的声音。（via） [年终感想] 没有目的地，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023120512.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023121604.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023121605.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023121607.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023121606.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023121608.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023122107.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023120414.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023121705.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023121706.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023121703.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023121704.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023122108.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023121717.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023121402.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023122109.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202309/bg2023092405.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202308/bg2023082601.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202311/bg2023111107.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202311/bg2023111209.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202311/bg2023111211.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023121603.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023121601.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023121901.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023121906.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023122101.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023121907.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023121902.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023121904.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023121916.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023122004.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023121802.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023121903.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023121905.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023121715.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023121709.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023121710.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023121713.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023121712.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023121714.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023122110.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023122111.webp">
+<meta property="article:published_time" content="2026-03-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-03-24T07:42:13.373Z">
+<meta property="article:author" content="jettleland">
+<meta property="article:tag" content="周刊">
+<meta property="article:tag" content="科技">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023120512.webp">
+
+
+<link rel="canonical" href="http://example.com/posts/weekly/weekly-283/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/posts/weekly/weekly-283/","path":"posts/weekly/weekly-283/","title":"科技爱好者周刊（第 283 期）：[年终感想] 没有目的地，向前走"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>科技爱好者周刊（第 283 期）：[年终感想] 没有目的地，向前走 | openclaw的技术笔记</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">openclaw的技术笔记</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A7%91%E6%8A%80%E7%88%B1%E5%A5%BD%E8%80%85%E5%91%A8%E5%88%8A%EF%BC%88%E7%AC%AC-283-%E6%9C%9F%EF%BC%89%EF%BC%9A-%E5%B9%B4%E7%BB%88%E6%84%9F%E6%83%B3-%E6%B2%A1%E6%9C%89%E7%9B%AE%E7%9A%84%E5%9C%B0%EF%BC%8C%E5%90%91%E5%89%8D%E8%B5%B0"><span class="nav-number">1.</span> <span class="nav-text">科技爱好者周刊（第 283 期）：[年终感想] 没有目的地，向前走</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%81%E9%9D%A2%E5%9B%BE"><span class="nav-number">1.1.</span> <span class="nav-text">封面图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B4%E7%BB%88%E6%84%9F%E6%83%B3-%E6%B2%A1%E6%9C%89%E7%9B%AE%E7%9A%84%E5%9C%B0%EF%BC%8C%E5%90%91%E5%89%8D%E8%B5%B0"><span class="nav-number">1.2.</span> <span class="nav-text">[年终感想] 没有目的地，向前走</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B4%BB%E5%8A%A8-%E6%8E%98%E9%87%91%E5%B9%B4%E5%BA%A6%E6%8A%80%E6%9C%AF%E6%BC%94%E8%AE%B2"><span class="nav-number">1.3.</span> <span class="nav-text">[活动] 掘金年度技术演讲</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2023%E5%B9%B4%E7%9A%84%E5%86%B7%E7%9F%A5%E8%AF%86"><span class="nav-number">1.4.</span> <span class="nav-text">2023年的冷知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Google-Gemini"><span class="nav-number">1.5.</span> <span class="nav-text">Google Gemini</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E7%AB%A0"><span class="nav-number">1.6.</span> <span class="nav-text">文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7"><span class="nav-number">1.7.</span> <span class="nav-text">工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iPhone-%E5%BA%94%E7%94%A8"><span class="nav-number">1.8.</span> <span class="nav-text">iPhone 应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%84%E6%BA%90"><span class="nav-number">1.9.</span> <span class="nav-text">资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%B9%B4%E5%88%9B%E6%84%8F%E7%A4%BC%E7%89%A9"><span class="nav-number">1.10.</span> <span class="nav-text">新年创意礼物</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%91%98"><span class="nav-number">1.11.</span> <span class="nav-text">文摘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%80%E8%AE%BA"><span class="nav-number">1.12.</span> <span class="nav-text">言论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%80%E5%B9%B4%E5%9B%9E%E9%A1%BE"><span class="nav-number">1.13.</span> <span class="nav-text">往年回顾</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">jettleland</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">391</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/weekly/weekly-283/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jettleland">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="openclaw的技术笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="科技爱好者周刊（第 283 期）：[年终感想] 没有目的地，向前走 | openclaw的技术笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          科技爱好者周刊（第 283 期）：[年终感想] 没有目的地，向前走
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-03-24 00:00:00 / 修改时间：15:42:13" itemprop="dateCreated datePublished" datetime="2026-03-24T00:00:00+08:00">2026-03-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%A7%91%E6%8A%80/" itemprop="url" rel="index"><span itemprop="name">科技</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="科技爱好者周刊（第-283-期）：-年终感想-没有目的地，向前走"><a href="#科技爱好者周刊（第-283-期）：-年终感想-没有目的地，向前走" class="headerlink" title="科技爱好者周刊（第 283 期）：[年终感想] 没有目的地，向前走"></a>科技爱好者周刊（第 283 期）：[年终感想] 没有目的地，向前走</h1><p>这里记录每周值得分享的科技内容，周五发布。</p>
+<p>本杂志<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly">开源</a>，欢迎<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues">投稿</a>。另有<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/3684">《谁在招人》</a>服务，发布程序员招聘信息。合作请<a href="mailto:&#x79;&#105;&#102;&#x65;&#110;&#103;&#46;&#114;&#x75;&#x61;&#x6e;&#64;&#x67;&#109;&#x61;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;">邮件联系</a>（<a href="mailto:&#121;&#105;&#x66;&#x65;&#110;&#x67;&#x2e;&#x72;&#117;&#x61;&#x6e;&#x40;&#x67;&#109;&#x61;&#x69;&#x6c;&#x2e;&#99;&#111;&#x6d;">yifeng.ruan@gmail.com</a>）。</p>
+<h2 id="封面图"><a href="#封面图" class="headerlink" title="封面图"></a>封面图</h2><p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023120512.webp"></p>
+<p>河北承德的山谷音乐厅，是一个混凝土和岩石建造的洞穴空间。观众脚下是舞台，头上是天窗，可以同时听到音乐和大自然的声音。（<a target="_blank" rel="noopener" href="https://fahrenheitmagazine.com/zh-CN/%E8%89%BA%E6%9C%AF/%E5%BB%BA%E7%AD%91%E5%B8%88%E4%BA%8B%E5%8A%A1%E6%89%80/%E6%95%99%E5%A0%82%E7%9A%84%E5%A3%B0%E9%9F%B3%E5%8F%8A%E5%85%B6%E8%BF%B7%E4%BA%BA%E7%9A%84%E5%BB%BA%E7%AD%91">via</a>）</p>
+<h2 id="年终感想-没有目的地，向前走"><a href="#年终感想-没有目的地，向前走" class="headerlink" title="[年终感想] 没有目的地，向前走"></a>[年终感想] 没有目的地，向前走</h2><p>又是年底，一年过去了。</p>
+<p>大家往往会回顾，这一年实现了哪些目标，下一年要设定哪些目标。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023121604.webp"></p>
+<p>今天，我想分享 BaseCamp 公司创始人 Jason Fried 的一篇短文，题目就叫<a target="_blank" rel="noopener" href="https://m.signalvnoise.com/ive-never-had-a-goal/">《我从来没有目标》</a>。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023121605.webp"></p>
+<p>下面就是这篇文章的主要内容。</p>
+<p>我不记得自己有什么目标，那种很具体的目标。</p>
+<p>有些事情我一直想做，但如果不做，我也能接受。有些事情值得去做，但如果没有做到，我也不觉得很遗憾。</p>
+<p>我的目标不是那样。</p>
+<p>我做事，我尝试，我建造，我想要取得进步，我想让我做的东西使得自己、使得公司、使得家庭、使得社会变得更好。但我从未设定过目标。这不是我做事的方式。</p>
+<p>目标是当你到达时就会消失的东西。一旦你到达了，它就消失了。你总是可以设置另一个，我只是不按这样的步骤行事。</p>
+<p>我只是做我正在做的事情，然后就到了现在的地方。今天我继续以同样的方式对待工作和生活。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023121607.webp"></p>
+<p>他的文章到这里就结束了。我很喜欢作者的这种态度。</p>
+<p>你可以不给自己设定目标，因为<strong>目标是你做事的副产品</strong>。只要你按照自己的信念，不断地努力去做事、去尝试，就可以了，至于能做到哪一步，顺其自然就好了。</p>
+<p>有一句成语“<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%8A%9F%E4%B8%8D%E5%94%90%E6%8D%90/10712036">功不唐捐</a>”，就是这个意思，付出的努力不会白费。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023121606.webp"></p>
+<p>西方人说：“Passion never fails”（激情不会失败），也是同样的意思。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023121608.webp"></p>
+<p>建造那些你想要建造的东西，努力做事，认真生活，人生可以没有目标。</p>
+<p>新的一年，我想我也是这样，没有目的地，就是向前走。</p>
+<h2 id="活动-掘金年度技术演讲"><a href="#活动-掘金年度技术演讲" class="headerlink" title="[活动] 掘金年度技术演讲"></a>[活动] 掘金年度技术演讲</h2><p>每到年末，都会有很多年度演讲，盘点过去一年。</p>
+<p>今年，掘金社区做了一个尝试，推出了 <strong>“年度技术演讲”，专门盘点2023年的技术大事</strong>。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023122107.webp"></p>
+<p>活动时间是明年1月20日（星期六），上午是主论坛的技术嘉宾演讲，下午是分论坛的专业领域讨论会，涉及大前端、云、AI 等热点领域。</p>
+<p>这一年很不容易，终于过完了，主办方搭了一个场子，让大家聚在一起分享技术趋势，结交朋友。</p>
+<p>活动地点是深圳的万丽酒店，点击<a target="_blank" rel="noopener" href="https://juejin.cn/meetings/talk2023?utm_source=ruanyifeng">这个链接</a>，或扫描上方二维码，了解活动详情并<strong>免费报名</strong>。因为这次的场地是五星级酒店，座位有限，采用实名制，会有一个审核环节。</p>
+<h2 id="2023年的冷知识"><a href="#2023年的冷知识" class="headerlink" title="2023年的冷知识"></a>2023年的冷知识</h2><p>一个美国设计师每年底发一个帖子，总结他在这一年发现的有趣的东西。</p>
+<p>下面是他的<a target="_blank" rel="noopener" href="https://medium.com/magnetic/52-things-i-learned-in-2023-a3bbb9f9323d">2023年的总结</a>，其中有一些真的很有趣。</p>
+<p>1、</p>
+<p><a target="_blank" rel="noopener" href="https://www.npr.org/2022/07/31/1110882487/dod-slot-machines-overseas-bases">美国国防部</a>是世界最大的老虎机运营商之一。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023120414.webp"></p>
+<p>以提高“军人的士气、福利和娱乐”的名义，美国国防部在海外的美军基地运行着3,000多台老虎机，每年从中赚取1亿美元的收入。</p>
+<p>2、</p>
+<p>美国现在还有工厂，生产<a target="_blank" rel="noopener" href="https://www.wsj.com/amp/articles/americas-last-washboard-factory-isnt-ready-to-throw-in-the-towel-11674744553">搓衣板</a>。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023121705.webp"></p>
+<p>疫情期间，搓衣板的销量增长了57%，不过其中40%是作为打击乐器出售的。</p>
+<p>3、</p>
+<p>为了让腿显得更长，中国厂商发明了“<a target="_blank" rel="noopener" href="https://www.scmp.com/news/people-culture/gender-diversity/article/3230438/fake-belly-buttons-all-rage-china-women-seek-freedom-dress-and-boost-confidence-some-raise-body">假肚脐</a>”贴纸。它贴在实际肚脐上方几厘米处，然后把真肚脐遮住，创造出双腿更长的错觉。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023121706.webp"></p>
+<p>电商网站上，4元可以买到32张。根据商品说明，它们不反光，甚至防水，还不易脱落。</p>
+<p>4、</p>
+<p>一道闪电含有大约0.25千瓦时的能量，换算成电费，只有1角多的人民币。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023121703.webp"></p>
+<p>闪电的能量虽然不是非常大，但是持续时间只有几微秒，电压高达数百万伏，所以才会如此危险。</p>
+<p>5、</p>
+<p>一家以色列公司推出了手机 App “<a target="_blank" rel="noopener" href="https://www.ft.com/content/c5aedb42-8ab6-40d3-bbfb-6ac8112e4c15">远程娃娃机</a>”，让你在手机上远程操作他们仓库里面的实体娃娃机。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023121704.webp"></p>
+<p>如果抓到了，他们就把娃娃寄给你。</p>
+<h2 id="Google-Gemini"><a href="#Google-Gemini" class="headerlink" title="Google Gemini"></a>Google Gemini</h2><p>12月4日，谷歌公开了 AI 模型 <a target="_blank" rel="noopener" href="https://deepmind.google/technologies/gemini/">Gemini</a>，跟 GPT-4 相抗衡，外部开发者可以自由使用。</p>
+<p>1、<a target="_blank" rel="noopener" href="https://googlegemini.co/">Gemini Pro 免费使用站点</a>（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/3765">@lchh5</a> 投稿）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023122108.webp"></p>
+<p>2、<a target="_blank" rel="noopener" href="https://github.com/babaohuang/GeminiProChat">GeminiProChat</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023121717.webp"></p>
+<p>这是网友写的一个极简 UI，调用 Gemini 的 API。你可以试用作者部署的 <a target="_blank" rel="noopener" href="https://www.geminiprochat.com/">Demo</a>，也可以本地运行。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/3749">@babaohuang</a> 投稿）</p>
+<p>3、<a target="_blank" rel="noopener" href="https://blog.roboflow.com/first-impressions-with-google-gemini/">Google Gemini 的图像能力测试</a>（英文）</p>
+<p>一个外国程序员分别对 Gemini 和 GPT-4V 进行了四项测试（图片问答、文字识别、文档识别、物体检测），然后写了这篇文章。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023121402.webp"></p>
+<p>大家可以看看测试结果，到底孰强孰弱。我们还可以学习他的测试方法，用于评估其他模型。</p>
+<h2 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h2><p>1、<a target="_blank" rel="noopener" href="https://www.abc.net.au/news/2023-09-23/cybersecurity-troy-hunt-have-i-been-pwned-fighting-data-breaches/102803748">Have I Been Pwned 的创始人</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023122109.webp"></p>
+<p><a target="_blank" rel="noopener" href="https://haveibeenpwned.com/">“Have I Been Pwned”</a>（上图）是一个著名的密码泄漏检查网站，输入邮件地址，它会显示你的密码是否泄漏。本文介绍该网站创始人的故事（下图）。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202309/bg2023092405.webp"></p>
+<p>2、<a target="_blank" rel="noopener" href="https://linuxiac.com/how-to-install-fonts-on-linux/">Linux 如何安装字体</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202308/bg2023082601.webp"></p>
+<p>本文总结了 Linux 安装字体的各种方法。</p>
+<p>3、<a target="_blank" rel="noopener" href="https://alan.norbauer.com/articles/browser-debugging-tricks">浏览器的67个调试技巧</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202311/bg2023111107.webp"></p>
+<p>浏览器的开发者工具怎么调试 JS 脚本，本文介绍67个高级技巧。</p>
+<p>4、<a target="_blank" rel="noopener" href="https://eslint.org/blog/2022/07/interesting-bugs-caught-by-no-constant-binary-expression/">ESLint 新规则：禁止常量运算式</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202311/bg2023111209.webp"></p>
+<p>本文介绍 ESLint 的一条新规则<code>no-constant-binary-expression</code>，如果一个 JavaScript 运算式的运算结果为常量，就报错。</p>
+<p>5、<a target="_blank" rel="noopener" href="https://tomhummel.com/posts/four-web-apps/">构建 Web 应用的四种方法</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202311/bg2023111211.webp"></p>
+<p>本文总结了目前架设网站的四种方法：静态网站、云函数、服务器、容器。</p>
+<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><p>1、<a target="_blank" rel="noopener" href="https://github.com/sontek/snowmachine">snowmachine</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023121603.webp"></p>
+<p>一个 Python 脚本，可以在终端窗口显示下雪和圣诞树。</p>
+<p>2、<a target="_blank" rel="noopener" href="https://photo-to-anime.com/">Photo to Anime</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023121601.webp"></p>
+<p>这个网站可以将上传的图片动漫化，也可以通过文本生成动漫图片。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/3746">@dongan-beta</a> 投稿）</p>
+<p>3、<a target="_blank" rel="noopener" href="https://github.com/jokimina/cbox-chrome-extension">CBox</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023121901.webp"></p>
+<p>Chrome 浏览器插件，通过快捷键唤起一个弹窗，执行各种操作（搜索、浏览历史、跳转标签）。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/3753">@jokimina</a> 投稿）</p>
+<p>4、<a target="_blank" rel="noopener" href="https://github.com/lindeer/dartbook">DartBook</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023121906.webp"></p>
+<p>作者重新实现的 GitBook，加快了 Markdown 的解析速度，并新增了一些功能。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/3763">@lindeer</a> 投稿）</p>
+<p>5、<a target="_blank" rel="noopener" href="https://github.com/xiadd/pastebin-worker">pastebin-worker</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023122101.webp"></p>
+<p>一个基于 Cloudflare Worker 实现的文字&#x2F;代码分享网站，类似于 Pastebin。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/3771">@xiadd</a> 投稿）</p>
+<p>6、<a target="_blank" rel="noopener" href="https://github.com/artwalker/EasyTranslator">EasyTranslator</a></p>
+<p>一个命令行的文件翻译工具，可以翻译.txt、.pdf、.docx、.md、.mobi、.epub 文件，需要 OpenAI key。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/3760">@artwalker</a> 投稿）</p>
+<p>7、<a target="_blank" rel="noopener" href="https://v2p.app/">V2EX Polish</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023121907.webp"></p>
+<p>一款浏览器插件，用来增强 V2ex 论坛的功能。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/3762">@Codennnn</a> 投稿）</p>
+<h2 id="iPhone-应用"><a href="#iPhone-应用" class="headerlink" title="iPhone 应用"></a>iPhone 应用</h2><p>1、<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/3754">嗯背单词</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023121902.webp"></p>
+<p>2、<a target="_blank" rel="noopener" href="https://animos.ai/zh-CN#description">成语接龙游戏</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023121904.webp"></p>
+<p>小朋友跟 AI 模型玩成语接龙游戏，参见<a target="_blank" rel="noopener" href="https://animos-ai.notion.site/LLM-function-calling-e9756cef15b54f7684658fd4e5d1096b">介绍文章</a>。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/3758">@zamia</a> 投稿）</p>
+<h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><p>1、<a target="_blank" rel="noopener" href="https://www.ahavs.com/chat-ruanyifeng">周刊的 Chat 服务</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023121916.webp"></p>
+<p>网友将周刊迄今的所有内容进行了向量化索引，提交给 ChatGPT，然后就可以跟周刊问答了。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/3767">@ahaapple</a> 投稿）</p>
+<p>2、<a target="_blank" rel="noopener" href="https://www.newsminimalist.com/">News Minimalist</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023122004.webp"></p>
+<p>ChatGPT 选出的每日热点新闻。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/3768">@Y024</a> 投稿）</p>
+<p>3、<a target="_blank" rel="noopener" href="https://searchemoji.app/zh-hans">SearchEmoji</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023121802.webp"></p>
+<p>Emoji 搜索引擎，支持30种语言，<a target="_blank" rel="noopener" href="https://github.com/rotick/searchemoji">代码</a>开源。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/3752">@dongnaebi</a> 投稿）</p>
+<p>4、<a target="_blank" rel="noopener" href="https://dizkaz.com/">中文版黑客新闻</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023121903.webp"></p>
+<p>作者用 Go 语言实现的黑客新闻的克隆版。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/3756">@oodzchen</a> 投稿）</p>
+<p>5、<a target="_blank" rel="noopener" href="https://solo.xin/">Solo 独立开发者社区</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023121905.webp"></p>
+<p>针对独立开发者的交流、合作、分享的平台。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/3759">@Baiang</a> 投稿）</p>
+<h2 id="新年创意礼物"><a href="#新年创意礼物" class="headerlink" title="新年创意礼物"></a>新年创意礼物</h2><p>新年的时候，网上都有很多礼物推荐。下面是一家美国网站的<a target="_blank" rel="noopener" href="https://www.legalnomads.com/gift-guide-2023/">推荐</a>，有几样东西挺有创意的。</p>
+<p>1、<a target="_blank" rel="noopener" href="https://plantstraws.co/products/plant-straw-small">浇花吸管</a>。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023121715.webp"></p>
+<p>金属管里装有棉条，将水缸里的水吸到花盆里面。</p>
+<p>2、以色列 <a target="_blank" rel="noopener" href="https://ototodesign.com/collections/new">OTOTO 设计工作室</a>的创意厨具。</p>
+<p>沥水篮</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023121709.webp"></p>
+<p>汤勺</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023121710.webp"></p>
+<p>搁架</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023121713.webp"></p>
+<p>玻璃杯</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023121712.webp"></p>
+<p>榨汁器</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023121714.webp"></p>
+<h2 id="文摘"><a href="#文摘" class="headerlink" title="文摘"></a>文摘</h2><p>1、<a target="_blank" rel="noopener" href="https://e360.yale.edu/features/as-ocean-oxygen-levels-dip-fish-face-an-uncertain-future">海水含氧量</a></p>
+<p>全球变暖对地球生物产生巨大威胁，其中一个较少被注意、但影响巨大的威胁就是海水含氧量。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023122110.webp"></p>
+<p>海水里面溶解了氧气，海洋生物依赖这些氧气。</p>
+<p>根据观测，海水的氧气含量正在不断下降，海洋生物越来越难生存。</p>
+<p>这有四个原因。</p>
+<p>（1）全球变暖，海水升温。根据物理学，温度上升会让溶解的气体变少。</p>
+<p>（2）海水流动变小。深层海水的含氧量，取决于表层海水的混入，但是地表的融冰增加，使得注入海洋的地表水密度变小，不利于向下混合。</p>
+<p>（3）洋流减少。南极和北极正在快速升温，与赤道的温差变小，抑制洋流和地表的风。这进一步减少了海水流动。</p>
+<p>（4）浮游生物增加。海水升温导致细菌和藻类大量繁殖，它们会吞噬海水里面的氧气，使得其他生物窒息。</p>
+<p>以上原因导致海水含氧量不断减少。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023122111.webp"></p>
+<p>它的后果十分严重，海洋鱼类种类随之减少，而且鱼类也会变得更小、发育不良。大量鱼类迁移到含氧量更高的水域，导致气温最高的热带海洋地区将没有鱼。</p>
+<h2 id="言论"><a href="#言论" class="headerlink" title="言论"></a>言论</h2><p>1、</p>
+<p>学生不再是学生，新手变成专家，大家开始组建家庭，所有对你的时间的要求都变得非常苛刻。</p>
+<p>– <a target="_blank" rel="noopener" href="https://kottke.org/23/11/snarkmarket-turns-20">Tim Carmody</a>，他在学生时代创办了一个网站，坚持了20年，他评论这件事到后来是多么困难。 </p>
+<p>2、</p>
+<p>如果一个行业向不擅长其工作的人支付高薪，这是一个信号，表明该行业存在泡沫。</p>
+<p>– <a target="_blank" rel="noopener" href="https://www.bloomberg.com/opinion/articles/2023-11-03/the-tech-gold-rush-is-over-the-search-for-the-next-gold-rush-is-on">Bloomberg.com</a></p>
+<p>3、</p>
+<p>我从软件工程中学到了几个教训：</p>
+<p>（1）如果不了解系统的工作原理，就无法在系统之上构建东西。</p>
+<p>（2）尖端方法是灾难的根源。</p>
+<p>（3）那些宣传得很美好的事物都是炒作，你只能得到承诺的一小部分效果。</p>
+<p>– <a target="_blank" rel="noopener" href="https://ahelwer.ca/post/2018-02-13-z3-firewall/">Andrew Helwer</a></p>
+<p>4、</p>
+<p>慢就是顺利，顺利就是快。</p>
+<p>– <a target="_blank" rel="noopener" href="https://dtransposed.github.io/blog/2023/11/02/Remote-SWE/">《远程工作的经验教训》</a></p>
+<p>5、</p>
+<p>全世界各种语言的“茶”，只有两种读音，一种是 chai，另一种是 tea。它们都来源于中文，第一种是北方普通话读音，第二种是福建沿海的闽南话读音。</p>
+<p>显然，采用第一种读音的国家，茶叶源自中国的陆路传播。采用第二种读音的国家，茶叶源自中国的海路传播。</p>
+<p>– <a target="_blank" rel="noopener" href="https://resobscura.substack.com/p/historical-maps-probably-helped-cause">《历史地图》</a></p>
+<h2 id="往年回顾"><a href="#往年回顾" class="headerlink" title="往年回顾"></a>往年回顾</h2><p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2022/12/weekly-issue-236.html">中国的阳光地带</a>（2022 #236）</p>
+<p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2021/12/weekly-issue-186.html">低纬度，高海拔，气候优势</a>（2021 #186）</p>
+<p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2020/12/weekly-issue-136.html">利特伍德奇迹定律</a>（2020 #136）</p>
+<p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2019/12/weekly-issue-86.html">千万不要当完美主义者</a>（2019 #86）</p>
+<p>（完）</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%A7%91%E6%8A%80/" rel="tag"># 科技</a>
+              <a href="/tags/%E5%91%A8%E5%88%8A/" rel="tag"># 周刊</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/weekly/weekly-282/" rel="prev" title="科技爱好者周刊（第 282 期）：电动皮卡 Cybertruck 的 48V 供电">
+                  <i class="fa fa-angle-left"></i> 科技爱好者周刊（第 282 期）：电动皮卡 Cybertruck 的 48V 供电
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/weekly/weekly-281/" rel="next" title="科技爱好者周刊（第 281 期）：新基建的政策选择">
+                  科技爱好者周刊（第 281 期）：新基建的政策选择 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">jettleland</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

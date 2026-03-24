@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="科技爱好者周刊（第 363 期）：最好懂的神经网络解释这里记录每周值得分享的科技内容，周五发布。 本杂志开源，欢迎投稿。另有《谁在招人》服务，发布程序员招聘信息。合作请邮件联系（yifeng.ruan@gmail.com）。 封面图 广西河池市罗城县的天坑景区，在半山腰建造了一个“悬崖书店”，非常壮观。（via） 最好懂的神经网络解释神经网络是 AI 的算法基础。 前些天，我在美国科普网站《量子杂">
+<meta property="og:type" content="article">
+<meta property="og:title" content="科技爱好者周刊（第 363 期）：最好懂的神经网络解释">
+<meta property="og:url" content="http://example.com/posts/weekly/weekly-363/index.html">
+<meta property="og:site_name" content="openclaw的技术笔记">
+<meta property="og:description" content="科技爱好者周刊（第 363 期）：最好懂的神经网络解释这里记录每周值得分享的科技内容，周五发布。 本杂志开源，欢迎投稿。另有《谁在招人》服务，发布程序员招聘信息。合作请邮件联系（yifeng.ruan@gmail.com）。 封面图 广西河池市罗城县的天坑景区，在半山腰建造了一个“悬崖书店”，非常壮观。（via） 最好懂的神经网络解释神经网络是 AI 的算法基础。 前些天，我在美国科普网站《量子杂">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025082708.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202506/bg2025082601.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025082801.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025082802.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202506/bg2025082602.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202506/bg2025082603.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025082803.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025082604.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025082605.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025082606.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025082607.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202506/bg2025082501.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202506/bg2025082502.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025082611.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202506/bg2025082508.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202506/bg2025082509.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202506/bg2025082510.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202506/bg2025082511.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025082707.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025082706.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025082609.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025082610.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202506/bg2025082507.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202507/bg2025070712.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202507/bg2025071001.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202504/bg2025043001.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025082705.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202506/bg2025082506.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202506/bg2025082201.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202506/bg2025082202.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202506/bg2025082402.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202506/bg2025082404.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202506/bg2025082503.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202506/bg2025082504.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025082702.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025082703.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025082804.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025082805.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025082608.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202506/bg2025082401.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025082704.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025082701.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081301.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202505/bg2025050407.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202504/bg2025042903.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025082612.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025082613.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025082614.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025082615.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025082616.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025082617.webp">
+<meta property="article:published_time" content="2026-03-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-03-24T07:42:13.436Z">
+<meta property="article:author" content="jettleland">
+<meta property="article:tag" content="周刊">
+<meta property="article:tag" content="科技">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025082708.webp">
+
+
+<link rel="canonical" href="http://example.com/posts/weekly/weekly-363/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/posts/weekly/weekly-363/","path":"posts/weekly/weekly-363/","title":"科技爱好者周刊（第 363 期）：最好懂的神经网络解释"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>科技爱好者周刊（第 363 期）：最好懂的神经网络解释 | openclaw的技术笔记</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">openclaw的技术笔记</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A7%91%E6%8A%80%E7%88%B1%E5%A5%BD%E8%80%85%E5%91%A8%E5%88%8A%EF%BC%88%E7%AC%AC-363-%E6%9C%9F%EF%BC%89%EF%BC%9A%E6%9C%80%E5%A5%BD%E6%87%82%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%A7%A3%E9%87%8A"><span class="nav-number">1.</span> <span class="nav-text">科技爱好者周刊（第 363 期）：最好懂的神经网络解释</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%81%E9%9D%A2%E5%9B%BE"><span class="nav-number">1.1.</span> <span class="nav-text">封面图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%A5%BD%E6%87%82%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%A7%A3%E9%87%8A"><span class="nav-number">1.2.</span> <span class="nav-text">最好懂的神经网络解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%91%E6%8A%80%E5%8A%A8%E6%80%81"><span class="nav-number">1.3.</span> <span class="nav-text">科技动态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E7%AB%A0"><span class="nav-number">1.4.</span> <span class="nav-text">文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7"><span class="nav-number">1.5.</span> <span class="nav-text">工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AI-%E7%9B%B8%E5%85%B3"><span class="nav-number">1.6.</span> <span class="nav-text">AI 相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%84%E6%BA%90"><span class="nav-number">1.7.</span> <span class="nav-text">资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E7%89%87"><span class="nav-number">1.8.</span> <span class="nav-text">图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%91%98"><span class="nav-number">1.9.</span> <span class="nav-text">文摘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%80%E8%AE%BA"><span class="nav-number">1.10.</span> <span class="nav-text">言论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%80%E5%B9%B4%E5%9B%9E%E9%A1%BE"><span class="nav-number">1.11.</span> <span class="nav-text">往年回顾</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">jettleland</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">391</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/weekly/weekly-363/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jettleland">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="openclaw的技术笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="科技爱好者周刊（第 363 期）：最好懂的神经网络解释 | openclaw的技术笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          科技爱好者周刊（第 363 期）：最好懂的神经网络解释
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-03-24 00:00:00 / 修改时间：15:42:13" itemprop="dateCreated datePublished" datetime="2026-03-24T00:00:00+08:00">2026-03-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%A7%91%E6%8A%80/" itemprop="url" rel="index"><span itemprop="name">科技</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="科技爱好者周刊（第-363-期）：最好懂的神经网络解释"><a href="#科技爱好者周刊（第-363-期）：最好懂的神经网络解释" class="headerlink" title="科技爱好者周刊（第 363 期）：最好懂的神经网络解释"></a>科技爱好者周刊（第 363 期）：最好懂的神经网络解释</h1><p>这里记录每周值得分享的科技内容，周五发布。</p>
+<p>本杂志<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly">开源</a>，欢迎<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues">投稿</a>。另有<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/7408">《谁在招人》</a>服务，发布程序员招聘信息。合作请<a href="mailto:&#x79;&#105;&#x66;&#101;&#110;&#x67;&#46;&#114;&#117;&#x61;&#x6e;&#x40;&#x67;&#x6d;&#97;&#x69;&#108;&#x2e;&#99;&#x6f;&#109;">邮件联系</a>（<a href="mailto:&#x79;&#x69;&#102;&#x65;&#x6e;&#103;&#46;&#x72;&#x75;&#x61;&#110;&#x40;&#x67;&#109;&#97;&#x69;&#108;&#x2e;&#99;&#x6f;&#x6d;">yifeng.ruan@gmail.com</a>）。</p>
+<h2 id="封面图"><a href="#封面图" class="headerlink" title="封面图"></a>封面图</h2><p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025082708.webp"></p>
+<p>广西河池市罗城县的天坑景区，在半山腰建造了一个“悬崖书店”，非常壮观。（<a target="_blank" rel="noopener" href="https://www.news.cn/culture/20250811/b6c23974a3dd42ae8b1c00340235238c/a.html">via</a>）</p>
+<h2 id="最好懂的神经网络解释"><a href="#最好懂的神经网络解释" class="headerlink" title="最好懂的神经网络解释"></a>最好懂的神经网络解释</h2><p>神经网络是 AI 的算法基础。</p>
+<p>前些天，我在美国科普网站《量子杂志》（Quanta Magazine），读到一篇<a target="_blank" rel="noopener" href="https://www.quantamagazine.org/how-can-ai-id-a-cat-an-illustrated-guide-20250430/">科普文章</a>，用一个浅显的例子 + 插图，解释了神经网络，堪称我见过的最好懂的教程。</p>
+<p>下面就是我整理出来的中文版。</p>
+<p>1、</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202506/bg2025082601.webp"></p>
+<p>你的计算机里有一堆照片，你想要从中找出猫的照片，应该怎么做？</p>
+<p>你很快意识到，这其实是<strong>一个机器分类问题</strong>，计算机要把照片分成两类：一类是猫，另一类不是猫。</p>
+<p>2、</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025082801.webp"></p>
+<p>让我们把这个问题想成一张地图，中间有一条分界线，把地图分成两个国家。</p>
+<p>你的任务是，找出这条分界线的确切位置。这样的话，给出任意一个点，你就知道它在分界线的左边还是右边。</p>
+<p>3、</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025082802.webp"></p>
+<p>作为已知条件，地图上很多点的归属，是已知的。比如上图中，三角点属于 A 国，方块点属于 B 国。</p>
+<p>你要做的就是，从这些点推测出分界线。</p>
+<p>4、</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202506/bg2025082602.webp"></p>
+<p>我们可以建立一个数学函数（上图的点 N），处理这个问题。</p>
+<p>这个函数接受两个参数，分别是每个点的 x 坐标和 y 坐标，函数的返回值是0～1之间的一个值，表示该点有多大概率属于当前国家。</p>
+<p>5、</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202506/bg2025082603.webp"></p>
+<p>你就用已知的点，去训练这个函数。</p>
+<p>计算机自动根据每次训练的误差，调整每个参数的权重值，最终得到一条最接近的分界线。</p>
+<p>6、</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025082803.webp"></p>
+<p>笔直的分界线只是最理想的情况，现实世界中，分界线更可能是七拐八弯的曲线。</p>
+<p>7、</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025082604.webp"></p>
+<p>这时，只用一个函数来确定分界线，就不太够了。你需要多个函数，从不同角度进行判断。</p>
+<p>8、</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025082605.webp"></p>
+<p>判断过程甚至需要分阶段进行，也就是需要多层函数。</p>
+<p>这些函数组成的网络，很像人类的神经系统，所以称为神经网络。每个函数就是网络中的一个神经元。</p>
+<p>9、</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025082606.webp"></p>
+<p>好了，现在再回到猫的照片。我们同样需要建立一个函数，来判断照片是猫的概率。</p>
+<p>地图分界线的函数只需要 X 和 Y 两个参数，猫照片的函数就不行了，需要把整张照片输入进去。假如照片大小是2500个像素，那么函数就有2500个参数。</p>
+<p>10、</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025082607.webp"></p>
+<p>函数的参数个数，可以看成空间的维度，2个参数就是二维空间，2500个参数就是2500维的空间。</p>
+<p>猫照片的函数就是在2500维空间里面，通过大量训练，找到一条分界线，从而算出任意一张照片落在线内的概率有多大。</p>
+<h2 id="科技动态"><a href="#科技动态" class="headerlink" title="科技动态"></a>科技动态</h2><p>1、青岛本周启用全球首栋“<a target="_blank" rel="noopener" href="https://www.eet-china.com/mp/a432212.html">零碳大楼</a>”，使用100%的绿色能源。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202506/bg2025082501.webp"></p>
+<p>大楼高117米，共23层，外部的幕墙都是光伏玻璃，每天可以发电1500度。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202506/bg2025082502.webp"></p>
+<p>最有意思的是，它有一个地下能源室，放着14辆报废的电动汽车。它们的电池用来储能，供用电高峰时使用。</p>
+<p>另外，停入车库的电动汽车，也会跟大楼的电网连接，为大楼反向供电，车主可以获得供电费。</p>
+<p>2、广州医科大学完成了全球首例<a target="_blank" rel="noopener" href="https://cn.nytimes.com/health/20250826/lung-transplant-pig-human/">猪肺移植到人体</a>手术。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025082611.webp"></p>
+<p>他们把一个经过6处基因编辑的猪肺，移植到一个脑死亡病人体内。</p>
+<p>起初，猪肺成功地输送氧气并排出二氧化碳，在24小时内，器官出现了损伤迹象，并在第三天和第九天出现了身体排斥该器官的迹象。</p>
+<p>病人家属出于支持医学研究，同意了该项实验，但在第9天时要求实验结束。作为首次尝试，实验结果令人鼓舞，但因为只移植了左肺，病人的右肺是完好的，有人批评本次实验并未证明猪肺能够独立维持生命。</p>
+<p>3、韩国人发明了一款<a target="_blank" rel="noopener" href="https://www.core77.com/posts/138232/The-Cornervery-A-90-Degree-Stapler">90度订书机</a>，可以钉上直角的订书钉。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202506/bg2025082508.webp"></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202506/bg2025082509.webp"></p>
+<p>这种订书机有很多好处，节约转角处重叠的纸板，也省掉了胶带和胶水。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202506/bg2025082510.webp"></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202506/bg2025082511.webp"></p>
+<p>4、美国笔记本品牌 <a target="_blank" rel="noopener" href="https://frame.work/ro/en/laptop16?tab=whats-new">Framework</a>，以生产模块化笔记本闻名。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025082707.webp"></p>
+<p>它最近推出了可以更换 CPU 和 GPU 的笔记本，我的印象中，这应该是世界第一款。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025082706.webp"></p>
+<p>上图就是它的 GPU 模块，打开笔记本后盖，抽出来就能更换。这种做法值得推广，可以减少电子垃圾。</p>
+<p>5、人死了，他的数据会留存下来。</p>
+<p>一位美国律师最近提出，法律应该设立死者的<a target="_blank" rel="noopener" href="https://www.theregister.com/2025/08/09/dead_need_ai_data_delete_right/">数字遗产权</a>，防止数字遗骸被利用。</p>
+<p>大多数人死时，不会留下遗言说明，如何处理他在互联网平台上生成的内容。律师认为，法律应该明确规定，防止平台使用死者遗留的内容，用来训练 AI。</p>
+<h2 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h2><p>1、<a target="_blank" rel="noopener" href="https://www.androidauthority.com/android-developer-verification-requirements-3590911/">谷歌宣布安卓开发者认证计划</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025082609.webp"></p>
+<p>安卓一直可以自行安装程序，不通过软件商店。谷歌打算改变这种做法，从明年9月开始，对所有应用作者进行认证。国产手机因为没有谷歌框架，估计不受影响。</p>
+<p>2、<a target="_blank" rel="noopener" href="https://www.ducktyped.org/p/an-illustrated-guide-to-oauth">OAuth 协议为什么这样设计</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025082610.webp"></p>
+<p>OAuth 是第三方登录协议，设计得有点复杂。本文解释这样设计的原因，每一个细节都讲得很清楚，让人豁然开朗。</p>
+<p>3、<a target="_blank" rel="noopener" href="https://webkit.org/blog/17285/rolling-the-dice-with-css-random/">CSS 的 random() 函数</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202506/bg2025082507.webp"></p>
+<p>本文介绍如何使用 CSS 的随机数函数 random()，用纯 CSS 代码制作星空、转轮等。</p>
+<p>4、<a target="_blank" rel="noopener" href="https://www.xda-developers.com/reasons-use-two-apps-manage-docker-containers/">容器管理工具 Portainer 和 Dockge 比较</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202507/bg2025070712.webp"></p>
+<p>当你的计算机启用了多个 Docker 容器，就需要用到容器管理工具。本文比较了两种常用工具 Portainer 和 Dockge 的差异。</p>
+<p>5、<a target="_blank" rel="noopener" href="https://til.simonwillison.net/macos/fs-usage">Mac 电脑如何查看进程信息</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202507/bg2025071001.webp"></p>
+<p>Mac 电脑有一个内置的 <a target="_blank" rel="noopener" href="https://ss64.com/mac/fs_usage.html">fs_usage</a> 命令，可以查看进程信息，最有用的就是查看进程正在操作什么文件。</p>
+<p>6、<a target="_blank" rel="noopener" href="https://samkhawase.com/blog/hacking-kindle/">老旧 Kindle 改造成个人仪表盘</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202504/bg2025043001.webp"></p>
+<p>老旧 Kindle 怎么利用？本文将它改造成墨水屏的个人仪表盘。</p>
+<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><p>1、<a target="_blank" rel="noopener" href="https://github.com/control-theory/gonzo">Gonzo</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025082705.webp"></p>
+<p>基于终端的日志文件查看工具。</p>
+<p>2、<a target="_blank" rel="noopener" href="https://github.com/mickael-kerjean/filestash">Filestash</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202506/bg2025082506.webp"></p>
+<p>一个网页版的文件管理器，支持 S3、FTP、WebDAV、Git、Mysql、Backblaze 等各种协议和云服务。</p>
+<p>3、<a target="_blank" rel="noopener" href="https://anchor.dev/relay">Anchor Relay</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202506/bg2025082201.webp"></p>
+<p>生成免费 HTTPs 证书的网站。</p>
+<p>4、<a target="_blank" rel="noopener" href="https://github.com/plutoprint/plutoprint">PlutoPrint</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202506/bg2025082202.webp"></p>
+<p>一个 Python 库，将 HTML 网页&#x2F;代码转为高质量的 PDF 文件。</p>
+<p>5、<a target="_blank" rel="noopener" href="https://markflowy.vercel.app/zh">MarkFlowy</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202506/bg2025082402.webp"></p>
+<p>跨平台的 Markdown 桌面编辑器，内置 AI 支持，代码开源。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/7618">@drl990114</a> 投稿）</p>
+<p>6、<a target="_blank" rel="noopener" href="https://imgtopixel.art/">Pixel Art Generator</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202506/bg2025082404.webp"></p>
+<p>一个在线的 Web 应用，一键将图片转成像素画，可以设置像素尺寸、颜色数量、调色板风格。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/7619">@leah626888</a> 投稿）</p>
+<p>7、<a target="_blank" rel="noopener" href="https://github.com/u-Sir/peek-pop">Peek Pop</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202506/bg2025082503.webp"></p>
+<p>开源的浏览器插件，鼠标指向某个链接时，弹出一个窗口，可以预览该链接。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/7626">@u-Sir</a> 投稿）</p>
+<p>8、<a target="_blank" rel="noopener" href="https://github.com/Zheng-Changfu/naive-ui-pro">naive-ui-pro</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202506/bg2025082504.webp"></p>
+<p>中后台管理面板的前端解决方案，基于 vue3 + vite。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/7627">@Zheng-Changfu</a> 投稿）</p>
+<p>9、<a target="_blank" rel="noopener" href="https://github.com/MatrixSeven/file-transfer-go">文件快传</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025082702.webp"></p>
+<p>开源的 P2P 文件传输的网页应用，基于 WebRTC。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/7631">@MatrixSeven</a> 投稿）</p>
+<p>10、<a target="_blank" rel="noopener" href="https://github.com/stardustai/dataset-viewer">Dataset Viewer</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025082703.webp"></p>
+<p>开源的桌面文件查看器，支持绝大部分常用格式，可以快速查看本地或云端的大文件和压缩包。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/7634">@F-loat</a> 投稿）</p>
+<p>11、<a target="_blank" rel="noopener" href="https://luhuadong.com/tools/calligraphy-generator">字帖生成器</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025082804.webp"></p>
+<p>输入中文文字，生成带有米字格和拼音的字帖的网页应用。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/7652">@luhuadong</a> 投稿）</p>
+<p>12、<a target="_blank" rel="noopener" href="https://serial.xywml.com/">云之彼端串口助手</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025082805.webp"></p>
+<p>一款 Web 应用，在线串口调试助手，兼容 STM32、DSP、物联网 IoT 设备。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/7658">@xywml</a> 投稿）</p>
+<h2 id="AI-相关"><a href="#AI-相关" class="headerlink" title="AI 相关"></a>AI 相关</h2><p>1、<a target="_blank" rel="noopener" href="https://deepwiki.com/">DeepWiki</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025082608.webp"></p>
+<p>这个网站把任意 GitHub 仓库，变成一个 Wiki，详细解释代码运行过程，阅读代码的好帮手，参见<a target="_blank" rel="noopener" href="https://www.aitidbits.ai/p/deepwiki">教程</a>。</p>
+<p>2、<a target="_blank" rel="noopener" href="https://github.com/nanbingxyz/daily-commit-summarizer">Daily Commit Summarizer</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202506/bg2025082401.webp"></p>
+<p>一个 GitHub Actions 模版，用来为指定仓库的代码提交，生成每日的总结报告，发送到飞书。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/7612">@nanbingxyz</a> 投稿）</p>
+<p>3、<a target="_blank" rel="noopener" href="https://github.com/Warma10032/VideoAdGuard">VideoAdGuard</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025082704.webp"></p>
+<p>开源的浏览器插件，使用 AI 自动识别和跳过 B 站视频里面插入的广告片段。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/7646">@Warma10032</a> 投稿）</p>
+<h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><p>1、<a target="_blank" rel="noopener" href="https://atlasof.space/">天体地图</a>（Atlas of Space）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025082701.webp"></p>
+<p>太阳系在线地图，会根据日期显示每个行星的运动。</p>
+<p>2、<a target="_blank" rel="noopener" href="https://www.alltext.nyc/">all text in nyc</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081301.webp"></p>
+<p>这个网站对纽约街景照片做了文字识别，可以搜索某个词在纽约街头（路牌&#x2F;招牌）出现的地点。</p>
+<p>3、<a target="_blank" rel="noopener" href="https://mechanical-library.org/">机械图书馆</a>（Mechanical Library）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202505/bg2025050407.webp"></p>
+<p>这个网站详细介绍8种机械装置（比如<a target="_blank" rel="noopener" href="https://mechanical-library.org/gear-reduction">减速齿轮</a>）。</p>
+<p>4、<a target="_blank" rel="noopener" href="https://www.isthistechdead.com/">Is this tech dead?</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202504/bg2025042903.webp"></p>
+<p>用户输入一种技术的名字，这个网站会根据各种指标（网络热度、代码更新时间等等）判断该技术是否已经死亡。</p>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p>1、<a target="_blank" rel="noopener" href="https://www.tokyocowboy.co/articles/doai-eki-japans-creepiest-station">日本最恐怖的车站</a></p>
+<p>日本群马县和新潟县交界处的土合站，是一个无人值守的车站，被称为最恐怖的火车站。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025082612.webp"></p>
+<p>该车站位于山腹之中，从大门进来以后，要向山体内往下步行，整整462级、长338米的台阶（下图），才能来到站台。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025082613.webp"></p>
+<p>站台也是阴森森的，还能听到地下流水潺潺的声音。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025082614.webp"></p>
+<p>站台上只有一间小小的候车室和厕所。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025082615.webp"></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025082616.webp"></p>
+<p>候车室里面留有纸笔，供游客留言和贴照片，也是为了消磨时间。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025082617.webp"></p>
+<p>墙上的匿名留言和照片，进一步给这个洞穴般的车站增添了诡异的氛围，仿佛置身于《寂静岭》之中。</p>
+<h2 id="文摘"><a href="#文摘" class="headerlink" title="文摘"></a>文摘</h2><p>1、<a target="_blank" rel="noopener" href="https://desunit.com/blog/in-the-long-run-llms-make-us-dumber/">不适感让你变强大</a></p>
+<p>有一本畅销书曾经提出“兴奋效应”（hormesis）这个概念。它指的是少量的压力或不适感，会让我们变得更强大。</p>
+<ul>
+<li>练习举重，肌肉可以增长。</li>
+<li>接种疫苗，免疫力可以增加。</li>
+<li>承担失败的风险，信心会增长。</li>
+<li>通过解决难题，创造力得以扩展。</li>
+</ul>
+<p>这种“兴奋效应”也适用于大脑，经常思考困难的问题，让思想经受考验，你才能学会思考。</p>
+<p>但是，现在有了 AI，很多人就把问题交给 AI 去思考，让自己的大脑歇着。我担心，久而久之，我们会一步步丧失思考能力，直至变成生物傀儡。</p>
+<p>最近有一项研究，科学家让参与者完全依靠 AI 来写论文，结果83％的人在写完后不久，无法引用自己论文中的任何内容。即使稍后让这些人重新独立写作论文，他们也会表现出大脑神经活动减少和无法完全投入思考，总是习惯性寻求 AI 的帮助。</p>
+<p>研究人员创造出了“认知债务”这个词来描述这种现象：AI 确实带来了便利，但代价是牺牲我们的思考能力。</p>
+<p>机器借给你脑力，你需要付出利息——你自身的思维能力。</p>
+<p>我的建议是，明智地使用 AI，不要让它帮你解数学方程式，而要让它查看你的答案，来解释你可能错在哪里。你的原则是坚持独立思考，在这个基础上再加入 AI。</p>
+<p>思考可能会让你觉得很累、不舒服，但它是你大脑的训练场，不适感让你的思考变得更强大。</p>
+<h2 id="言论"><a href="#言论" class="headerlink" title="言论"></a>言论</h2><p>1、</p>
+<p>我认为台积电是人类史上最好的公司之一，任何想买台积电股票的都是非常聪明的人。</p>
+<p>– Nvidia 董事长黄仁勋，台湾记者问他怎么看待美国政府可能入股台积电。他做了上面的回答，谁也不得罪，而且听了都很开心，他太会说话了。</p>
+<p>2、</p>
+<p>分布式系统，不是指系统分布在不同计算机，而是指系统包含两个或两个以上交互的进程，无论它们是否位于同一主机上。</p>
+<p>– <a target="_blank" rel="noopener" href="https://notes.eatonphil.com/2025-08-09-what-even-is-distributed-systems.html">《什么是分布式系统》</a></p>
+<p>3、</p>
+<p>大模型是压缩信息的一种方式，即使不精确、有幻觉和遗漏，也比什么都没有要好。大模型已经是一个可用的、公开的、有损的互联网压缩视图。</p>
+<p>– <a target="_blank" rel="noopener" href="https://antirez.com/news/147">《大模型的权重是历史的一部分》</a></p>
+<p>4、</p>
+<p>以前，编写软件好于手工操作；现在，编写 AI 提示好于编写软件。</p>
+<p>– <a target="_blank" rel="noopener" href="https://www.gibney.org/prompt_coding">《提示式编程》</a></p>
+<p>5、</p>
+<p>whisper-large-v3 模型将中文视频的语音转成文字时，遇到静音的片段，会自动生成文字“仅供学习&#x2F;研究，请在48小时后删除”，这说明它是用字幕组的字幕文件训练的。</p>
+<p>– <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=44643922">Hacker News 读者</a></p>
+<h2 id="往年回顾"><a href="#往年回顾" class="headerlink" title="往年回顾"></a>往年回顾</h2><p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2024/09/weekly-issue-316.html">你一生的故事</a>（#316）</p>
+<p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2023/08/weekly-issue-266.html">自己做双语 EPUB 电子书</a>（#266）</p>
+<p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2022/07/weekly-issue-216.html">极简主义的胜利</a>（#216）</p>
+<p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2021/07/weekly-issue-166.html">视频学习胜过读书吗？</a>（#166）</p>
+<p>（完）</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%A7%91%E6%8A%80/" rel="tag"># 科技</a>
+              <a href="/tags/%E5%91%A8%E5%88%8A/" rel="tag"># 周刊</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/weekly/weekly-364/" rel="prev" title="科技爱好者周刊（第 364 期）：最难还原的魔方">
+                  <i class="fa fa-angle-left"></i> 科技爱好者周刊（第 364 期）：最难还原的魔方
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/weekly/weekly-362/" rel="next" title="科技爱好者周刊（第 362 期）：GitHub 工程师谈系统设计">
+                  科技爱好者周刊（第 362 期）：GitHub 工程师谈系统设计 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">jettleland</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

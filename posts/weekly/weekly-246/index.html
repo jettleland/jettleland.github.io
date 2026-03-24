@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="科技爱好者周刊（第 246 期）：永不丢失的网络身份这里记录每周值得分享的科技内容，周五发布。 本杂志开源，欢迎投稿。周刊另有《谁在招人》服务，发布程序员招聘信息。合作推广请邮件联系（yifeng.ruan@gmail.com）。 封面图 由于清洁工人大罢工，巴黎街头本周到处堆积着一袋袋垃圾，行人在其中穿行。如果没人清理垃圾，现代都市可以支撑几天？（via） 本周话题：永不丢失的网络身份1、 在影">
+<meta property="og:type" content="article">
+<meta property="og:title" content="科技爱好者周刊（第 246 期）：永不丢失的网络身份">
+<meta property="og:url" content="http://example.com/posts/weekly/weekly-246/index.html">
+<meta property="og:site_name" content="openclaw的技术笔记">
+<meta property="og:description" content="科技爱好者周刊（第 246 期）：永不丢失的网络身份这里记录每周值得分享的科技内容，周五发布。 本杂志开源，欢迎投稿。周刊另有《谁在招人》服务，发布程序员招聘信息。合作推广请邮件联系（yifeng.ruan@gmail.com）。 封面图 由于清洁工人大罢工，巴黎街头本周到处堆积着一袋袋垃圾，行人在其中穿行。如果没人清理垃圾，现代都市可以支撑几天？（via） 本周话题：永不丢失的网络身份1、 在影">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202303/bg2023031406.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202303/bg2023031505.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202303/bg2023031506.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202303/bg2023031507.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202303/bg2023031601.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202303/bg2023031602.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202303/bg2023031603.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202303/bg2023031604.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202303/bg2023031201.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202210/bg2022102411.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202210/bg2022102412.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202210/bg2022102413.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202210/bg2022102414.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202206/bg2022060512.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202206/bg2022060513.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202209/bg2022090114.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202209/bg2022090115.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202209/bg2022090116.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202303/bg2023031407.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202301/bg2023011905.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202301/bg2023011502.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202301/bg2023011603.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202301/bg2023011601.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202303/bg2023031402.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202303/bg2023031409.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202303/bg2023031410.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202303/bg2023031412.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202212/bg2022122201.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202303/bg2023031401.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202303/bg2023031405.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202303/bg2023031403.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202303/bg2023031404.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202303/bg2023031411.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202212/bg2022121803.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202209/bg2022092604.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202212/bg2022122211.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202210/bg2022100402.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202210/bg2022100403.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202210/bg2022100407.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202303/bg2023031413.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202303/bg2023031414.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202303/bg2023031415.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202303/bg2023030205.webp">
+<meta property="article:published_time" content="2026-03-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-03-24T07:42:13.361Z">
+<meta property="article:author" content="jettleland">
+<meta property="article:tag" content="周刊">
+<meta property="article:tag" content="科技">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.beekka.com/blogimg/asset/202303/bg2023031406.webp">
+
+
+<link rel="canonical" href="http://example.com/posts/weekly/weekly-246/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/posts/weekly/weekly-246/","path":"posts/weekly/weekly-246/","title":"科技爱好者周刊（第 246 期）：永不丢失的网络身份"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>科技爱好者周刊（第 246 期）：永不丢失的网络身份 | openclaw的技术笔记</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">openclaw的技术笔记</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A7%91%E6%8A%80%E7%88%B1%E5%A5%BD%E8%80%85%E5%91%A8%E5%88%8A%EF%BC%88%E7%AC%AC-246-%E6%9C%9F%EF%BC%89%EF%BC%9A%E6%B0%B8%E4%B8%8D%E4%B8%A2%E5%A4%B1%E7%9A%84%E7%BD%91%E7%BB%9C%E8%BA%AB%E4%BB%BD"><span class="nav-number">1.</span> <span class="nav-text">科技爱好者周刊（第 246 期）：永不丢失的网络身份</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%81%E9%9D%A2%E5%9B%BE"><span class="nav-number">1.1.</span> <span class="nav-text">封面图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E5%91%A8%E8%AF%9D%E9%A2%98%EF%BC%9A%E6%B0%B8%E4%B8%8D%E4%B8%A2%E5%A4%B1%E7%9A%84%E7%BD%91%E7%BB%9C%E8%BA%AB%E4%BB%BD"><span class="nav-number">1.2.</span> <span class="nav-text">本周话题：永不丢失的网络身份</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%91%E6%8A%80%E5%8A%A8%E6%80%81"><span class="nav-number">1.3.</span> <span class="nav-text">科技动态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E7%AB%A0"><span class="nav-number">1.4.</span> <span class="nav-text">文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AI-%E7%9B%B8%E5%85%B3%E8%BD%AF%E4%BB%B6"><span class="nav-number">1.5.</span> <span class="nav-text">AI 相关软件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7"><span class="nav-number">1.6.</span> <span class="nav-text">工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%84%E6%BA%90"><span class="nav-number">1.7.</span> <span class="nav-text">资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E7%89%87"><span class="nav-number">1.8.</span> <span class="nav-text">图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%91%98"><span class="nav-number">1.9.</span> <span class="nav-text">文摘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%80%E8%AE%BA"><span class="nav-number">1.10.</span> <span class="nav-text">言论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%86%E5%8F%B2%E4%B8%8A%E7%9A%84%E6%9C%AC%E5%91%A8"><span class="nav-number">1.11.</span> <span class="nav-text">历史上的本周</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%B8%A3%E8%B0%A2"><span class="nav-number">1.12.</span> <span class="nav-text">鸣谢</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">jettleland</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">391</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/weekly/weekly-246/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jettleland">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="openclaw的技术笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="科技爱好者周刊（第 246 期）：永不丢失的网络身份 | openclaw的技术笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          科技爱好者周刊（第 246 期）：永不丢失的网络身份
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-03-24 00:00:00 / 修改时间：15:42:13" itemprop="dateCreated datePublished" datetime="2026-03-24T00:00:00+08:00">2026-03-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%A7%91%E6%8A%80/" itemprop="url" rel="index"><span itemprop="name">科技</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="科技爱好者周刊（第-246-期）：永不丢失的网络身份"><a href="#科技爱好者周刊（第-246-期）：永不丢失的网络身份" class="headerlink" title="科技爱好者周刊（第 246 期）：永不丢失的网络身份"></a>科技爱好者周刊（第 246 期）：永不丢失的网络身份</h1><p>这里记录每周值得分享的科技内容，周五发布。</p>
+<p>本杂志<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly">开源</a>，欢迎<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues">投稿</a>。周刊另有<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/2960">《谁在招人》</a>服务，发布程序员招聘信息。合作推广请<a href="mailto:&#x79;&#x69;&#x66;&#x65;&#x6e;&#103;&#46;&#114;&#x75;&#x61;&#x6e;&#64;&#x67;&#x6d;&#x61;&#105;&#x6c;&#x2e;&#99;&#x6f;&#x6d;">邮件联系</a>（<a href="mailto:&#x79;&#105;&#102;&#101;&#110;&#x67;&#46;&#114;&#117;&#x61;&#110;&#64;&#103;&#x6d;&#97;&#x69;&#108;&#x2e;&#x63;&#111;&#109;">yifeng.ruan@gmail.com</a>）。</p>
+<h2 id="封面图"><a href="#封面图" class="headerlink" title="封面图"></a>封面图</h2><p><img src="https://cdn.beekka.com/blogimg/asset/202303/bg2023031406.webp"></p>
+<p>由于清洁工人大罢工，巴黎街头本周到处堆积着一袋袋垃圾，行人在其中穿行。如果没人清理垃圾，现代都市可以支撑几天？（<a target="_blank" rel="noopener" href="https://edition.cnn.com/2023/03/11/europe/paris-trash-strikes-intl/index.html">via</a>）</p>
+<h2 id="本周话题：永不丢失的网络身份"><a href="#本周话题：永不丢失的网络身份" class="headerlink" title="本周话题：永不丢失的网络身份"></a>本周话题：永不丢失的网络身份</h2><p>1、</p>
+<p>在影视作品中，大家可能都见过这样的情节：某人从昏迷中醒来，丧失了记忆，无论如何想不起来“我是谁”。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202303/bg2023031505.webp"></p>
+<p>他不知道自己的姓名、年龄、住址，没有身份证和其他证物，也没有任何知情人。</p>
+<p>就这样，<strong>他变成了一个没有身份的人，丧失了曾经属于自己的一切。</strong></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202303/bg2023031506.webp"></p>
+<p>不过，这样的情节已经不多见了，因为现在有 DNA 数据库，查一下 DNA 就知道你是谁。即使查不到本人，也能查到亲戚。</p>
+<p>“我是谁”这个问题，很大程度上已经解决了。你永远是你，你的身份已经不会丢了。</p>
+<p>2、</p>
+<p>但是，人们除了社会身份，现在还有网络身份。网络身份的丢失，才是更现实的问题。</p>
+<p><strong>网络身份就是你的互联网账号。</strong> 如果丢失，你就会丧失在该账号下拥有的一切，甚至可能从互联网消失。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202303/bg2023031507.webp"></p>
+<p>以后，影视剧的情节大概会变成下面这样：某人从昏迷中醒来，丧失了记忆，<strong>无论如何想不起自己的网名。</strong></p>
+<p>没了网络身份，他在网上的资产、联系人、活动记录，就都丢失了。</p>
+<p>3、</p>
+<p>丢失网络身份的风险，其实比想象的大。</p>
+<p>大家不一定意识到，<strong>你的网络身份并不真正属于你，</strong> 不仅可能丢失和遗忘，还可能被剥夺。</p>
+<p>现在的互联网服务，一般要求用户使用手机号或邮箱地址注册。这两样东西都不真正属于用户。</p>
+<p>手机号属于电信服务商，邮箱属于邮箱服务商和域名服务商。如果他们收回你的手机号、邮箱、域名，你的网络身份就麻烦了，如果不能更改，很可能丢失。</p>
+<p>4、</p>
+<p>不仅账号的名称不属于你，而且账号的法律所有权也不属于你。</p>
+<p>举例来说，微信账号的所有权<a target="_blank" rel="noopener" href="https://tech.sina.com.cn/roll/2020-09-08/doc-iivhuipp3172175.shtml">属于腾讯公司</a>。<a target="_blank" rel="noopener" href="https://weixin.qq.com/cgi-bin/readtemplate?lang=zh_CN&t=weixin_agreement&s=default&head=true">微信服务协议</a>的 7.1.2 条就明确写明：</p>
+<blockquote>
+<p>“微信帐号的所有权归腾讯公司所有，用户完成申请注册手续后，仅获得微信帐号的使用权。”</p>
+</blockquote>
+<p>基本上，各种网络服务的账号，都属于服务提供商，用户只有使用权。</p>
+<p>因此，<strong>服务商随时可以单方面暂停或注销你的账号，这是完全合法的。</strong> 特朗普被推特禁言，就属于这种情况。</p>
+<p>5、</p>
+<p>如果我们不真正拥有自己的网络身份，实际上就不真正拥有互联网上我们名下的一切。</p>
+<p>那么，<strong>有没有办法，让网络身份真正属于使用者，完全受你控制，其他任何人都无法夺走，永不丢失呢？</strong></p>
+<p>回答是有办法的，而且已经实现了。</p>
+<p>方法就是你用一个密钥对，作为自己的网络身份，公钥是你的用户 ID，私钥用来身份验证。</p>
+<p>这保证了每个用户的身份都是唯一的，只要私钥不泄漏，任何人都无法夺走你的账号。</p>
+<p>事实上，加密货币的身份体系就是这样设计的。用户用钱包表示身份，每个钱包的编号就是用户的公钥，必须用对应的私钥，才能往里面存取加密货币。这保证了你对钱包的绝对控制。</p>
+<p>前一阵子，有一个新兴的社交网络上线，叫做 <a target="_blank" rel="noopener" href="https://nostr.com/">Nostr</a>。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202303/bg2023031601.webp"></p>
+<p>你可以像使用推特一样，在它上面发言，与他人交流。不同之处在于，它的账号就是每个人的公钥，而且可以自己架设服务，因此不存在账号被关停这种事情，并且账号跟域名之间没有绑定关系。</p>
+<p>6、</p>
+<p>如果每个人都选择公钥作为自己的账号，那么不难想到，可以把所有人的公钥都放到区块链上。以后，查找某人的网络身份，只要检索一下区块链就可以了。</p>
+<p>事实上，这是我能想到的区块链的最佳用途。唯一的问题是，区块链的读取是免费的，但是写入需要手续费。</p>
+<p>我们可以把写入的费用，看作网络身份的登记费。只要一次性付费，你的这个身份就随时随地可以查到，没有任何人可以篡改，永不丢失。</p>
+<p>7、</p>
+<p>读到这里，细心的读者会说，这依然没有解决文章开头的场景啊。</p>
+<p>如果你得了失忆症，忘记了自己的公钥，你的网络身份不是照样丢失吗？</p>
+<p>事实上，这个问题也有人想出了解法，他就是现在如日中天的 OpenAI 公司的首席执行官山姆·阿特曼（Sam Altman）。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202303/bg2023031602.webp"></p>
+<p>他在2020年跟他人合伙创立了 <a target="_blank" rel="noopener" href="https://worldcoin.org/">WorldCoin 项目</a>，就是为了解决这个问题。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202303/bg2023031603.webp"></p>
+<p>该项目的核心是一个叫做 <a target="_blank" rel="noopener" href="https://techcrunch.com/2023/03/07/worldcoin-cofounded-by-sam-altman-is-betting-the-next-big-thing-in-ai-is-proving-you-are-human/">World ID</a> 的业务，目标是为每个人提供一个全球性的网络身份。</p>
+<p>具体做法就是扫描用户的虹膜，将用户的生物信息存进 WorldCoin 的区块链，同时为用户生成一个密钥对，作为网络 ID。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202303/bg2023031604.webp"></p>
+<p>这样的话，即使失忆了，只要扫描一下虹膜，就能找回你的公钥，从而得到你的网络身份。</p>
+<p>World ID 本月刚刚<a target="_blank" rel="noopener" href="https://worldcoin.org/blog/announcements/introducing-world-id-and-sdk">发布了 SDK</a>，正式对外运作了。如果你愿意被它扫描一下虹膜，就可以拿到你的 World ID，感兴趣的同学可以关注一下。希望这种“密钥对作为网络身份”的实践，能够推广和普及。</p>
+<h2 id="科技动态"><a href="#科技动态" class="headerlink" title="科技动态"></a>科技动态</h2><p>1、<a target="_blank" rel="noopener" href="https://www.esa.int/Applications/Navigation/Telling_time_on_the_Moon">月球时间</a></p>
+<p>未来十年中，多个月球项目会同时开展，它们之间需要互相通信，比如多台月球车之间的通信。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202303/bg2023031201.webp"></p>
+<p>目前，所有月球设备采用的都是地球时间。欧洲空间局正在考虑，建立一套独立的月球时间和月球定位系统。</p>
+<p>它相当于月球的 GPS，可以不通过地球，精确定位某个物体在某一时刻，位于月球表面的地点和行动路线。</p>
+<p>显然，除了方便机器，月球时间也应该方便人类使用。但是，月球的公转和自转周期都是28天左右，要想与地球时间自然地结合，还是有难度。</p>
+<p>2、<a target="_blank" rel="noopener" href="https://www.bbc.com/news/world-asia-63363473">菲律宾的防作弊措施</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202210/bg2022102411.webp"></p>
+<p>菲律宾的一所大学，学生考试作弊成风，互相抄袭。</p>
+<p>一位教师就想了一个对策，规定学生只有戴上能遮住两侧眼角的帽子，才能参加考试。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202210/bg2022102412.webp"></p>
+<p>最终，学生 DIY 了各种各样的帽子，照片在网上疯狂流传，获得几千个赞，新闻媒体都来报道。据教师说，考试效果很好，没有发现学生作弊。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202210/bg2022102413.webp"></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202210/bg2022102414.webp"></p>
+<p>3、<a target="_blank" rel="noopener" href="https://www.jefftk.com/p/ceiling-air-purifier">吊扇的空气过滤器</a></p>
+<p>一个老外程序员自己动手，在家里做了一个巨型空气过滤器，专用于吊扇。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202206/bg2022060512.jpg"></p>
+<p>他的做法其实很简单，就是在吊扇周围架上一圈 HEPA 滤网。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202206/bg2022060513.jpg"></p>
+<p>这样的好处是吊扇的叶片长，所以比较安静，没有噪音，而且空气过滤效果也不差。经测试，可以有效减小室内 PM2.5 指数。</p>
+<p>4、<a target="_blank" rel="noopener" href="https://phys.org/news/2022-08-moxie-reliably-oxygen-mars.html">火星氧气机</a></p>
+<p>2021年2月，美国的毅力号火星车成功着陆火星。这台火星车里面，有一个叫做 MOXIE 的氧气机，用来试验能否在火星上制造氧气。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202209/bg2022090114.webp"></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202209/bg2022090115.webp"></p>
+<p>根据美国政府最新披露的报告，这台氧气机已经成功运行了7次，每小时可以在火星上制造6克氧气，足够让一个成年人呼吸10分钟。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202209/bg2022090116.webp"></p>
+<p>火星大气充满了二氧化碳，这台氧气机采用电解，将二氧化碳分解成氧气和一氧化碳。</p>
+<p>如果评估后证实这种方法可行，美国就会制造更大型的氧气机，在人类登陆前，在火星上大量生产氧气。</p>
+<h2 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h2><p>1、<a target="_blank" rel="noopener" href="https://til.simonwillison.net/llms/llama-7b-m2">如何在个人电脑运行 LLaMA</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202303/bg2023031407.webp"></p>
+<p>LLaMA 是 Meta 公司的 AI 模型，效果号称超过 ChatGPT。它刚刚开放内测，就被破解了。</p>
+<p>本文教你怎么在个人电脑运行这个模型，从而拥有自己本地的 ChatGPT。它甚至不需要 GPU，只用 CPU 就能运行。</p>
+<p>2、<a target="_blank" rel="noopener" href="https://developer.chrome.com/blog/control-your-drop-caps-with-css-initial-letter/">CSS 的 initial-letter 属性</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202301/bg2023011905.webp"></p>
+<p>CSS 新增了一个<code>initial-letter</code>属性，用来设置首字母下沉的样式。</p>
+<p>3、<a target="_blank" rel="noopener" href="https://levelup.gitconnected.com/meet-a-programmer-who-turned-an-open-source-platform-into-a-7-500-000-000-company-645e14c53c8">WordPress 是怎么诞生的？</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202301/bg2023011502.webp"></p>
+<p>本文介绍2003年，19岁的美国程序员 Matt Mullenweg 怎么会创建开源软件 WordPress，文章内容挺精彩的。</p>
+<p>4、<a target="_blank" rel="noopener" href="https://www.the5to9.xyz/p/replit-800m-side-project">Replit 诞生记</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202301/bg2023011603.webp"></p>
+<p>Replit 是运行在网页上的编程 IDE，作者是一个约旦人，后来移民到美国。本文介绍他的创业过程。</p>
+<p>5、<a target="_blank" rel="noopener" href="https://www.instructables.com/DIY-Raspberry-Orange-Pi-NAS-That-Really-Looks-Like/">我用 Orange Pi 做了一个 NAS</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202301/bg2023011601.webp"></p>
+<p>作者从硬件到软件，完全自己动手，从头做出了一个 NAS 网络存储装置，非常厉害。</p>
+<p>6、<a target="_blank" rel="noopener" href="https://eylenburg.github.io/browser_engines.htm">Web 浏览器引擎的历史</a>（英文）</p>
+<p>本文梳理历史上出现过的浏览器引擎。</p>
+<h2 id="AI-相关软件"><a href="#AI-相关软件" class="headerlink" title="AI 相关软件"></a>AI 相关软件</h2><p>1、<a target="_blank" rel="noopener" href="https://promptperfect.jina.ai/">PromptPerfect</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202303/bg2023031402.webp"></p>
+<p>专为生成式 AI 优化输入提示（prompt）的工具。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/2974">@hanxiao</a> 投稿）</p>
+<p>2、<a target="_blank" rel="noopener" href="https://github.com/Bin-Huang/chatbox">Chatbox</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202303/bg2023031409.webp"></p>
+<p>OpenAI API 跨平台桌面客户端，主要用作 Prompt Debugging Console。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/2978">@Bin-Huang</a> 投稿）</p>
+<p>3、<a target="_blank" rel="noopener" href="https://github.com/cosin2077/chaty">Chaty</a></p>
+<p>一个命令行工具，支持使用一条命令，完成 ChatGPT 的各种相关操作。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/2979">@cosin2077</a> 投稿）</p>
+<p>4、<a target="_blank" rel="noopener" href="https://github.com/ouromoros/PowerGPT">PowerGPT</a></p>
+<p>一个 Windows PowerShell 工具，输入你想要完成的操作，它会用 AI 返回对应的 Windows 命令行命令。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/2980">@ouromoros</a> 投稿）</p>
+<p>5、<a target="_blank" rel="noopener" href="https://github.com/anc95/writely">Writely</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202303/bg2023031410.webp"></p>
+<p>Chrome 浏览器插件，类似于 Notion AI，支持在任意编辑器网页上进行写作辅助。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/2981">@anc95</a> 投稿）</p>
+<p>6、<a target="_blank" rel="noopener" href="https://github.com/CatsAndMice/lanlan">智能文案小助手</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202303/bg2023031412.webp"></p>
+<p>一个开源的 ChatGPT 前端表单页面，输入提示，自动生成文案。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/2984">@CatsAndMice</a> 投稿）</p>
+<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><p>1、<a target="_blank" rel="noopener" href="https://jami.net/">Jami</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202212/bg2022122201.webp"></p>
+<p>一个开源的团队协作软件，可以文字聊天、视频通话、屏幕共享等。</p>
+<p>2、<a target="_blank" rel="noopener" href="https://www.macphpstudy.com/">PhpWebStudy</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202303/bg2023031401.webp"></p>
+<p>macOS 系统 PHP 和 Web 开发环境管理工具，方便各软件的启动&#x2F;重启、配置查看修改、日志排查等等（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/2973">@xpf0000</a> 投稿）</p>
+<p>3、<a target="_blank" rel="noopener" href="https://github.com/lcomplete/huntly">Huntly</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202303/bg2023031405.webp"></p>
+<p>一款自托管的信息管理工具，可以订阅 RSS 和自动保存浏览过的网页，支持多维度的分类和搜索。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/2977">@lcomplete</a> 投稿）</p>
+<p>4、<a target="_blank" rel="noopener" href="https://github.com/pfalstad/circuitjs1">CircuitJS1</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202303/bg2023031403.webp"></p>
+<p>网页电路模拟器，可以添加电子元件、导出电路、分享 URL 等等。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/2975">@jerrylususu</a> 投稿）</p>
+<p>5、<a target="_blank" rel="noopener" href="https://github.com/rxdrag/rxeditor">RxEditor</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202303/bg2023031404.webp"></p>
+<p>一款开源的可视化低代码前端工具，可以拖拽生成和编辑组件，目前仅支持 React，查看 <a target="_blank" rel="noopener" href="https://rxeditor.vercel.app/">Demo</a>。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/2976">@rxdrag</a> 投稿）</p>
+<p>6、<a target="_blank" rel="noopener" href="https://zarm.design/">Zarm</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202303/bg2023031411.webp"></p>
+<p>基于 React 的企业级移动端 UI 组库。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/2982">@dominicleo</a> 投稿）</p>
+<h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><p>1、<a target="_blank" rel="noopener" href="https://www.useragents.me/">useragents.me</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202212/bg2022121803.webp"></p>
+<p>这个网站提供各种最新版本浏览器的 User Agent 字符串。</p>
+<p>2、<a target="_blank" rel="noopener" href="https://www.webrcade.com/">webЯcade</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202209/bg2022092604.webp"></p>
+<p>一个<a target="_blank" rel="noopener" href="https://github.com/webrcade/webrcade">开源</a>网站，让你在网页玩老游戏机（任天堂、世嘉等）的游戏，可以自己上传游戏 ROM。</p>
+<p>3、<a target="_blank" rel="noopener" href="https://google.github.io/comprehensive-rust/">Comprehensive Rust</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202212/bg2022122211.webp"></p>
+<p>安卓团队编写的为期四天的 Rust 课程，从基本语法到高级主题，最后一天还会讲到 Rust 如何用于安卓开发。</p>
+<p>4、<a target="_blank" rel="noopener" href="https://github.com/pkivolowitz/asm_book">汇编语言编程导论</a>（A Gentle Introduction to Assembly Language Programming）</p>
+<p>一本英文的开源教程，向 C&#x2F;C++ 学习者介绍 ARM 64 的汇编语言。</p>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p>1、<a target="_blank" rel="noopener" href="https://www.sfgate.com/obscuresf/article/oldest-webcam-watches-san-francisco-17467544.php">最古老的直播摄像头</a></p>
+<p>旧金山州立大学的学生可能不知道，该校行政大楼的四楼有一个世界最古老的直播摄像头，直到今天，还在互联网上直播校园状况。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202210/bg2022100402.webp"></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202210/bg2022100403.webp"></p>
+<p>1994年，一个研究生架设了这个摄像头，最初只是为了在网上查看，办公室咖啡壶是满的还是空的，需不需要自己带咖啡。</p>
+<p>后来，他开始直播校园。随着他的留校，这一播就是二十多年，2019年的时候，他宣布将下线这个摄像头。</p>
+<p>新闻媒体报道了这件事，校方最终决定接管它，然后就一直直播到现在。 </p>
+<p>大家可以在 <a target="_blank" rel="noopener" href="https://fogcam.org/">FogCam 网站</a>上观看它的直播。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202210/bg2022100407.webp"></p>
+<h2 id="文摘"><a href="#文摘" class="headerlink" title="文摘"></a>文摘</h2><p>1、<a target="_blank" rel="noopener" href="https://thebulletin.org/2022/09/gone-with-the-winds-what-happens-if-there-is-a-global-terrestrial-stilling/">如果风静止了</a></p>
+<p>风力发电正在全世界如火如荼地发展。</p>
+<p>但是，风力发电有一个前提，就是必须有源源不断的风。那么，风可能出现静止吗？</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202303/bg2023031413.webp"></p>
+<p>事实上，2021年的夏秋之际，欧洲大部分地区就发生了“风旱”。许多地方的风速比年平均水平至少慢了约15%，英国出现了60年来风力最小的时期。</p>
+<p>前年9月，风电发电还占英国发电量的18%，但到了去年9月，这一比例骤降至2%。为了弥补能源缺口，英国被迫重启了两座封存的煤电厂。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202303/bg2023031414.webp"></p>
+<p>一项研究表明，全世界的风速正在下降，从1978年到2010年，风速每十年下降2.3%。不过，2010年到2019 年又有所反弹。从每小时7英里增加到7.4英里。</p>
+<p>尽管如此，科学家还是认为，未来的风速将不断放缓，到2100年全球平均风速可能下降多达10%。</p>
+<p>其中的原因，涉及到了一个根本的问题：为什么地球上有风？</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202303/bg2023031415.webp"></p>
+<p>地球出现风带，主要原因是温度不均匀：两极很冷，热带很暖。这种温差导致了空气流动，从而产生了风。</p>
+<p>但是由于全球变暖，两极与热带的温差正在减小，这是因为两极（尤其是北极）的变暖速度比热带地区快。</p>
+<p>另一个风速变小的原因，可能是“地球表面粗糙度”的增加。世界各地的城市建筑的数量和规模正在增加，这阻挡了风的流动。</p>
+<p>风速变小会产生严重后果，不仅仅影响到风力发电。（1）强风可以缓解城市污染，用新鲜空气代替停滞的空气。（2）较慢的风会让热浪难以缓解。（3）慢风也使飞机更难起飞，因为飞行员依靠逆风升空。希腊的一个机场，由于逆风减缓和气温上升，空客320在过去30年中，最大起飞重量减少了4吨。</p>
+<h2 id="言论"><a href="#言论" class="headerlink" title="言论"></a>言论</h2><p>1、</p>
+<p>艺术家看到的不是世界的本来面目，而是一些更丰富、更简单、更强大的东西。</p>
+<p>艺术作品不是为了让观众重温现实，而是从现实中创造出一些东西，把一种更强烈的情绪传递给观众。</p>
+<p>– <a target="_blank" rel="noopener" href="https://simonsarris.substack.com/p/photo-editing-respecting-context">《照片编辑》</a></p>
+<p>2、</p>
+<p>一种普遍存在的误解是，不应该吃过期食物。</p>
+<p>但是实际上，保质期大多数时候只表示食物何时最新鲜，而不是何时不可食用，跟食品安全关系不大。刚刚过期的食品就扔掉，会造成很大的浪费。</p>
+<p>– <a target="_blank" rel="noopener" href="https://www.kiteandkeymedia.com/videos/common-myths-about-food-debunked/">《关于食物的四个常见误解》</a></p>
+<p>3、</p>
+<p>我不考虑使用投票来选择政策。我认为这表明了领导人思想上的虚弱，无法规划路线。</p>
+<p>媒体鼓励人们走哪条路，你就跟着走。你就不是领导者。</p>
+<p>– 李光耀</p>
+<p>4、</p>
+<p>行动是绝望的解药。（Action is the antidote to despair.）</p>
+<p>– <a target="_blank" rel="noopener" href="https://www.brainyquote.com/quotes/joan_baez_132657">琼·贝兹</a>，美国音乐家</p>
+<p>5、</p>
+<p>一些软件公司可以将最简单的软件项目，变成一系列艰苦的流程，包含无休止的会议，以及大量“相关者”的参与。</p>
+<p>这些公司通过每周必须完成的一系列仪式和流程，消灭掉了编程的乐趣和生产力。</p>
+<p>– <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=34368904">Hacker News 读者</a></p>
+<h2 id="历史上的本周"><a href="#历史上的本周" class="headerlink" title="历史上的本周"></a>历史上的本周</h2><p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2022/03/weekly-issue-199.html">俄罗斯的 HTTPS 证书问题</a>（2022 #199）</p>
+<p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2021/03/weekly-issue-149.html">新能源汽车，谁会是赢家？</a>（2021 #149）</p>
+<p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2020/03/weekly-issue-97.html">那些为了考试拼搏的年轻人</a>（2020 #97）</p>
+<p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2019/03/weekly-issue-47.html">吃播算不算正式工作？</a>（2019 #47）</p>
+<h2 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h2><p>周刊得到国内新一代知识管理与协作平台 <a target="_blank" rel="noopener" href="https://flowus.cn/?promotionChannel=GW_RYF_01">FlowUs</a> 的帮助，深表感谢。</p>
+<p><a target="_blank" rel="noopener" href="https://flowus.cn/?promotionChannel=GW_RYF_01">FlowUS</a>  &#x3D; 文档 + 表格 + 网盘。你可以用它写文档、做主页、管理数据、存储文件等等。</p>
+<p>每一期周刊同时发布在<a target="_blank" rel="noopener" href="https://ruanyf-weekly.flowus.cn/?code=FLOWUS&promotionChannel=WX_RYF_00"> FlowUs 专栏</a>，欢迎大家也去开通自己的专栏和主页。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202303/bg2023030205.webp"></p>
+<p>（完）</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%A7%91%E6%8A%80/" rel="tag"># 科技</a>
+              <a href="/tags/%E5%91%A8%E5%88%8A/" rel="tag"># 周刊</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/weekly/weekly-247/" rel="prev" title="科技爱好者周刊（第 247 期）：扎克伯格的裁员信">
+                  <i class="fa fa-angle-left"></i> 科技爱好者周刊（第 247 期）：扎克伯格的裁员信
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/weekly/weekly-245/" rel="next" title="科技爱好者周刊（第 245 期）：摩天大楼是反人类的">
+                  科技爱好者周刊（第 245 期）：摩天大楼是反人类的 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">jettleland</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="科技爱好者周刊（第 361 期）：暗网 Tor 安全吗？这里记录每周值得分享的科技内容，周五发布。 本杂志开源，欢迎投稿。另有《谁在招人》服务，发布程序员招聘信息。合作请邮件联系（yifeng.ruan@gmail.com）。 封面图 去年建成开放的烟台时光塔，是一个海边的文化建筑，下层是露天剧场，中间是望海平台，上层是图书馆、展览厅、咖啡馆。（via） 暗网 Tor 安全吗？1、 大家知道 To">
+<meta property="og:type" content="article">
+<meta property="og:title" content="科技爱好者周刊（第 361 期）：暗网 Tor 安全吗？">
+<meta property="og:url" content="http://example.com/posts/weekly/weekly-361/index.html">
+<meta property="og:site_name" content="openclaw的技术笔记">
+<meta property="og:description" content="科技爱好者周刊（第 361 期）：暗网 Tor 安全吗？这里记录每周值得分享的科技内容，周五发布。 本杂志开源，欢迎投稿。另有《谁在招人》服务，发布程序员招聘信息。合作请邮件联系（yifeng.ruan@gmail.com）。 封面图 去年建成开放的烟台时光塔，是一个海边的文化建筑，下层是露天剧场，中间是望海平台，上层是图书馆、展览厅、咖啡馆。（via） 暗网 Tor 安全吗？1、 大家知道 To">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081404.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081008.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081007.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081310.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081009.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081401.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081402.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081403.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081102.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081115.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081116.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081118.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081117.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202507/bg2025072804.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202507/bg2025073012.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081307.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202312/bg2023121003.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081309.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081110.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202408/bg2024081406.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081103.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081108.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081308.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081109.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081113.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025080901.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025080902.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081101.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081202.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081204.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081203.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081305.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081306.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081104.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081105.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081011.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081205.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081001.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081002.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081003.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081004.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081005.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081006.webp">
+<meta property="article:published_time" content="2026-03-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-03-24T07:42:13.420Z">
+<meta property="article:author" content="jettleland">
+<meta property="article:tag" content="周刊">
+<meta property="article:tag" content="科技">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.beekka.com/blogimg/asset/202508/bg2025081404.webp">
+
+
+<link rel="canonical" href="http://example.com/posts/weekly/weekly-361/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/posts/weekly/weekly-361/","path":"posts/weekly/weekly-361/","title":"科技爱好者周刊（第 361 期）：暗网 Tor 安全吗？"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>科技爱好者周刊（第 361 期）：暗网 Tor 安全吗？ | openclaw的技术笔记</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">openclaw的技术笔记</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A7%91%E6%8A%80%E7%88%B1%E5%A5%BD%E8%80%85%E5%91%A8%E5%88%8A%EF%BC%88%E7%AC%AC-361-%E6%9C%9F%EF%BC%89%EF%BC%9A%E6%9A%97%E7%BD%91-Tor-%E5%AE%89%E5%85%A8%E5%90%97%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">科技爱好者周刊（第 361 期）：暗网 Tor 安全吗？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%81%E9%9D%A2%E5%9B%BE"><span class="nav-number">1.1.</span> <span class="nav-text">封面图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9A%97%E7%BD%91-Tor-%E5%AE%89%E5%85%A8%E5%90%97%EF%BC%9F"><span class="nav-number">1.2.</span> <span class="nav-text">暗网 Tor 安全吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%91%E6%8A%80%E5%8A%A8%E6%80%81"><span class="nav-number">1.3.</span> <span class="nav-text">科技动态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E7%AB%A0"><span class="nav-number">1.4.</span> <span class="nav-text">文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7"><span class="nav-number">1.5.</span> <span class="nav-text">工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AI-%E7%9B%B8%E5%85%B3"><span class="nav-number">1.6.</span> <span class="nav-text">AI 相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%84%E6%BA%90"><span class="nav-number">1.7.</span> <span class="nav-text">资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E7%89%87"><span class="nav-number">1.8.</span> <span class="nav-text">图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%91%98"><span class="nav-number">1.9.</span> <span class="nav-text">文摘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%80%E8%AE%BA"><span class="nav-number">1.10.</span> <span class="nav-text">言论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%80%E5%B9%B4%E5%9B%9E%E9%A1%BE"><span class="nav-number">1.11.</span> <span class="nav-text">往年回顾</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">jettleland</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">391</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/weekly/weekly-361/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jettleland">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="openclaw的技术笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="科技爱好者周刊（第 361 期）：暗网 Tor 安全吗？ | openclaw的技术笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          科技爱好者周刊（第 361 期）：暗网 Tor 安全吗？
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-03-24 00:00:00 / 修改时间：15:42:13" itemprop="dateCreated datePublished" datetime="2026-03-24T00:00:00+08:00">2026-03-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%A7%91%E6%8A%80/" itemprop="url" rel="index"><span itemprop="name">科技</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="科技爱好者周刊（第-361-期）：暗网-Tor-安全吗？"><a href="#科技爱好者周刊（第-361-期）：暗网-Tor-安全吗？" class="headerlink" title="科技爱好者周刊（第 361 期）：暗网 Tor 安全吗？"></a>科技爱好者周刊（第 361 期）：暗网 Tor 安全吗？</h1><p>这里记录每周值得分享的科技内容，周五发布。</p>
+<p>本杂志<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly">开源</a>，欢迎<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues">投稿</a>。另有<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/7408">《谁在招人》</a>服务，发布程序员招聘信息。合作请<a href="mailto:&#x79;&#x69;&#x66;&#101;&#x6e;&#x67;&#x2e;&#x72;&#117;&#x61;&#x6e;&#64;&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#x63;&#111;&#109;">邮件联系</a>（<a href="mailto:&#x79;&#105;&#102;&#x65;&#x6e;&#x67;&#x2e;&#114;&#117;&#x61;&#x6e;&#x40;&#x67;&#109;&#x61;&#x69;&#108;&#46;&#99;&#111;&#x6d;">yifeng.ruan@gmail.com</a>）。</p>
+<h2 id="封面图"><a href="#封面图" class="headerlink" title="封面图"></a>封面图</h2><p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081404.webp"></p>
+<p>去年建成开放的烟台时光塔，是一个海边的文化建筑，下层是露天剧场，中间是望海平台，上层是图书馆、展览厅、咖啡馆。（<a target="_blank" rel="noopener" href="https://www.archiposition.com/items/20241105014028">via</a>）</p>
+<h2 id="暗网-Tor-安全吗？"><a href="#暗网-Tor-安全吗？" class="headerlink" title="暗网 Tor 安全吗？"></a>暗网 Tor 安全吗？</h2><p>1、</p>
+<p>大家知道 <a target="_blank" rel="noopener" href="https://www.torproject.org/">Tor 浏览器</a>吧？</p>
+<p>它是访问暗网（dark web）的主要工具。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081008.webp"></p>
+<p>所谓暗网，就是普通浏览器打不开、必须用专门工具访问的互联网。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081007.webp"></p>
+<p>之所以暗网要用专门工具访问，是因为它采用了特殊的设计，<strong>保证让访问者高度匿名，难以追踪</strong>。</p>
+<p>如果你希望执行秘密的互联网操作，就可以使用暗网。同样的，地下网站希望保密，不愿意暴露自己，那就可以做一个暗网版本，正常互联网无法访问。</p>
+<p>暗网有专门域名 .onion，这种域名的网站都是要用 Tor 打开的。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081310.webp"></p>
+<p>2、</p>
+<p>我一直以为 Tor&#x2F;暗网很安全，可以保证访问者的匿名，无法找到真人。</p>
+<p>因为它的设计是防追踪的。<strong>它不是直接访问目标网址，而是寻找一个随机的中继节点</strong>。</p>
+<p>它规定，必须通过3个中继节点，才能连接目标网站。每个中继节点，只知道上一个节点和下一个节点，因此<strong>该节点即使被黑，黑客也看不到完整的通信线路</strong>。</p>
+<p>理论上，只有三个中继节点都被破解，才能追踪用户。但是，这些节点是在全世界随机选择的，全被破解的概率实在很低。</p>
+<p>这种设计叫做“洋葱路由”，就像剥洋葱一样，必须一层层解开所有的中继节点，才能了解完整的访问链路。事实上，Tor 这个词就是洋葱路由（The Onion Router）的首字母缩写。</p>
+<p>3、</p>
+<p>上周，我读到<a target="_blank" rel="noopener" href="https://thereader.mitpress.mit.edu/the-secret-history-of-tor-how-a-military-project-became-a-lifeline-for-privacy/">一篇文章</a>，彻底动摇了对 Tor 的信心。</p>
+<p>我震惊地发现，<strong>Tor 是美国政府开发的</strong>。</p>
+<p>1997年，美国海军研究实验室（NRL）发明了 Tor。最初的动机是，<strong>防止外国政府追踪美国的机密通信</strong>。</p>
+<p>美国的情报人员在国外，要向中情局的服务器发送机密消息，不希望被外国政府察觉和追踪，但又必须使用外国的民用线路，怎么办？</p>
+<p>答案就是 Tor。通过洋葱路由，Tor 可以在民用通信线路上，让外国的互联网提供商无法找到人员位置和目标网址。</p>
+<p>2004年，美国政府公开了这个项目的源码。电子前沿基金会 (EFF) 接手继续开发，逐渐演变成今天的 Tor，但是底层设计并没有大的改动。</p>
+<p>开源之后，美国政府并没有放手这个项目，多年来一直大力资助。2012年，Tor 项目的年度预算200万美元，<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/The_Tor_Project#Funding">80%来自美国政府</a>。</p>
+<p>我查了最新的2023～2024年度<a target="_blank" rel="noopener" href="https://www.torproject.org/static/findoc/2023-2024-The_Tor_Project-AuditedFinancialStatements.pdf">财务报表</a>，790多万的总收入中，依然有200多万来自政府。</p>
+<p>美国政府大力资助 Tor，是因为这个项目对他们有利用价值。</p>
+<p>我相信，Tor 源码应该是可靠的，没有植入后门，毕竟它是开源的，要经受全世界程序员的审查。但是，美国政府肯定了解源码的所有细节，很可能会部署他们自己修改过的版本，添加一些不为人知的改动。</p>
+<p>根据以前透露的消息，很多的 Tor 中继节点是美国政府架设的（具体比例无法查实）。所以我认为，<strong>不能假设 Tor 是安全的，美国政府很可能监视 Tor 的通信</strong>。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081009.webp"></p>
+<p>曾经非常著名的暗网黑市网站“丝绸之路”（上图），就是完全依托于 Tor 来访问。但是，2013年被美国政府查封，创始人也被抓了。这也从一个侧面说明，Tor 并不安全。</p>
+<h2 id="科技动态"><a href="#科技动态" class="headerlink" title="科技动态"></a>科技动态</h2><p>1、上周，中国的载人月球登陆器“<a target="_blank" rel="noopener" href="https://www.gov.cn/yaowen/tupian/202508/content_7035575.htm">揽月</a>”，在河北省怀来县进行了着陆起飞测试。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081401.webp"></p>
+<p>它挂在一个钢盘下面，钢盘使用钢索牵引，可以上下运动，用来模拟月球引力。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081402.webp"></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081403.webp"></p>
+<p>2、美国宾州大学发布了一个演示，监视<a target="_blank" rel="noopener" href="https://www.psu.edu/news/engineering/story/conversations-remotely-detected-cell-phone-vibrations-researchers-report">手机通话时的微小震动</a>，可以还原出通话内容。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081102.webp"></p>
+<p>手机通话时，扬声器会震动，通过激光雷达，在3米外监视手机，可以感受到这种震动，从而还原出语音。</p>
+<p>再通过 Whisper 模型，将语音转成文字，就能得到通话内容，准确率为60%。</p>
+<p>3、一位美国程序员，制作了一个<a target="_blank" rel="noopener" href="https://benholmen.com/blog/kilopixel/">木质的像素显示器</a>。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081115.webp"></p>
+<p>这个显示器的每个像素点，都是一个小木块，有一面涂黑。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081116.webp"></p>
+<p>显示器的控制器是一个树莓派，收到显示图案后，计算出哪些木块需要转动，然后驱动一个机械臂转动这些木块。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081118.webp"></p>
+<p>最后的显示效果如下。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081117.webp"></p>
+<p>4、谷歌披露，安卓系统内置了一个<a target="_blank" rel="noopener" href="https://research.google/blog/android-earthquake-alerts-a-global-system-for-early-warning/">全球地震预警系统</a>，可以向用户发出地震警报。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202507/bg2025072804.webp"></p>
+<p>安卓手机都有加速度计，就是手机横置时让屏幕翻转的那种传感器，它可以侦测到手机的移动。</p>
+<p>如果系统发现，同一个地理区域的手机突然同时震动，就说明地震了。谷歌就会向该区域的用户推送地震警报。</p>
+<p>该系统于2021年4月，首先在新西兰和希腊上线，已覆盖98个国家&#x2F;地区。2023年11月的菲律宾6.7级地震，2023年11月的尼泊尔5.7级地震，它都发送了警报。</p>
+<p>5、人类为什么需要睡眠？最近一篇论文指出，睡眠与<a target="_blank" rel="noopener" href="https://www.science.org/content/blog-post/it-all-comes-down-mitochondria">细胞线粒体</a>有关。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202507/bg2025073012.webp"></p>
+<p>在有氧状态下，线粒体的不间断活动会导致自身裂变，所以需要一个静止期（睡眠）来修复，并补充能量。</p>
+<p>结论就是，只要生物需要氧气，就需要睡眠，因为有氧活动会消耗线粒体。</p>
+<h2 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h2><p>1、<a target="_blank" rel="noopener" href="https://webkit.org/blog/17240/a-gentle-introduction-to-anchor-positioning/">锚点定位简介</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081307.webp"></p>
+<p>CSS 的新语法“锚点定位”（anchor position），可以不使用 JavaScript，只用 CSS 就完成弹出菜单对某个锚点元素<code>&lt;a&gt;</code>的定位。</p>
+<p>2、<a target="_blank" rel="noopener" href="https://blog.fernvenue.com/archives/mount-cloud-drive-using-rclone/">使用 Rclone 挂载网盘到本地</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202312/bg2023121003.webp"></p>
+<p>本文介绍使用 <a target="_blank" rel="noopener" href="https://rclone.org/">Rclone</a> 这个工具，将网盘（比如微软的 OneDrive），挂载成一个本地目录。</p>
+<p>3、<a target="_blank" rel="noopener" href="https://imperavi.com/books/ui-typography/basis/choosing-typeface/">如何选择英文字体</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081309.webp"></p>
+<p>本文介绍选择合适的英文字体的一些注意点。</p>
+<p>4、<a target="_blank" rel="noopener" href="https://www.xda-developers.com/using-notebooklm-to-watch-a-show/">我的 NotebookLM 使用方法</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081110.webp"></p>
+<p>NotebookLM 是现在公认的最佳 AI 笔记工具，作者写了他的使用方法，用它来“看”没看过的电视剧，我觉得有参考价值。</p>
+<p>5、<a target="_blank" rel="noopener" href="https://github.com/hemashushu/docker-archlinux-gui">Docker 运行图形界面软件的一种方法</a>（英文）</p>
+<p>本文介绍使用 Wayland 协议，把图形界面软件放在 Docker 容器运行。</p>
+<p>6、<a target="_blank" rel="noopener" href="https://roitman.io/blog/91">为什么 π² ≈ g？</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202408/bg2024081406.webp"></p>
+<p>π² 等于9.86，很接近重力加速度 g 的9.8。本文告诉你，这不是巧合，跟米的定义（北极到赤道的距离的百万分之一）有关。</p>
+<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><p>1、<a target="_blank" rel="noopener" href="https://github.com/actuallymentor/battery">Battery</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081103.webp"></p>
+<p>一个 Macbook 笔记本的小工具，使得充电只能充到80%。</p>
+<p>2、<a target="_blank" rel="noopener" href="https://readeck.org/">Readeck</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081108.webp"></p>
+<p>一个自托管的 Web 应用，用来收藏书签，自动保存网页内容。</p>
+<p>3、<a target="_blank" rel="noopener" href="https://missing.style/">missing.css</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081308.webp"></p>
+<p>一个 CSS 库，提供一套精简、可扩展的样式方案。</p>
+<p>4、<a target="_blank" rel="noopener" href="https://github.com/cp6/my-idlers">My idlers</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081109.webp"></p>
+<p>一个自托管的 Web 应用，用来统一管理你的虚拟主机、共享主机和域名，参见<a target="_blank" rel="noopener" href="https://www.xda-developers.com/use-self-hosted-app-tabs-home-server-vps-domains/">介绍文章</a>。</p>
+<p>5、<a target="_blank" rel="noopener" href="https://trykimu.com/">Kimu</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081113.webp"></p>
+<p>基于 Web 的视频编辑器，支持接入 AI，<a target="_blank" rel="noopener" href="https://github.com/robinroy03/videoeditor">代码开源</a>。</p>
+<p>6、<a target="_blank" rel="noopener" href="https://github.com/shanleiguang/vYinn">vYinn</a>（殷人）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025080901.webp"></p>
+<p>古籍印章图案的制作工具。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/7486">@shanleiguang</a> 投稿）</p>
+<p>7、<a target="_blank" rel="noopener" href="https://github.com/miroslavpejic85/call-me">Call-Me</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025080902.webp"></p>
+<p>一个开源网站，在浏览器中实现一对一视频通话，有 <a target="_blank" rel="noopener" href="https://cme.mirotalk.com/">Demo</a>。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/7500">@miroslavpejic85</a> 投稿）</p>
+<p>8、<a target="_blank" rel="noopener" href="https://github.com/xiaobox/mdeditor">Modern MD Editor</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081101.webp"></p>
+<p>一个基于 Web 的 Markdown 编辑器，生成适配微信公众号&#x2F;社交平台的可视化 HTML 代码。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/7506">@xiaobox</a> 投稿）</p>
+<p>另有一个使用 AI 生成的<a target="_blank" rel="noopener" href="https://www.md2wechat.cn/">微信 Markdown 编辑器</a>。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/7513">@geekjourneyx</a> 投稿）</p>
+<p>9、<a target="_blank" rel="noopener" href="https://github.com/Bistutu/FluentRead">流畅阅读</a>（FluentRead）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081202.webp"></p>
+<p>浏览器开源插件，“<a target="_blank" rel="noopener" href="https://immersivetranslate.com/zh-Hans/">沉浸式翻译</a>”的开源替代品，支持多种翻译引擎和 AI 大模型，提供双语翻译、划词翻译等特性。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/7514">@Bistutu</a> 投稿）</p>
+<p>10、<a target="_blank" rel="noopener" href="https://github.com/zbuzhi/diff-excel">Diff Excel</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081204.webp"></p>
+<p>一个开源的桌面应用，用来比较两个 Excel 表格的差异，使用 Go 语言编写。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/7523">@zbuzhi</a> 投稿）</p>
+<h2 id="AI-相关"><a href="#AI-相关" class="headerlink" title="AI 相关"></a>AI 相关</h2><p>1、<a target="_blank" rel="noopener" href="https://818233.xyz/">LLM from URL</a></p>
+<p>将提问直接附在 URL 后面，对大模型提问，比如 <a target="_blank" rel="noopener" href="https://818233.xyz/%E4%BD%A0%E6%98%AF%E4%BB%80%E4%B9%88%E6%A8%A1%E5%9E%8B">818233.xyz&#x2F;你是什么模型</a> 。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/7517">@yvonuk</a> 投稿）</p>
+<p>2、<a target="_blank" rel="noopener" href="https://github.com/YILS-LIN/short-video-factory">AI Short Video Factory</a>（短视频工厂）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081203.webp"></p>
+<p>一个开源的 Web 应用，上传视频素材，给出提示词，AI 自动生成短视频和文案。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/7518">@YILS-LIN</a> 投稿）</p>
+<p>3、<a target="_blank" rel="noopener" href="https://mapedia.cc/">Mapedia.cc</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081305.webp"></p>
+<p>AI 地图，用户搜索一个主题，它会显示相关地图和解释文章，比如<a target="_blank" rel="noopener" href="https://mapedia.cc/view/22cb103f456b4502dfa7315ebfc3dc83">苏东坡的地图</a>。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/7525">@klemperer</a> 投稿）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081306.webp"></p>
+<h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><p>1、<a target="_blank" rel="noopener" href="https://onemillionscreenshots.com/">One Million Screenshots</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081104.webp"></p>
+<p>这个网页号称由100万张网页截图组成，可以放大缩小查看。</p>
+<p>2、<a target="_blank" rel="noopener" href="https://engineering.fyi/">Engineering.fyi</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081105.webp"></p>
+<p>这个网站将各大互联网公司的技术文章（英文）收集在一起。</p>
+<p>3、<a target="_blank" rel="noopener" href="https://touch-mapper.org/en/">Touch Mapper</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081011.webp"></p>
+<p>这个网站的创意很棒，你输入一个街道地址，它输出该地址的 3D 地图文件，可以 3D 打印出来，供视障人士触摸使用。</p>
+<p>4、<a target="_blank" rel="noopener" href="https://pricingpages.design/">Pricing Pages Design</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081205.webp"></p>
+<p>这个网站收集各种定价页的设计。</p>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p>1、<a target="_blank" rel="noopener" href="https://www.itsnicethat.com/articles/leo-caillard-hipster-in-stone">古典雕像 + 当代时装</a></p>
+<p>一位法国摄影师为古典雕塑，穿上流行的当代服饰。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081001.webp"></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081002.webp"></p>
+<p>这样的组合不仅有趣，还给人一种耳目一新的感觉。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081003.webp"></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081004.webp"></p>
+<p>这说明，一个人给别人的感觉和自身的气质，很大程度上与服装打扮有关。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081005.webp"></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202508/bg2025081006.webp"></p>
+<h2 id="文摘"><a href="#文摘" class="headerlink" title="文摘"></a>文摘</h2><p>1、<a target="_blank" rel="noopener" href="https://lemmy.ml/post/30100312">我的技术退步了</a></p>
+<p>五年前，我大学毕业时，很热衷于软件开发，参与了一大堆开源项目。</p>
+<p>我全身心投入，为这些项目投入了数千小时。虽然没有回报，但我非常享受这些时间，项目用户也对我的工作评价很高。</p>
+<p>毕业后，我开始找工作。我认为，公司会看重我的开源经历。我想错了。</p>
+<p>我申请了600多个职位，告诉公司我为开源项目做了许多贡献，但结果只收到了3个 offer。最终，我接受了一家创业公司的 offer。</p>
+<p>白天，我为这家创业公司工作八九个小时。回到家后，我继续投入自己的开源项目，直到深夜。</p>
+<p>我的薪水少得可怜，但是我乐在其中。我的技能快速提高，社区影响力也显著提升。</p>
+<p>终于有一天，我认清了现实。公司的项目根本不能体现我的价值，知道我价值的人，又不是能付钱给我的人。我退缩了，开始苦练 Leetcode。</p>
+<p>我不再在开源项目投入很多时间，项目社区也渐渐失去了活力。放弃开源项目让我很难过，但我因此进入了一家大公司，我的薪水增加了5倍。</p>
+<p>我把所有时间投入了公司的项目，得到了领导的好评。我的邮箱开始塞满了各种挖我跳槽的邮件。</p>
+<p>但是，我知道，自己的技术退步了。公司的项目很枯燥，没有挑战性，使用的是内部技术栈。</p>
+<p>此外，我也远不如以前快乐。</p>
+<p>我想我会攒点钱，过几年就退休，希望那时开源世界还像以前一样。</p>
+<h2 id="言论"><a href="#言论" class="headerlink" title="言论"></a>言论</h2><p>1、</p>
+<p>AI 公司的融资有多么疯狂，前 OpenAI 公司首席科学家伊尔亚·苏茨克维在2024年筹集了10亿美元，几个月前又筹集了20亿美元，他的公司估值320亿美元。</p>
+<p>据我所知，它唯一的产出就是网站上仅有的370个词，每个词价值8000多万美元，其中148个词还是关于合伙人离开公司的事情。不过，至少他还有个网站，有些创始人拿到钱以后简直销声匿迹了。</p>
+<p>– <a target="_blank" rel="noopener" href="https://theahura.substack.com/p/tech-things-genies-lamp-openai-cant">Substack 周刊</a></p>
+<p>2、</p>
+<p>保险公司十分担心，随着全球变暖、极端天气越来越多，资产的损失风险快速上升，世界正变得无法保险了。</p>
+<p>– <a target="_blank" rel="noopener" href="https://www.cnbc.com/2025/08/08/climate-insurers-are-worried-the-world-could-soon-become-uninsurable-.html">《世界很快将无法投保》</a></p>
+<p>3、</p>
+<p>Windows 11 的更新包，原本叫做春季包和秋季包。后来，有人反映，这不适用于南半球，就改名为 H1 更新包 和 H2 更新包。</p>
+<p>– <a target="_blank" rel="noopener" href="https://devblogs.microsoft.com/oldnewthing/20250805-00/?p=111435">《为什么 Windows 更新包叫做 H1 和 H2》</a></p>
+<p>4、</p>
+<p>十多年来，编程训练营一直是硅谷的支柱产业。如今，AI 使得公司减少入门级职位的招聘，并且学生可以跟随 AI 自学，编程训练营正在逐渐消失。</p>
+<p>– <a target="_blank" rel="noopener" href="https://www.reuters.com/lifestyle/bootcamp-bust-how-ai-is-upending-software-development-industry-2025-08-09/">路透社</a></p>
+<p>5、</p>
+<p>人们以为自己在思考，其实是在重新编排自己的偏见。</p>
+<p>– <a target="_blank" rel="noopener" href="https://quoteinvestigator.com/2017/05/10/merely/">威廉·詹姆斯</a>（William James），美国哲学家</p>
+<h2 id="往年回顾"><a href="#往年回顾" class="headerlink" title="往年回顾"></a>往年回顾</h2><p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2024/08/weekly-issue-314.html">《黑神话：悟空》可以产业化吗？</a>（#314）</p>
+<p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2023/07/weekly-issue-264.html">Elasticsearch 的启示</a>（#264）</p>
+<p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2022/07/weekly-issue-214.html">你的地图是错的</a>（#214）</p>
+<p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2021/06/weekly-issue-164.html">培训班 vs 大学，求职成功率比较</a>（#164）</p>
+<p>（完）</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%A7%91%E6%8A%80/" rel="tag"># 科技</a>
+              <a href="/tags/%E5%91%A8%E5%88%8A/" rel="tag"># 周刊</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/weekly/weekly-362/" rel="prev" title="科技爱好者周刊（第 362 期）：GitHub 工程师谈系统设计">
+                  <i class="fa fa-angle-left"></i> 科技爱好者周刊（第 362 期）：GitHub 工程师谈系统设计
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/weekly/weekly-360/" rel="next" title="科技爱好者周刊（第 360 期）：Dan Wang 的新书">
+                  科技爱好者周刊（第 360 期）：Dan Wang 的新书 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">jettleland</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

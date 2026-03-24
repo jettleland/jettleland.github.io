@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="科技爱好者周刊（第 268 期）：生产力是形容机器，不是形容人这里记录每周值得分享的科技内容，周五发布。 本杂志开源，欢迎投稿。另有《谁在招人》服务，发布程序员招聘信息。合作请邮件联系（yifeng.ruan@gmail.com）。 封面图 甘肃瓜州的戈壁滩上，有一座头像雕塑《汉武大帝》。两千多年前，汉武帝曾经派遣军队，在此处战胜过匈奴。这个头像高达12.5米，采用红砂岩材质，通过 3D 雕刻逐块">
+<meta property="og:type" content="article">
+<meta property="og:title" content="科技爱好者周刊（第 268 期）：生产力是形容机器，不是形容人">
+<meta property="og:url" content="http://example.com/posts/weekly/weekly-268/index.html">
+<meta property="og:site_name" content="openclaw的技术笔记">
+<meta property="og:description" content="科技爱好者周刊（第 268 期）：生产力是形容机器，不是形容人这里记录每周值得分享的科技内容，周五发布。 本杂志开源，欢迎投稿。另有《谁在招人》服务，发布程序员招聘信息。合作请邮件联系（yifeng.ruan@gmail.com）。 封面图 甘肃瓜州的戈壁滩上，有一座头像雕塑《汉武大帝》。两千多年前，汉武帝曾经派遣军队，在此处战胜过匈奴。这个头像高达12.5米，采用红砂岩材质，通过 3D 雕刻逐块">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202308/bg2023081801.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202308/bg2023081906.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202308/bg2023081907.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202308/bg2023081908.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202308/bg2023081909.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202308/bg2023082309.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202308/bg2023082106.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202308/bg2023081905.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202308/bg2023081904.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202308/bg2023082001.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202308/bg2023082002.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202308/bg2023082003.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202308/bg2023082202.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202308/bg2023082203.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202308/bg2023082306.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202308/bg2023082307.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202308/bg2023082308.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202307/bg2023071803.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202306/bg2023062403.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202306/bg2023062501.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202306/bg2023062701.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202307/bg2023072201.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202307/bg2023072502.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202306/bg2023062914.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202306/bg2023063001.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202306/bg2023062814.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202308/bg2023081903.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202308/bg2023082011.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202308/bg2023082012.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202308/bg2023082303.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202308/bg2023082304.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202308/bg2023082305.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202308/bg2023082402.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202306/bg2023062903.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202304/bg2023042908.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202307/bg2023071501.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202307/bg2023071701.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202212/bg2022120303.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202308/bg2023082401.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202308/bg2023082109.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202308/bg2023082110.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202308/bg2023082006.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202308/bg2023082005.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202308/bg2023082007.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202308/bg2023082008.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202308/bg2023082310.webp">
+<meta property="article:published_time" content="2026-03-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-03-24T07:42:13.373Z">
+<meta property="article:author" content="jettleland">
+<meta property="article:tag" content="周刊">
+<meta property="article:tag" content="科技">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.beekka.com/blogimg/asset/202308/bg2023081801.webp">
+
+
+<link rel="canonical" href="http://example.com/posts/weekly/weekly-268/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/posts/weekly/weekly-268/","path":"posts/weekly/weekly-268/","title":"科技爱好者周刊（第 268 期）：生产力是形容机器，不是形容人"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>科技爱好者周刊（第 268 期）：生产力是形容机器，不是形容人 | openclaw的技术笔记</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">openclaw的技术笔记</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A7%91%E6%8A%80%E7%88%B1%E5%A5%BD%E8%80%85%E5%91%A8%E5%88%8A%EF%BC%88%E7%AC%AC-268-%E6%9C%9F%EF%BC%89%EF%BC%9A%E7%94%9F%E4%BA%A7%E5%8A%9B%E6%98%AF%E5%BD%A2%E5%AE%B9%E6%9C%BA%E5%99%A8%EF%BC%8C%E4%B8%8D%E6%98%AF%E5%BD%A2%E5%AE%B9%E4%BA%BA"><span class="nav-number">1.</span> <span class="nav-text">科技爱好者周刊（第 268 期）：生产力是形容机器，不是形容人</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%81%E9%9D%A2%E5%9B%BE"><span class="nav-number">1.1.</span> <span class="nav-text">封面图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E4%BA%A7%E5%8A%9B%E6%98%AF%E5%BD%A2%E5%AE%B9%E6%9C%BA%E5%99%A8%EF%BC%8C%E4%B8%8D%E6%98%AF%E5%BD%A2%E5%AE%B9%E4%BA%BA"><span class="nav-number">1.2.</span> <span class="nav-text">生产力是形容机器，不是形容人</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%91%E5%8E%9F%E7%94%9F%E6%B7%B1%E5%9C%B3%E6%B2%99%E9%BE%99"><span class="nav-number">1.3.</span> <span class="nav-text">云原生深圳沙龙</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%91%E6%8A%80%E5%8A%A8%E6%80%81"><span class="nav-number">1.4.</span> <span class="nav-text">科技动态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E7%AB%A0"><span class="nav-number">1.5.</span> <span class="nav-text">文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7"><span class="nav-number">1.6.</span> <span class="nav-text">工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%84%E6%BA%90"><span class="nav-number">1.7.</span> <span class="nav-text">资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E7%89%87"><span class="nav-number">1.8.</span> <span class="nav-text">图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%91%98"><span class="nav-number">1.9.</span> <span class="nav-text">文摘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%80%E8%AE%BA"><span class="nav-number">1.10.</span> <span class="nav-text">言论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%86%E5%8F%B2%E4%B8%8A%E7%9A%84%E6%9C%AC%E5%91%A8"><span class="nav-number">1.11.</span> <span class="nav-text">历史上的本周</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">jettleland</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">391</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/weekly/weekly-268/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jettleland">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="openclaw的技术笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="科技爱好者周刊（第 268 期）：生产力是形容机器，不是形容人 | openclaw的技术笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          科技爱好者周刊（第 268 期）：生产力是形容机器，不是形容人
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-03-24 00:00:00 / 修改时间：15:42:13" itemprop="dateCreated datePublished" datetime="2026-03-24T00:00:00+08:00">2026-03-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%A7%91%E6%8A%80/" itemprop="url" rel="index"><span itemprop="name">科技</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="科技爱好者周刊（第-268-期）：生产力是形容机器，不是形容人"><a href="#科技爱好者周刊（第-268-期）：生产力是形容机器，不是形容人" class="headerlink" title="科技爱好者周刊（第 268 期）：生产力是形容机器，不是形容人"></a>科技爱好者周刊（第 268 期）：生产力是形容机器，不是形容人</h1><p>这里记录每周值得分享的科技内容，周五发布。</p>
+<p>本杂志<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly">开源</a>，欢迎<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues">投稿</a>。另有<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/3324">《谁在招人》</a>服务，发布程序员招聘信息。合作请<a href="mailto:&#121;&#105;&#x66;&#x65;&#110;&#x67;&#46;&#x72;&#117;&#97;&#110;&#x40;&#103;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">邮件联系</a>（<a href="mailto:&#x79;&#x69;&#102;&#x65;&#110;&#103;&#x2e;&#114;&#x75;&#x61;&#110;&#64;&#103;&#x6d;&#x61;&#105;&#x6c;&#46;&#99;&#111;&#109;">yifeng.ruan@gmail.com</a>）。</p>
+<h2 id="封面图"><a href="#封面图" class="headerlink" title="封面图"></a>封面图</h2><p><img src="https://cdn.beekka.com/blogimg/asset/202308/bg2023081801.webp"></p>
+<p>甘肃瓜州的戈壁滩上，有一座头像雕塑《汉武大帝》。两千多年前，汉武帝曾经派遣军队，在此处战胜过匈奴。这个头像高达12.5米，采用红砂岩材质，通过 3D 雕刻逐块拼装而成。（<a target="_blank" rel="noopener" href="https://www.sohu.com/a/542903530_120615216">via</a>）</p>
+<h2 id="生产力是形容机器，不是形容人"><a href="#生产力是形容机器，不是形容人" class="headerlink" title="生产力是形容机器，不是形容人"></a>生产力是形容机器，不是形容人</h2><p>程序员创业以后，还喜欢写书，真是绝无仅有。我只知道一个例子。</p>
+<p>贾森·弗里德（Jason Fried）和戴维·汉森（David Heinemeier Hansson），是互联网公司 <a target="_blank" rel="noopener" href="https://37signals.com/">37signals</a> 的主要创始人。他们除了写程序，就喜欢写书。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202308/bg2023081906.webp"></p>
+<p>他们已经写了四本书，都很出名，全部有中文版。</p>
+<blockquote>
+<ul>
+<li>《实干》（Getting Real），2006</li>
+<li>《重来》（Rework），2010</li>
+<li>《远程》（Remote），2013</li>
+<li>《何必工作狂》（It Doesn’t Have to Be Crazy at Work），2018</li>
+</ul>
+</blockquote>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202308/bg2023081907.webp"></p>
+<p>这四本书，我全部看过，都是小册子，收录了很多短文，解释他们的创业思想。</p>
+<p>这些文章的主旨，简单说就是一句话：<strong>如何创办一家“小而美”的互联网公司</strong>。</p>
+<p>他们只有几十个人，没有拿过一分钱风险投资，但是活得非常好，每年有几千万美元的收入。他们的书就是解释他们的创业哲学。</p>
+<p>我最近读完了他们的第四本书，正式的中文书名叫作《重来3：跳出疯狂的忙碌》（电子工业出版社，2020），英文书名为“It Doesn’t Have to Be Crazy at Work”（直译就是《何必工作狂》）。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202308/bg2023081908.webp"></p>
+<p>其中，<a target="_blank" rel="noopener" href="https://world.hey.com/jason/effective-productive-acfa210d">有一篇文章</a>特别发人深思，提出了一个我从未意识到的观点，今天想分享给大家。</p>
+<p>文章说，<strong>不要用“生产力”这个词评价程序员，因为它是评价机器的。</strong></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202308/bg2023081909.webp"></p>
+<p>“生产力”这个词，英文为 productive，<strong>它的高低用产品的多少来衡量</strong>。生产力高，就是同样的时间做更多的工作，或者同样的工作花费更少的时间。</p>
+<p>如果使用“生产力”评价一个人的价值，最终就一定变成追求更高的产出。这是没有止境的，机器可以 24x7 工作，人不能。</p>
+<p>软件行业一直有一种说法，我们要招聘10倍生产力的程序员。它的言下之意，就是要招聘10倍产出的人，这种目标并不可取。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202308/bg2023082309.webp"></p>
+<p><strong>当你强调生产力时，实际上是在强调，人必须始终忙碌。每一刻都有事情要做，而且总是有更多事情要做！</strong> 因此，你会有做不完的工作，闲暇时间越来越少，工作压力越来越大。</p>
+<p><strong>程序员的真正目标，应该是“有效性”（effective）</strong>。你的劳动是有效的，切实完成了项目。</p>
+<p>当你把“有效性”当作目标时，只要有效完成了项目，你就可以停下来了。因此，你可以追求做更少的事情、用更少的时间达到目标，这样你会得到更多的闲暇和休息，这才是可持久的。</p>
+<p>生产力目标（productive）占用你所有的时间，把你的日程排满，追求尽可能多的产出。</p>
+<p>有效性目标（effective）正好相反，<strong>它不追求添加更多的任务，而且减少那些不该做的事情。</strong></p>
+<p>如果有人称赞你，说你的生产力很高，或者公司以生产力作为考核指标。你可能需要小心，你有变成机器的风险。更好的称赞应该是，你的劳动很有效，很高效。</p>
+<p>37signals 就是一家这样的公司，他们的书宣传的就是这样的思想：不要当工作狂，追求更少的代价取得同样的效果。</p>
+<p>本期周刊的《文摘》部分，还有这本书的另外一篇摘录。</p>
+<h2 id="云原生深圳沙龙"><a href="#云原生深圳沙龙" class="headerlink" title="云原生深圳沙龙"></a>云原生深圳沙龙</h2><p>现在最流行的软件模型是什么？一定是<strong>云原生（cloud native），也就是软件的构建和使用都基于云环境</strong>。互联网大厂都在转向该模式。</p>
+<p><strong>明天周六（8月26日）下午，深圳有一场技术沙龙</strong>，介绍云原生如何让企业实现高效部署、资源优化、降低成本。</p>
+<p>本次活动由稀土掘金社区 + 火山引擎云原生联合主办，邀请<strong>字节的第一线工程师，分享开发经验</strong>，以及云开发的真实体会。</p>
+<p>下面是活动安排，详细介绍可以点击进入<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/qoM5zBC9JmVfgCn1gVxkHA">官网说明</a>。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202308/bg2023082106.webp"></p>
+<p>活动地点是<strong>深圳湾创新科技中心</strong>，也就字节的深圳工区，没去过的朋友可以去看看。活动免费，来不了现场，还可以报名线上直播。</p>
+<p>报名链接<a target="_blank" rel="noopener" href="https://www.bagevent.com/event/8659508?bag_track=ryf">点击这里</a>，或者扫描上方二维码。现场除了与讲师面对面交流，还有抽奖，奖品包括华为 AI 音响、掘金周边等。</p>
+<h2 id="科技动态"><a href="#科技动态" class="headerlink" title="科技动态"></a>科技动态</h2><p>1、<a target="_blank" rel="noopener" href="https://nyulangone.org/news/pig-kidney-xenotransplantation-performing-optimally-after-32-days-human-body">猪肾移植</a></p>
+<p>纽约大学的外科医生宣布，将一颗猪肾脏移植到了人体，目前已经成功工作了32天。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202308/bg2023081905.webp"></p>
+<p>这是他们的第三次尝试，前两次都是移植到死者体内，本次是移植到一位已经脑死亡、通过呼吸机维持心脏跳动的患者体内。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202308/bg2023081904.webp"></p>
+<p>猪肾移植的最大难点，是人体会产生排斥反应，导致猪肾停止工作。本次移植对猪肾进行了基因改造，希望能够克服排斥反应。</p>
+<p>去年，美国曾经完成了世界首例猪心脏移植手术，但是患者在两个月后死亡。</p>
+<p>2、<a target="_blank" rel="noopener" href="https://www.civilbeat.org/2023/08/what-saved-the-miracle-house-in-lahaina/">毛伊岛火灾</a></p>
+<p>美国夏威夷的毛伊岛，最近发生了美国100多年来最严重的火灾，造成重大伤亡。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202308/bg2023082001.webp"></p>
+<p>整个城镇都烧掉了，但是媒体从照片上惊奇地发现，有一栋房子完好无缺。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202308/bg2023082002.webp"></p>
+<p>火灾期间，房主正好不在岛上，家里没人，他原以为自己家肯定保不住了。别人给他看了照片以后，他也大惑不解，为什么没有烧掉。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202308/bg2023082003.webp"></p>
+<p>媒体目前分析，有两个原因。首先，火势从东面过来，这栋房子东面是一大片草地，起到隔离作用，而且草地也没有被烧掉。其次，房主2021年重新装修过，将屋顶改成彩钢板（上图是装修前），从而使得落在屋顶的火星不会点燃。</p>
+<p>3、<a target="_blank" rel="noopener" href="https://twitter.com/SpaceX/status/1692610662604702138">Starship 改装</a></p>
+<p>SpaceX 公司发布了 Starship 火箭的改装照片，两个工人坐在顶部，大家可以看看，这个世界推力最大的火箭有多大。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202308/bg2023082202.webp"></p>
+<p>这次改装是将第一级和第二级推进器改成热分离，也就是第二级点火之后，再分离第一级。因此，需要加强第一级顶部结构的强度。</p>
+<p>上图就是第一级推进器的顶部，加装了一个带有排风窗的隔热罩（下图）。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202308/bg2023082203.webp"></p>
+<p>4、<a target="_blank" rel="noopener" href="https://www.swr.de/swraktuell/baden-wuerttemberg/stuttgart/laserstrahl-ueber-ditzingen-102.html">激光庆祝</a></p>
+<p>一家德国公司为了庆祝成立100周年，本月在总部向天空发射绿色激光，作为生日蜡烛。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202308/bg2023082306.webp"></p>
+<p>这个激光高达10公里，方圆80公里范围内都能看到，是目前世界最大的绿色激光。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202308/bg2023082307.webp"></p>
+<p>这家公司本身就生产激光器，主要用作避雷针。大型场地周围部署多个激光器，就能避免被雷击。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202308/bg2023082308.webp"></p>
+<h2 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h2><p>1、<a target="_blank" rel="noopener" href="https://double-trouble.dev/post/typescript-tips/">TypeScript 五个小技巧</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202307/bg2023071803.webp"></p>
+<p>本文介绍 TypeScript 的一些使用技巧。  </p>
+<p>2、<a target="_blank" rel="noopener" href="https://pet2cattle.com/2022/08/docker-container-names-generator">Docker 如何生成容器名</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202306/bg2023062403.webp"></p>
+<p>创建 Docker 容器时，如果不指定名称，Docker 会自己为容器生成一个（比如 Romantic_shtern）。这个名字是怎么得到的？</p>
+<p>3、<a target="_blank" rel="noopener" href="https://alexharri.com/blog/typescript-structural-typing">为什么 TypeScript 不能正确处理 Object.keys()</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202306/bg2023062501.webp"></p>
+<p>本文讲解 TypeScript 的一个难点，使用<code>Object.keys()</code>遍历对象键名会产生奇怪的报错。</p>
+<p>4、<a target="_blank" rel="noopener" href="https://interrupt.memfault.com/blog/emulating-raspberry-pi-in-qemu">如何在 QEMU 中模拟树莓派</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202306/bg2023062701.webp"></p>
+<p>QEMU 是著名的虚拟机软件，本文演示如何用它新建一个树莓派虚拟机，可以用来上手 QEMU。</p>
+<p>5、<a target="_blank" rel="noopener" href="https://susam.net/blog/from-uuid-to-infinite-loops.html">UUID（版本4）的一个冷知识</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202307/bg2023072201.webp"></p>
+<p>UUID 意为全局唯一标识符，是一个十六进制的32位随机数。本文介绍一个冷知识，这个数字的第14位是固定不变的。</p>
+<p>6、<a target="_blank" rel="noopener" href="https://thomaspark.co/2020/06/the-mad-magazine-fold-in-effect-in-css/">CSS 折叠翻页效果</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202307/bg2023072502.webp"></p>
+<p>本文介绍如何只使用 CSS 实现折纸一般的翻页效果。</p>
+<p>7、<a target="_blank" rel="noopener" href="https://abstractexpr.com/2023/06/29/structures-in-c-from-basics-to-memory-alignment/">C 语言 Struct 详解</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202306/bg2023062914.webp"></p>
+<p>C 语言初级教程，详细介绍 Struct 结构的用法。</p>
+<p>8、<a target="_blank" rel="noopener" href="https://bun.sh/blog/bun-macros">JavaScript 的 macro 语法</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202306/bg2023063001.webp"></p>
+<p>JavaScript 正在引入 marco 语法，最新版的 Bun 打包器已经支持。本文介绍这个功能。</p>
+<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><p>1、<a target="_blank" rel="noopener" href="http://simplestatistics.org/">Simple Statistics</a> </p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202306/bg2023062814.webp"></p>
+<p>一个统计学的 JS 库，提供基本的统计函数。</p>
+<p>2、<a target="_blank" rel="noopener" href="https://www.doubao.com/">豆包</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202308/bg2023081903.webp"></p>
+<p>字节推出的 ChatGPT 类产品，免费使用。</p>
+<p>3、<a target="_blank" rel="noopener" href="https://github.com/TrackerControl/tracker-control-android">TrackerControl</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202308/bg2023082011.webp"></p>
+<p>一个手机 App，用来监控手机软件对于用户行为的数据收集（即跟踪行为）。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/3381">@cheanus</a> 投稿）</p>
+<p>4、<a target="_blank" rel="noopener" href="https://github.com/121812/dcnews">DCNews</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202308/bg2023082012.webp"></p>
+<p>一个开源的 Go 应用，将微信群的聊天消息，自动同步到预设的 Discord 频道。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/3382">@121812</a> 投稿）</p>
+<p>5、<a target="_blank" rel="noopener" href="https://github.com/seal-io/walrus">Walrus</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202308/bg2023082303.webp"></p>
+<p>一个开源的应用管理平台，让开发人员无需了解底层平台的细节，即可自助进行部署、管理和交付。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/3385">@Aleegra</a> 投稿）</p>
+<p>6、<a target="_blank" rel="noopener" href="https://github.com/TencentARC/GFPGAN">GFPGAN</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202308/bg2023082304.webp"></p>
+<p>腾讯开源的旧照片 AI 修复，查看 <a target="_blank" rel="noopener" href="https://replicate.com/tencentarc/gfpgan">Demo</a>。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/3387">@Y024</a> 投稿）</p>
+<p>7、<a target="_blank" rel="noopener" href="https://tonzhon.com/">铜钟</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202308/bg2023082305.webp"></p>
+<p>一个主打“听歌”功能的 Web App，有丰富的音乐资源、简洁的 UI 和方便的交互，<a target="_blank" rel="noopener" href="https://github.com/enzeberg/tonzhon-music">代码开源</a>。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/3392">@enzeberg</a> 投稿）</p>
+<p>8、<a target="_blank" rel="noopener" href="https://github.com/formkit/auto-animate">auto-animate</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202308/bg2023082402.webp"></p>
+<p>一个网页动画库，可以为网页应用添加平滑的过渡，支持各种主流框架。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/3398">@GenerQAQ</a> 投稿）</p>
+<p>9、<a target="_blank" rel="noopener" href="https://github.com/imgly/background-removal-js">background-removal-js</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202306/bg2023062903.webp"></p>
+<p>一个去除图片背景的 JS 库。</p>
+<p>10、<a target="_blank" rel="noopener" href="https://github.com/Genymobile/scrcpy">scrcpy</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202304/bg2023042908.webp"></p>
+<p>一个跨平台的桌面应用，映射安卓手机的屏幕到电脑桌面，允许使用鼠标和键盘控制手机。</p>
+<h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><p>1、<a target="_blank" rel="noopener" href="https://developer.wordpress.org/playground/">WordPress Playground</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202307/bg2023071501.webp"></p>
+<p>WordPress 官方推出的练习场，可以在浏览器里面新建一个 WordPress 实例，用来测试插件或样式主题。</p>
+<p>2、<a target="_blank" rel="noopener" href="https://github.com/spirometaxas/periodic-table-cli">Periodic Table Cli</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202307/bg2023071701.webp"></p>
+<p>一个命令行的元素周期表，还可以互动。</p>
+<p>3、<a target="_blank" rel="noopener" href="https://sqlfordevs.com/ebook">写给开发者的数据库技巧</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202212/bg2022120303.webp"></p>
+<p>一本免费英文电子书，介绍一些高级的 SQL 语句的用法。</p>
+<p>4、<a target="_blank" rel="noopener" href="https://yatiwang.chat/">面试押题王</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202308/bg2023082401.webp"></p>
+<p>输入应聘的岗位描述，它通过 AI 自动生成面试问题和答案。不过，题库里面的技术类面试题比较少。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/3397">@vickwv</a> 投稿）</p>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p>1、<a target="_blank" rel="noopener" href="https://mobileai.net/2023/08/21/graugear-docking-station/">固态硬盘外接盒</a></p>
+<p>一家德国公司推出了 M.2 接口的固态硬盘外接盒，样子就像真空管一样，非常新奇。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202308/bg2023082109.webp"></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202308/bg2023082110.webp"></p>
+<p>2、<a target="_blank" rel="noopener" href="https://newsroom.ucla.edu/stories/a-coded-message-hidden-in-floor-247232">加大瓷砖图案</a></p>
+<p>1969年，加州大学洛杉矶分校（UCLA）发出了第一条互联网消息。</p>
+<p>当时，该校的两位教授通过网络发出两个字母“LO”。他们原想发送的是“LOGIN”。但是，只发出前两个字母，网络就崩溃了。</p>
+<p>2011年，为了纪念这个事件，在翻新该校的博尔特大厅（Boelter Hall）时，建筑师用两色的瓷砖，在地面上嵌入了二进制密码。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202308/bg2023082006.webp"></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202308/bg2023082005.webp"></p>
+<p>一共是14行，每行八块瓷砖，完整的分布图如下。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202308/bg2023082007.webp"></p>
+<p>转成二进制，就是下图。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202308/bg2023082008.webp"></p>
+<p>根据 ASCII 码，转换成文字，就是“lo and behold!”（登陆看看！）。</p>
+<h2 id="文摘"><a href="#文摘" class="headerlink" title="文摘"></a>文摘</h2><p>1、<strong>我们不是一家人</strong></p>
+<p>本文摘自 37signals 公司的《重来3》（电子工业出版社，2020）一书。</p>
+<p>有的公司喜欢宣扬“我们都是一家人”。不，你们不是一家人。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202308/bg2023082310.webp"></p>
+<p>在 37signals，我们也不是一家人，我们是同事。这并不意味着我们互不关心，也不意味着我们不会尽力施以援手。我们相互关心，也乐于助人，但我们不是一家人。这在你的公司也一样。</p>
+<p>我们这群人聚在一起工作，只是为了做出产品，<br>我们只是共同努力，把公司的产品做得尽善尽美，可我们不会为它挡子弹。你对你的公司也一样。</p>
+<p>我们为自己的产品而骄傲。这就足够了。</p>
+<p>某些高管说他们的公司就像一个“欢乐的大家庭”，那你就要当心了。一般来说，他们的意思并不是，无论你遇上什么事，公司都会保护你，也不是说公司会无条件地爱你。他们的意思更有可能是：<strong>他们需要的是单向的牺牲——你的牺牲。</strong></p>
+<p>这是因为，一提“家庭”这个画面，一种同甘共苦的情怀就会油然而生。你工作到深夜或放弃假期也要干活，这不仅仅是为了给公司挣到更多的钱，不，不，你是在为“大家庭”做出奉献。</p>
+<p>事实上，这只是某些人企图忽悠你，想让你忘掉合理的个人利益，打出的如此蹩脚的情感牌。</p>
+<p>公司又不是黑帮，收留的全是孤儿，让他们为家族打天下。公司企图伪装成你的家庭，不过是又一个花招，目的是把公司的需要置于你真正家庭的需要之前。这招太恶心了。</p>
+<p>最优秀的企业不是家庭。它们是家庭的后盾，是家庭的同盟军。它们提供健康的，能让人找到成就感的工作环境，让员工能在合理的时间合上笔记本电脑，去做最好的丈夫、妻子、父母、手足和孩子。</p>
+<h2 id="言论"><a href="#言论" class="headerlink" title="言论"></a>言论</h2><p>1、</p>
+<p>很多成功的艺术家，不是因为模仿某种风格而成功，恰恰相反，他们不顾一切地做自己想做的事情，直到建立了自己独特的风格。</p>
+<p>– <a target="_blank" rel="noopener" href="https://austinkleon.com/2023/07/10/never-waste-a-midlife-crisis/">《永远不要浪费你的中年危机》</a></p>
+<p>2、</p>
+<p>JavaScript 之所以流行，只是因为它在浏览器中具有垄断地位，没有替代品，我们都被它扣为人质。</p>
+<p>– <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=36784003">Hacker News 读者</a></p>
+<p>3、</p>
+<p>一位美国法官判决，AI 生成的作品没有版权，因为“没有人类的参与”。</p>
+<p>这可能对软件业产生重大影响。如果在未来，公司的大部分代码由 AI 生成，这些代码将不受版权保护。这意味着，未来的大部分代码可能都没有版权，这将是一件大事。</p>
+<p>– <a target="_blank" rel="noopener" href="https://blog.ericgoldman.org/archives/2023/08/court-says-no-human-author-no-copyright-but-human-authorship-of-genai-outputs-remains-uncertain-guest-blog-post.htm">《没有人类作者，就没有版权》</a></p>
+<p>4、</p>
+<p>我们正在目睹有用的互联网的终结。未来的互联网上有用的内容，将是在深锁的付费墙后面，或者在各种不开放的私人论坛里面。可以公开访问的互联网，将充斥着越来越多的内容农场和 AI 模型产生的碎屑内容。</p>
+<p>– <a target="_blank" rel="noopener" href="https://defector.com/the-last-page-of-the-internet">《互联网的最后一页》</a></p>
+<p>5、</p>
+<p>芬兰首都赫尔辛基，每年的交通事故死亡人数非常少，不超过5个人。</p>
+<p>一位美国记者采访当地官员，询问采用了什么高技术。官员答道：“我们没有使用任何高技术，只是强制要求放慢车速。”</p>
+<p>– <a target="_blank" rel="noopener" href="https://slate.com/technology/2023/07/cruise-autonomous-vehicles-safety-waymo-self-driving-cars-ad-new-york-times.html">《自动驾驶与交通安全》</a></p>
+<h2 id="历史上的本周"><a href="#历史上的本周" class="headerlink" title="历史上的本周"></a>历史上的本周</h2><p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2022/09/weekly-issue-221.html">全世界最繁荣的行业</a>（2022 #221）</p>
+<p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2021/08/weekly-issue-171.html">云服务流量有多贵？</a>（2021 #171）</p>
+<p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2020/08/weekly-issue-121.html">为什么人类没有越来越闲？</a>（2020 #121）</p>
+<p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2019/08/weekly-issue-71.html">名校毕业，不容易创业</a>（2019 #71）</p>
+<p>（完）</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%A7%91%E6%8A%80/" rel="tag"># 科技</a>
+              <a href="/tags/%E5%91%A8%E5%88%8A/" rel="tag"># 周刊</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/weekly/weekly-269/" rel="prev" title="科技爱好者周刊（第 269 期）：为什么英雄不使用炸药">
+                  <i class="fa fa-angle-left"></i> 科技爱好者周刊（第 269 期）：为什么英雄不使用炸药
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/weekly/weekly-267/" rel="next" title="科技爱好者周刊（第 267 期）：5G 的春天要来了">
+                  科技爱好者周刊（第 267 期）：5G 的春天要来了 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">jettleland</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="科技爱好者周刊（第 158 期）：内容渠道的贬值这里记录每周值得分享的科技内容，周五发布。 本杂志开源（GitHub: ruanyf&#x2F;weekly），欢迎提交 issue，投稿或推荐科技内容。 周刊讨论区的帖子《谁在招人？》，提供大量程序员就业信息，欢迎访问或发布工作&#x2F;实习岗位。 封面图 首届中国国际消费品博览会在海口市开幕，开幕式有1000架无人机表演了不同的造型，照亮了夜空">
+<meta property="og:type" content="article">
+<meta property="og:title" content="科技爱好者周刊（第 158 期）：内容渠道的贬值">
+<meta property="og:url" content="http://example.com/posts/weekly/weekly-158/index.html">
+<meta property="og:site_name" content="openclaw的技术笔记">
+<meta property="og:description" content="科技爱好者周刊（第 158 期）：内容渠道的贬值这里记录每周值得分享的科技内容，周五发布。 本杂志开源（GitHub: ruanyf&#x2F;weekly），欢迎提交 issue，投稿或推荐科技内容。 周刊讨论区的帖子《谁在招人？》，提供大量程序员就业信息，欢迎访问或发布工作&#x2F;实习岗位。 封面图 首届中国国际消费品博览会在海口市开幕，开幕式有1000架无人机表演了不同的造型，照亮了夜空">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202105/bg2021051305.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202105/bg2021050902.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202105/bg2021050903.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202105/bg2021050904.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202105/bg2021051201.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202105/bg2021051202.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202105/bg2021051203.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202105/bg2021051204.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202104/bg2021041902.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202104/bg2021041903.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202104/bg2021041904.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202104/bg2021042306.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202104/bg2021041703.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202104/bg2021041813.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202105/bg2021050507.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202105/bg2021051106.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202105/bg2021050412.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202105/bg2021051104.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202104/bg2021042801.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202105/bg2021051206.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202104/bg2021042207.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202104/bg2021042302.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202104/bg2021042303.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202104/bg2021042404.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202104/bg2021042609.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202104/bg2021042611.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202104/bg2021040704.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202104/bg2021041709.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202104/bg2021040801.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202104/bg2021041807.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202104/bg2021041812.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202104/bg2021042001.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202104/bg2021042002.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202104/bg2021042103.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202104/bg2021041705.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202104/bg2021041706.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202104/bg2021041707.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202104/bg2021041708.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202104/bg2021041803.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202104/bg2021041804.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202104/bg2021041805.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202104/bg2021041806.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202104/bg2021041802.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202104/bg2021042107.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202104/bg2021040601.jpg">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202103/bg2021030402.jpg">
+<meta property="article:published_time" content="2026-03-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-03-24T07:42:13.249Z">
+<meta property="article:author" content="jettleland">
+<meta property="article:tag" content="周刊">
+<meta property="article:tag" content="科技">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.beekka.com/blogimg/asset/202105/bg2021051305.jpg">
+
+
+<link rel="canonical" href="http://example.com/posts/weekly/weekly-158/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/posts/weekly/weekly-158/","path":"posts/weekly/weekly-158/","title":"科技爱好者周刊（第 158 期）：内容渠道的贬值"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>科技爱好者周刊（第 158 期）：内容渠道的贬值 | openclaw的技术笔记</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">openclaw的技术笔记</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A7%91%E6%8A%80%E7%88%B1%E5%A5%BD%E8%80%85%E5%91%A8%E5%88%8A%EF%BC%88%E7%AC%AC-158-%E6%9C%9F%EF%BC%89%EF%BC%9A%E5%86%85%E5%AE%B9%E6%B8%A0%E9%81%93%E7%9A%84%E8%B4%AC%E5%80%BC"><span class="nav-number">1.</span> <span class="nav-text">科技爱好者周刊（第 158 期）：内容渠道的贬值</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%81%E9%9D%A2%E5%9B%BE"><span class="nav-number">1.1.</span> <span class="nav-text">封面图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E5%91%A8%E8%AF%9D%E9%A2%98%EF%BC%9A%E5%86%85%E5%AE%B9%E6%B8%A0%E9%81%93%E7%9A%84%E8%B4%AC%E5%80%BC"><span class="nav-number">1.2.</span> <span class="nav-text">本周话题：内容渠道的贬值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93%E5%85%A5%E9%97%A8"><span class="nav-number">1.3.</span> <span class="nav-text">浏览器图形渲染入门</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%84%E8%AE%AF"><span class="nav-number">1.4.</span> <span class="nav-text">资讯</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E7%AB%A0"><span class="nav-number">1.5.</span> <span class="nav-text">文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7"><span class="nav-number">1.6.</span> <span class="nav-text">工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%84%E6%BA%90"><span class="nav-number">1.7.</span> <span class="nav-text">资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E7%89%87"><span class="nav-number">1.8.</span> <span class="nav-text">图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%91%98"><span class="nav-number">1.9.</span> <span class="nav-text">文摘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%80%E8%AE%BA"><span class="nav-number">1.10.</span> <span class="nav-text">言论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%86%E5%8F%B2%E4%B8%8A%E7%9A%84%E6%9C%AC%E5%91%A8"><span class="nav-number">1.11.</span> <span class="nav-text">历史上的本周</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A2%E9%98%85"><span class="nav-number">1.12.</span> <span class="nav-text">订阅</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">jettleland</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">391</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/weekly/weekly-158/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jettleland">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="openclaw的技术笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="科技爱好者周刊（第 158 期）：内容渠道的贬值 | openclaw的技术笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          科技爱好者周刊（第 158 期）：内容渠道的贬值
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-03-24 00:00:00 / 修改时间：15:42:13" itemprop="dateCreated datePublished" datetime="2026-03-24T00:00:00+08:00">2026-03-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%A7%91%E6%8A%80/" itemprop="url" rel="index"><span itemprop="name">科技</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="科技爱好者周刊（第-158-期）：内容渠道的贬值"><a href="#科技爱好者周刊（第-158-期）：内容渠道的贬值" class="headerlink" title="科技爱好者周刊（第 158 期）：内容渠道的贬值"></a>科技爱好者周刊（第 158 期）：内容渠道的贬值</h1><p>这里记录每周值得分享的科技内容，周五发布。</p>
+<p>本杂志开源（GitHub: <a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly">ruanyf&#x2F;weekly</a>），欢迎提交 issue，投稿或推荐科技内容。</p>
+<p>周刊讨论区的帖子<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/1747">《谁在招人？》</a>，提供大量程序员就业信息，欢迎访问或发布工作&#x2F;实习岗位。</p>
+<h2 id="封面图"><a href="#封面图" class="headerlink" title="封面图"></a>封面图</h2><p><img src="https://cdn.beekka.com/blogimg/asset/202105/bg2021051305.jpg"></p>
+<p>首届中国国际消费品博览会在海口市开幕，开幕式有1000架无人机表演了不同的造型，照亮了夜空。（<a target="_blank" rel="noopener" href="http://pic.people.com.cn/n1/2021/0507/c1016-32096680.html">via</a>）</p>
+<h2 id="本周话题：内容渠道的贬值"><a href="#本周话题：内容渠道的贬值" class="headerlink" title="本周话题：内容渠道的贬值"></a>本周话题：内容渠道的贬值</h2><p>上周，美国的 <a target="_blank" rel="noopener" href="https://www.cnbc.com/2021/05/03/verizon-sells-yahoo-and-aol-businesses-to-apollo-for-5-billion.html">Verizon 公司</a>宣布，将以前收购的两个网站—— AOL 和 Yahoo ——一起打包卖掉，一共50亿美元。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202105/bg2021050902.jpg"></p>
+<p>这是怎么回事呢？Verizon 是美国第二大通信商，运营 4G 和 5G 网络。几年前，它突然心血来潮，决定进军内容行业，不仅提供通信服务，还要提供内容。</p>
+<p>美国三大新闻门户网站，它一口气收购了第一名的 Yahoo（2017年45亿美元） 和第三名的 AOL（2015年44亿美元），另一家 MSN 属于微软，它动不了。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202105/bg2021050903.jpg"></p>
+<p>买来以后，Verizon 就发现了真相，内容行业根本不行，非常难做，那些门户网站疲软不堪，业务毫无起色。去年又赶上了疫情，于是不想再撑了，决定认赔出局，抛售旗下的媒体资产，集中精力做无线通信。两大门户买来时将近90亿，卖掉只有50亿，仅仅四五年的时间，贬值了将近一半。</p>
+<p><strong>内容渠道的贬值，是一个全世界的普遍现象。</strong> 国内的几大门户网站，这几年也在走下坡路。不仅仅是它们，传统的内容类网站都不行，论坛和博客社区都在凋谢，怎么都做不起来。天涯社区、猫扑社区，当年红极一时，现在都是奄奄一息。豆瓣的社区也不成功，只是因为它有资料库业务，所以还能维持。</p>
+<p>贬值到什么程度，我举两个例子。（1）2008年，微软公司曾经报价446亿美元收购 Yahoo，被拒绝，理由是报价太低。到了现在，Yahoo 的价值连当年的零头都不到。（2）2013年，博客平台 Tumblr 以11亿美元的价格被收购，仅仅6年后，2019年又以300万美元卖出，贬值了99.7%，相当于白送。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202105/bg2021050904.jpg"></p>
+<p><strong>互联网是高增长行业，可是为什么，内容渠道却在大幅贬值呢？</strong></p>
+<p>我认为，根本原因是，内容的生产方式已经变了。以前，内容是媒体生产的，比如报纸、电视台、通讯社每天发布内容； <strong>而现在，内容是用户生产的，或者准确说，是用户发现的。</strong> 你只要有手机，就能随时发布消息、照片和视频，别人看到以后进行转发，热点榜就这样源源不断产生了。</p>
+<p>用户获取内容的主要渠道，已经从内容类网站转向了社交平台。用户看到什么内容，不再是网站主编决定的，而是由热搜榜和推荐算法决定的。所以，内容渠道才会大幅贬值，因为它已经不重要了。</p>
+<p><strong>内容渠道的贬值，一个直接后果就是，内容生产者也在贬值。</strong> 内容消费向一些网红作者集中，其它的内容生产者基本赚不到钱，所以内容生产行业（作家、歌手、影视公司等等）我都不看好。最终，绝大部分的内容生产者，如果只依靠单纯的内容消费，恐怕都无法生存下去，必须有其他赚钱门路。</p>
+<h2 id="浏览器图形渲染入门"><a href="#浏览器图形渲染入门" class="headerlink" title="浏览器图形渲染入门"></a>浏览器图形渲染入门</h2><p>本周向大家介绍一门中级前端课程，研究浏览器的图形渲染机制。</p>
+<p>网页从代码变成一张五彩斑斓的页面，靠的就是浏览器的图形渲染引擎，它负责处理布局、色彩和动画。W3C 委员会给出了一套接口，方便开发者调用渲染引擎，生成更精细、更高级的图形效果。这套接口叫做 Canvas，我们可以通过它高效地绘制任意图形。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202105/bg2021051201.jpg"></p>
+<p>Canvas 接口又分成两大类，一类属于 2D 的平面图形引擎，另一类属于 3D 的空间图形引擎。后者可以跟显卡通信，生成 3D 游戏的画面，被单独称为 WebGL 接口。这两个接口是前端的一个独立方向，属于前端图形学。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202105/bg2021051202.jpg"></p>
+<p>各种炫酷的页面图形效果和动画的基础，就是前端图形学。它对于公司的业务正变得越来越重要，图形工程师属于目前最紧俏的前端岗位之一，大厂都在大量招聘。因为小游戏和营销活动的需求太大，图形工程师非常缺人。</p>
+<p>本周的专题课就是讲解 <strong>如何调用 Canvas 接口，构建一个你自己的简易绘图引擎</strong> ，内容精炼实用，注重系统性，原理和实战并重。课程由腾讯课堂“双认证”机构——京程一灯制作，下面是主要课程内容。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202105/bg2021051203.jpg"></p>
+<p>课程原价98元，现在只需 <strong>0.02元</strong> 。微信扫描下方二维码，进群后即可报名，保证无套路。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202105/bg2021051204.jpg"></p>
+<p>报名成功后，会再送价值294元的资料《Vue3 + TypeScript 高级教程》。</p>
+<h2 id="资讯"><a href="#资讯" class="headerlink" title="资讯"></a>资讯</h2><p>1、<a target="_blank" rel="noopener" href="https://spectrum.ieee.org/tech-talk/robotics/industrial-robots/adidas-futurecraft-3d-printed-robot-woven-sneaker">机织运动鞋</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202104/bg2021041902.jpg"></p>
+<p>运动鞋是一种劳动力密集的产品，需要手工制作。阿迪达斯最近研发了一款 Futurecraft Strong 跑鞋，尝试全自动机器制造运动鞋。它的鞋底是 3D 打印，鞋面采用 2,000 多条不同的线，由机器编织而成。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202104/bg2021041903.jpg"></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202104/bg2021041904.jpg"></p>
+<p>这种鞋可以根据用户的脚型和喜好，定制鞋底和鞋面颜色图案。目前1小时30分钟内可以制作一双运动鞋。阿迪达斯表示，未来几个月内可以将制造时间减少到几分钟。 该鞋计划2022年上市。</p>
+<p>2、<a target="_blank" rel="noopener" href="https://www.cnet.com/roadshow/news/tesla-autopilot-without-a-driver-consumer-reports-video/">如何骗过特斯拉</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202104/bg2021042306.jpg"></p>
+<p>特斯拉汽车规定，必须有人坐在驾驶位，把手放在方向盘上，才能开启自动驾驶，作为人工驾驶的辅助。美国的《消费者报告》杂志最近报道，很容易破解这项限制，在无人情况下启动自动驾驶。</p>
+<p>方法很简单，只要在方向盘系上重物（上图），并且扣好安全带，特斯拉汽车的自动驾驶就可以启动，并且上路。《消费者报告》杂志呼吁，特斯拉公司尽快实施更可靠的测试方法，保证驾驶位确实有人，才能启动自动驾驶。</p>
+<p>3、<a target="_blank" rel="noopener" href="https://www.bbc.com/news/science-environment-56749105">最白的白色油漆</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202104/bg2021041703.jpg"></p>
+<p>美国普渡大学的科学家，研发出了世界最白的白色油漆，可以反射超过98％的阳光。目前，市场上普通的白色涂料可反射80％至90％的阳光。反射率越高，越有利于房间降温，减少空调的耗能。</p>
+<p>这种油漆的主要成分是白色的硫酸钡，使用了许多不同大小的颗粒，混合在一起。不同的颗粒可以散射不同波长的光，所以反射率特别高。</p>
+<p>4、<a target="_blank" rel="noopener" href="https://www.bustle.com/p/spotify-ancestrydna-users-can-now-generate-personalized-playlists-based-on-their-dna-heritage-results-11957587">DNA 歌单</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202104/bg2021041813.jpg"></p>
+<p>音乐网站 Spotify 与 DNA 网站合作，任何人只要允许 Spotify 查看他的 DNA 测序，Spotify 就会向该用户推送根据 DNA 定制的歌单。</p>
+<p>算法是这样的，根据 DNA 可以知道用户的祖先来自哪里，就推送与该地区风土人情相关的音乐。</p>
+<p>Spotify 说：“ DNA 歌单不仅是娱乐，也可以作为教育资源。如果你不熟悉与自己 DNA 相关的地区，这个歌单将有助于你了解该地区的文化、历史和文化。”</p>
+<p>5、<strong>一句话消息</strong></p>
+<p><a target="_blank" rel="noopener" href="https://jenniferdaniel.substack.com/p/pressing-flesh-against-flesh-">Unicode 委员会</a>批准了，握手的表情符号将区分肤色。也就是说，握手符号将来有25种肤色可以选择（下图）。美国人的政治正确真可怕。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202105/bg2021050507.jpg"></p>
+<p><a target="_blank" rel="noopener" href="https://www.kedglobal.com/newsView/ked202105090002">三星公司</a>推出笔记本电脑的 Exynos 芯片，是世界首块可以运行 Windows 的 ARM 架构的笔记本芯片。此前，苹果公司已经将 ARM 芯片 M1 用于笔记本电脑。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202105/bg2021051106.jpg"></p>
+<p><a target="_blank" rel="noopener" href="https://www.bbc.com/news/business-56972562">世界最大的珠宝商潘多拉</a>（Pandora）表示，将不再出售自然钻石，改为只出售实验室制造的人工钻石（下图）。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202105/bg2021050412.jpg"></p>
+<h2 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h2><p>1、<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/Dx0lWSGRZGZIrA8pAkn2ug">从长征 5B 再入的新闻谈起</a>（中文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202105/bg2021051104.jpg"></p>
+<p>最近，长征 5B 火箭的残骸落入印度洋。它是目前中国最大的火箭，残骸无法在大气层里燃烧干净，加之落点无法控制，所以可能会对地面构成威胁。本文是一篇很好的评论。</p>
+<p>2、<a target="_blank" rel="noopener" href="https://www.matuzo.at/blog/i-totally-forgot-about-print-style-sheets/">如何写打印样式表</a>（英文）</p>
+<p>只要是放置内容的网页，除了正常的样式表以外，还应该设置打印样式表（print.css）。本文介绍打印样式表的基本写法。</p>
+<p>3、<a target="_blank" rel="noopener" href="https://nomoregreenscreen.com/post/the_story_so_far/">我如何用机器学习代替绿幕</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202104/bg2021042801.jpg"></p>
+<p>作者喜欢拍摄视频，会使用绿幕替换背景，但是家庭使用绿幕很不方便。有一天，他看到一篇论文，使用机器学习替换正常视频的背景，他就开始学着做。</p>
+<p>4、<a target="_blank" rel="noopener" href="https://www.intego.com/mac-security-blog/i-mailed-an-airtag-and-tracked-its-progress-heres-what-happened/">我邮寄了一个 AirTag</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202105/bg2021051206.jpg"></p>
+<p>苹果公司新发布的 AirTag，具有追踪功能。作者就放了一个 AirTag 在邮包里面，发出去以后一路追踪，看看效果如何。</p>
+<p>5、<a target="_blank" rel="noopener" href="https://hodovi.ch/blog/advanced-usage-python-requests-timeouts-retries-hooks/">Python request 库的用法介绍</a>（英文）</p>
+<p>Python 语言的 request 库用来发出 HTTP 请求，作者非常喜欢这个库，认为它简单、直观、容易使用。本文介绍怎么使用它在 Python 脚本里面发出 Web 请求。</p>
+<p>6、<a target="_blank" rel="noopener" href="https://www.matuzo.at/blog/html-boilerplate/">我的 HTML 页面模板</a>（英文）</p>
+<p>作者介绍了自己目前使用的 HTML 页面模板，解释了每一行的用途。</p>
+<p>7、<a target="_blank" rel="noopener" href="https://www.prisma.io/blog/prisma-the-complete-orm-inw24qjeawmb">Prisma ORM 库介绍</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202104/bg2021042207.jpg"></p>
+<p>Prisma 是 Node.js 和 TypeScript 项目新一代的 ORM 库，用来操作数据库。看上去功能非常强大，还带有配套的图形界面管理工具，下一个项目可以用它试试看。</p>
+<p>8、<a target="_blank" rel="noopener" href="https://devopsdirective.com/posts/2021/04/tiny-container-image/">最小的 Docker 镜像文件</a>（英文）</p>
+<p>作者介绍如何做出一个最小的 Docker 镜像文件，包含一个简单的 HTTP 服务器，大小只有 6KB。</p>
+<p>9、<a target="_blank" rel="noopener" href="https://mhoffman.github.io/2015/05/21/how-to-navigate-directories-with-the-shell.html">Bash 如何更快地浏览目录</a>（英文）</p>
+<p>本文介绍一些高级的 Bash 技巧，让你更快地在目录之间切换。</p>
+<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><p>1、<a target="_blank" rel="noopener" href="https://github.com/returntocorp/semgrep">Semgrep</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202104/bg2021042302.jpg"></p>
+<p>静态代码扫描工具，用来发现代码错误，类似于 ESLint，但可用于17种语言。</p>
+<p>2、<a target="_blank" rel="noopener" href="https://github.com/zellij-org/zellij">Zellij</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202104/bg2021042303.jpg"></p>
+<p>一个终端复用器，类似于 Tmux，使用 Rust 开发的，功能更强大。</p>
+<p>3、<a target="_blank" rel="noopener" href="http://www.boxedwine.org/demo/">Boxedwine</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202104/bg2021042404.jpg"></p>
+<p>这个库用来在网页上建立一个虚拟机，运行 Windows 的 exe 程序。</p>
+<p>4、<a target="_blank" rel="noopener" href="https://mark.show/">MarkShow</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202104/bg2021042609.jpg"></p>
+<p>一个在线工具，你输入 Markdown 文档，它自动转为 PPT 模式，进行在线演示。</p>
+<p>5、<a target="_blank" rel="noopener" href="https://www.polygitapp.com/">PolyGit</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202104/bg2021042611.jpg"></p>
+<p>一个 iOS 应用，让你在手机（或平板）上克隆 GitHub 仓库，进行修改后，再提交回去。</p>
+<p>6、<a target="_blank" rel="noopener" href="https://www.passwordstore.org/">pass</a></p>
+<p>一个命令行的密码管理器，有图形界面客户端，能用于各种平台和手机系统。特点是比较简单直观。</p>
+<p>7、<a target="_blank" rel="noopener" href="https://www.giuspen.com/cherrytree/">cherrytree</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202104/bg2021040704.jpg"></p>
+<p>一个桌面的笔记软件，支持文件夹结构，可以将所有内容保存成一个 SQLite 文件。</p>
+<p>8、<a target="_blank" rel="noopener" href="https://standardnotes.org/">标准笔记</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202104/bg2021041709.jpg"></p>
+<p>跨平台的笔记软件，有在线版，支持端对端加密，基础功能可以免费使用。</p>
+<p>9、<a target="_blank" rel="noopener" href="https://github.com/Dr-Noob/cpufetch">cpufetch</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202104/bg2021040801.jpg"></p>
+<p>一个开源的命令行程序，可以输出 CPU 的详细信息，支持桌面系统和安卓。</p>
+<h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><p>1、<a target="_blank" rel="noopener" href="https://oeis.org/">整数序列百科全书</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202104/bg2021041807.jpg"></p>
+<p>该网站收集各种整数序列，比如“1,2,3,6,11,23,47,106……”，这个序列的下一个数字是什么？</p>
+<p>2、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/learn/paths/rust-first-steps/">Rust 第一步</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202104/bg2021041812.jpg"></p>
+<p>微软官网上面的 Rust 教程，从零讲起，教你如何在 Windows 里面使用 Rust 编程。</p>
+<p>3、<a target="_blank" rel="noopener" href="https://friday.app/remote-work/market-map">远程工作软件地图（2021版）</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202104/bg2021042001.jpg"></p>
+<p>本文列出了远程工作可选择的软件，一共有几十种。</p>
+<p>4、<a target="_blank" rel="noopener" href="https://university.cockroachlabs.com/catalog">Cockroach 大学</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202104/bg2021042002.jpg"></p>
+<p>分布式关系型数据库 CockroachDB 的官方教程站，提供多门免费课程。</p>
+<p>5、<a target="_blank" rel="noopener" href="https://virtocean.com/">virtocean</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202104/bg2021042103.jpg"></p>
+<p>该网站提供各种海洋相关的声音，作为背景音乐。</p>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p>1、<a target="_blank" rel="noopener" href="https://mymodernmet.com/pigalle-basketball-court-paris/">彩色篮球场</a></p>
+<p>法国一个时尚品牌将巴黎的一个街头篮球场，重新设计成彩色篮球场，让这个本来没人关注的地方，变成了网红景点。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202104/bg2021041705.jpg"></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202104/bg2021041706.jpg"></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202104/bg2021041707.jpg"></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202104/bg2021041708.jpg"></p>
+<p>2、<a target="_blank" rel="noopener" href="https://designyoutrust.com/2021/04/person-uses-artificial-intelligence-to-make-anime-and-cartoon-characters-look-more-realistic/">卡通漫画人物的面容</a></p>
+<p>一个美国学生使用 Artbreeder 软件，通过人工智能，将二维的漫画人物生成三维真实人像。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202104/bg2021041803.jpg"></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202104/bg2021041804.jpg"></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202104/bg2021041805.jpg"></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202104/bg2021041806.jpg"></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202104/bg2021041802.jpg"></p>
+<h2 id="文摘"><a href="#文摘" class="headerlink" title="文摘"></a>文摘</h2><p>1、<a target="_blank" rel="noopener" href="https://semiwiki.com/general/297730-semiconductor-startups-are-they-back/">半导体行业的复兴</a></p>
+<p>60年前，半导体行业诞生在旧金山湾区，芯片创业公司兴盛一时，在旧金山到处都是。那个地方因此被称为“硅谷”（半导体的主要成分是硅）。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202104/bg2021042107.jpg"></p>
+<p>后来，这个行业日趋成熟，加上它要求巨额资本投入，使得创业公司大量减少，硅谷的重点转移到了互联网和软件公司。半导体不再是行业的热点了。</p>
+<p>但是，过去的几年中，半导体创业公司正在缓慢地复苏，芯片公司发生了惊人金额的融资和收购。那么，半导体创业公司为什么会复苏？还是现在的繁荣属于暂时的海市蜃楼？</p>
+<hr>
+<p>首先，必须明确一点，过去几十年中，半导体行业一直在增长。全球范围内，在计算机、智能手机、消费电子产品、汽车、工业电子产品的增长带动下，半导体的销售额每年都在上升。正是因为半导体技术的进步，才使得计算机更强大、网速更快、电子产品的体积更小。</p>
+<p>那么，在这样一个不断发展的大型市场中，过去很长一段时间内，为什么没有新的半导体创业公司呢？</p>
+<p>主要原因有下面几点。</p>
+<p>（1）半导体行业的清洗部门发生了大量倒闭，投资者损失严重。</p>
+<p>（2）互联网技术蓬勃发展，企业家的兴趣从半导体转移到了互联网。</p>
+<p>（3）中国成为半导体的供应大国，在增加竞争的同时，拉低了市场的价格。</p>
+<p>（4）半导体上市公司发生了巨大的整合兼并，巨头越来越强，留给小企业的空间不断缩小。</p>
+<p>（5）生产一种半导体芯片大约需要融资3000万美元，批量生产则至少需要再增加1亿美元。</p>
+<p>（6）只有大型公司，才会大量采购半导体产品。由于不断的行业整合，芯片采购者的数量变少了，减少的购买者意味着更低的报价。</p>
+<p>这些原因使得半导体不再是一个有吸引力的投资领域，风险投资对半导体创业公司的兴趣和投资因此变少。</p>
+<hr>
+<p>但是，过去的几年中，情况开始发生转变。自2017年以来，对半导体创业公司的投资大幅增加。这是为什么？</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202104/bg2021040601.jpg"></p>
+<p>原因之一是人工智能（AI）的爆炸式增长。AI 需要巨大的计算量，急需创新的半导体产品。在人工智能和计算机视觉的帮助下，自动驾驶汽车取得了长足的进步。这进一步推动了对芯片的需求。</p>
+<p>原因之二是建造半导体芯片的成本已大大降低。如果不使用最新工艺（大多数芯片不需要最先进工艺），芯片的制造成本是非常廉价的。现在用1000万美元或更少的钱，就可以制造半导体芯片，远远少于以前的3000万美元。</p>
+<p>原因之三是半导体购买者的范围也在不断扩大。大型互联网公司和软件企业开始进入芯片领域，他们已成为半导体创业公司的新收购者。</p>
+<p>原因之四是美国和中国之间的紧张局势，这使得各国越来越关注芯片的自给自足和国有化，这推动了对半导体的投资。汽车行业面临的芯片短缺也加剧了这种趋势。</p>
+<hr>
+<p>半导体创业浪潮是否会一直持续下去？</p>
+<p>我认为是的。随着量子计算、空间技术、计算生物学等新领域的涌现，对芯片的需求还会不断上升。因此，半导体创业公司的复苏势头值得看好。</p>
+<h2 id="言论"><a href="#言论" class="headerlink" title="言论"></a>言论</h2><p>1、</p>
+<p>巴菲特的财产为845亿美元。其中842亿美元是在他50岁生日后获得的。他20岁进入投资业，如果只做了30年就不干了，就根本不会有人听说过他。</p>
+<p>只有坚持下来不放弃，才可能有所作为，因为只有在足够长的时间里面，复利才会显示威力。</p>
+<p>– <a target="_blank" rel="noopener" href="https://www.swyx.io/psychology-of-money/">《金钱心理学的笔记》</a></p>
+<p>2、</p>
+<p>由于没法做实验，没有一家药厂愿意为孕妇开发药物，这导致孕妇一旦生病，就无药可用。</p>
+<p>– 《人体简史》，by 比尔·布莱森</p>
+<p>3、</p>
+<p>其他公司把钱花在广告和操纵公众舆论上，我们则专注于产品。</p>
+<p>– <a target="_blank" rel="noopener" href="https://finance.sina.cn/7x24/2021-04-28/detail-ikmxzfmk9380585.d.html">马斯克</a>回应特斯拉公司为何不雇佣公关人员</p>
+<p>4、</p>
+<p>八小时工作制是20世纪制定的，那时下午五点以后，社会经济就停止运作了。但是，21世纪非常不同，我们生活在每周七天、每天24小时运作的世界中，社交媒体是24&#x2F;7，通信网络是24&#x2F;7，网上商店是24&#x2F;7，一切都是24&#x2F;7，根本没有固定的休息时间。</p>
+<p>– <a target="_blank" rel="noopener" href="https://www.bbc.com/worklife/article/20210507-why-we-glorify-the-cult-of-burnout-and-overwork">《我们为什么要接受过度劳累的工作文化？》</a></p>
+<h2 id="历史上的本周"><a href="#历史上的本周" class="headerlink" title="历史上的本周"></a>历史上的本周</h2><p>2020年（第 107 期）：<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2020/05/weekly-issue-107.html">致富与杠杆</a></p>
+<p>2019年（第 55 期）：<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2019/05/weekly-issue-55.html">不是反对 996，而要提倡远程办公</a></p>
+<p>2018年（第 4 期）：<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2018/05/weekly-issue-4.html">马克思研究的问题</a></p>
+<h2 id="订阅"><a href="#订阅" class="headerlink" title="订阅"></a>订阅</h2><p>这个周刊每周五发布，同步更新在<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog">阮一峰的网络日志</a>和<a target="_blank" rel="noopener" href="http://weixin.sogou.com/weixin?query=%E9%98%AE%E4%B8%80%E5%B3%B0%E7%9A%84%E7%BD%91%E7%BB%9C%E6%97%A5%E5%BF%97">微信公众号</a>。</p>
+<p>微信搜索“阮一峰的网络日志”或者扫描二维码，即可订阅。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202103/bg2021030402.jpg"></p>
+<p>（完）</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%A7%91%E6%8A%80/" rel="tag"># 科技</a>
+              <a href="/tags/%E5%91%A8%E5%88%8A/" rel="tag"># 周刊</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/weekly/weekly-159/" rel="prev" title="科技爱好者周刊（第 159 期）：游戏开发者的年薪">
+                  <i class="fa fa-angle-left"></i> 科技爱好者周刊（第 159 期）：游戏开发者的年薪
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/weekly/weekly-156/" rel="next" title="科技爱好者周刊（第 156 期）：显卡缺货与异业竞争">
+                  科技爱好者周刊（第 156 期）：显卡缺货与异业竞争 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">jettleland</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

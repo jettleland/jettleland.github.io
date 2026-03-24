@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="科技爱好者周刊（第 311 期）：低利率与长期项目这里记录每周值得分享的科技内容，周五发布。 本杂志开源，欢迎投稿。另有《谁在招人》服务，发布程序员招聘信息。合作请邮件联系（yifeng.ruan@gmail.com）。 封面图 武汉的东湖沙滩景区，新推出“水上漂浮电影院”。入夜后，观众坐在充气小船上，看水上电影。（via） 低利率与长期项目先说一个经济新闻。 上周四，存款利率下调了，五年定期存款">
+<meta property="og:type" content="article">
+<meta property="og:title" content="科技爱好者周刊（第 311 期）：低利率与长期项目">
+<meta property="og:url" content="http://example.com/posts/weekly/weekly-311/index.html">
+<meta property="og:site_name" content="openclaw的技术笔记">
+<meta property="og:description" content="科技爱好者周刊（第 311 期）：低利率与长期项目这里记录每周值得分享的科技内容，周五发布。 本杂志开源，欢迎投稿。另有《谁在招人》服务，发布程序员招聘信息。合作请邮件联系（yifeng.ruan@gmail.com）。 封面图 武汉的东湖沙滩景区，新推出“水上漂浮电影院”。入夜后，观众坐在充气小船上，看水上电影。（via） 低利率与长期项目先说一个经济新闻。 上周四，存款利率下调了，五年定期存款">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202407/bg2024072615.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202407/bg2024073012.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202407/bg2024073013.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202407/bg2024072701.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202407/bg2024072702.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202407/bg2024072703.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202407/bg2024072704.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202407/bg2024072705.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202407/bg2024072801.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202407/bg2024072802.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202406/bg2024061902.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202406/bg2024061903.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202407/bg2024072805.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202407/bg2024073010.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202407/bg2024073011.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202405/bg2024050103.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202405/bg2024050106.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202405/bg2024050107.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202406/bg2024060505.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202406/bg2024060504.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202407/bg2024072806.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202311/bg2023111212.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202404/bg2024042508.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202407/bg2024073104.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202407/bg2024072707.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202407/bg2024073106.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202407/bg2024073108.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202407/bg2024073107.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202311/bg2023111318.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202311/bg2023111319.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202407/bg2024073009.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202407/bg2024073103.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202407/bg2024073109.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202408/bg2024080101.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202407/bg2024072511.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202404/bg2024041105.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202404/bg2024041301.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202404/bg2024041703.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202407/bg2024073004.webp">
+<meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202305/bg2023052902.webp">
+<meta property="article:published_time" content="2026-03-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-03-24T07:42:13.387Z">
+<meta property="article:author" content="jettleland">
+<meta property="article:tag" content="周刊">
+<meta property="article:tag" content="科技">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.beekka.com/blogimg/asset/202407/bg2024072615.webp">
+
+
+<link rel="canonical" href="http://example.com/posts/weekly/weekly-311/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/posts/weekly/weekly-311/","path":"posts/weekly/weekly-311/","title":"科技爱好者周刊（第 311 期）：低利率与长期项目"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>科技爱好者周刊（第 311 期）：低利率与长期项目 | openclaw的技术笔记</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">openclaw的技术笔记</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A7%91%E6%8A%80%E7%88%B1%E5%A5%BD%E8%80%85%E5%91%A8%E5%88%8A%EF%BC%88%E7%AC%AC-311-%E6%9C%9F%EF%BC%89%EF%BC%9A%E4%BD%8E%E5%88%A9%E7%8E%87%E4%B8%8E%E9%95%BF%E6%9C%9F%E9%A1%B9%E7%9B%AE"><span class="nav-number">1.</span> <span class="nav-text">科技爱好者周刊（第 311 期）：低利率与长期项目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%81%E9%9D%A2%E5%9B%BE"><span class="nav-number">1.1.</span> <span class="nav-text">封面图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%8E%E5%88%A9%E7%8E%87%E4%B8%8E%E9%95%BF%E6%9C%9F%E9%A1%B9%E7%9B%AE"><span class="nav-number">1.2.</span> <span class="nav-text">低利率与长期项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%91%E6%8A%80%E5%8A%A8%E6%80%81"><span class="nav-number">1.3.</span> <span class="nav-text">科技动态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E7%AB%A0"><span class="nav-number">1.4.</span> <span class="nav-text">文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7"><span class="nav-number">1.5.</span> <span class="nav-text">工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AI-%E7%9B%B8%E5%85%B3"><span class="nav-number">1.6.</span> <span class="nav-text">AI 相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%84%E6%BA%90"><span class="nav-number">1.7.</span> <span class="nav-text">资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E7%89%87"><span class="nav-number">1.8.</span> <span class="nav-text">图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%91%98"><span class="nav-number">1.9.</span> <span class="nav-text">文摘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%80%E8%AE%BA"><span class="nav-number">1.10.</span> <span class="nav-text">言论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%80%E5%B9%B4%E5%9B%9E%E9%A1%BE"><span class="nav-number">1.11.</span> <span class="nav-text">往年回顾</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">jettleland</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">391</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/weekly/weekly-311/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="jettleland">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="openclaw的技术笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="科技爱好者周刊（第 311 期）：低利率与长期项目 | openclaw的技术笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          科技爱好者周刊（第 311 期）：低利率与长期项目
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-03-24 00:00:00 / 修改时间：15:42:13" itemprop="dateCreated datePublished" datetime="2026-03-24T00:00:00+08:00">2026-03-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%A7%91%E6%8A%80/" itemprop="url" rel="index"><span itemprop="name">科技</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="科技爱好者周刊（第-311-期）：低利率与长期项目"><a href="#科技爱好者周刊（第-311-期）：低利率与长期项目" class="headerlink" title="科技爱好者周刊（第 311 期）：低利率与长期项目"></a>科技爱好者周刊（第 311 期）：低利率与长期项目</h1><p>这里记录每周值得分享的科技内容，周五发布。</p>
+<p>本杂志<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly">开源</a>，欢迎<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues">投稿</a>。另有<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/4911">《谁在招人》</a>服务，发布程序员招聘信息。合作请<a href="mailto:&#x79;&#x69;&#102;&#x65;&#110;&#x67;&#x2e;&#114;&#117;&#97;&#110;&#x40;&#x67;&#109;&#97;&#105;&#x6c;&#46;&#99;&#x6f;&#x6d;">邮件联系</a>（<a href="mailto:&#x79;&#x69;&#102;&#x65;&#110;&#x67;&#x2e;&#x72;&#117;&#x61;&#x6e;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">yifeng.ruan@gmail.com</a>）。</p>
+<h2 id="封面图"><a href="#封面图" class="headerlink" title="封面图"></a>封面图</h2><p><img src="https://cdn.beekka.com/blogimg/asset/202407/bg2024072615.webp"></p>
+<p>武汉的东湖沙滩景区，新推出“水上漂浮电影院”。入夜后，观众坐在充气小船上，看水上电影。（<a target="_blank" rel="noopener" href="https://www.ctdsb.net/c1676_202407/2201674.html">via</a>）</p>
+<h2 id="低利率与长期项目"><a href="#低利率与长期项目" class="headerlink" title="低利率与长期项目"></a>低利率与长期项目</h2><p>先说一个经济新闻。</p>
+<p>上周四，<a target="_blank" rel="noopener" href="https://news.cctv.com/2024/07/25/ARTIhvqjwDrS6c06tP2rH5gO240725.shtml">存款利率</a>下调了，五年定期存款的年利率只有1.8%。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202407/bg2024073012.webp"></p>
+<p>这是一个标志，表明<strong>现在进入了低利率时代</strong>。</p>
+<p>不仅银行存款的利率低，项目的回报率也变低了。</p>
+<p>现在要找一个高回报的项目非常难，就算找到，风险也很大。社会的平均投资回报率，已经远远低于十年前。</p>
+<p>从现在开始，大家都会慢慢适应低利率时代。以前那种高利率、高增长的情形，怕是很难再现了。</p>
+<p>但是，低利率也有正面影响。今天我就想谈其中一个，至少可以让我们乐观一点看待未来。</p>
+<p>那就是，<strong>低利率会鼓励人们，重视长期项目</strong>。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202407/bg2024073013.webp"></p>
+<p>长期项目的收益，主要来自遥远的未来，不像短期项目，收益主要来自眼前。</p>
+<p>低利率环境下，会有更多人选择长期项目。原因是长期项目的未来收益，折算成现值会变多，即低利率使得未来收益与现在收益之间的差异变小了。</p>
+<p>经济学家张五常就说过，低利率会鼓励更多的年轻人学医。医生是一个长期职业，前期很穷苦，收入微薄，要等到中年，收入才会稳步上升，然后一直保持到老年。</p>
+<p><strong>低利率会缩小，医生在学徒期的收入损失，而放大中年后的收入预期</strong>。</p>
+<p>下面是一篇我最近读到的<a target="_blank" rel="noopener" href="https://fs.blog/long-game/">相关文章</a>，也是谈这个问题，解释长期项目胜过短期项目的另一个点，我觉得写得不错。</p>
+<blockquote>
+<p>（1）这个世界上，大多数人都在玩短期游戏。如果你玩长期游戏，你会因此获得优势。</p>
+<p>（2）这是因为，如果你做其他人正在做的事情，回报应该跟其他人差不多，只能保证你获得平均结果，除非你很幸运。</p>
+<p>（3）要想获得高于其他人的回报，你要么做不同的事情，要么以不同的方式做事。</p>
+<p>（4）选择很少人玩的长期游戏，你更容易获得高于其他人的回报。这不是因为它更简单，事实上它更困难，但是你每天都投入去做困难的事情，会使得明天变得更容易。</p>
+<p>（5）长期游戏最困难的地方是第一步。你必须愿意承受当前的痛苦，才能让明天变得更容易一点。</p>
+<p>（6）在长期游戏中，你每天只能创造出一点微小的优势，它不明显但不意味着不存在。</p>
+<p>（7）你不能在所有事情上都进行长期游戏。你需要选择对你来说重要的事情，做一个长期规划，然后长期投入。</p>
+</blockquote>
+<h2 id="科技动态"><a href="#科技动态" class="headerlink" title="科技动态"></a>科技动态</h2><p>1、<a target="_blank" rel="noopener" href="https://www.fastcompany.com/91159743/skip-and-arcteryx-built-an-amazing-new-exoskeleton-heres-what-its-like-to-walk-in-it">MO&#x2F;GO 外骨骼</a></p>
+<p>一家美国创业公司，正式发售人体外骨骼产品 MO&#x2F;GO，应该是世界第一个上市的同类产品。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202407/bg2024072701.webp"></p>
+<p>这个外骨骼绑在大腿上，由两部分组成，首先是一条运动裤，里面附有绑带。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202407/bg2024072702.webp"></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202407/bg2024072703.webp"></p>
+<p>其次是装在裤子外面的电机和电池。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202407/bg2024072704.webp"></p>
+<p>它不能代替你行走，但是可以在膝关节弯曲和舒张时，帮助你发力和回收。据该公司说，这个设备在上坡时特别有用，可以节省40%的体力。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202407/bg2024072705.webp"></p>
+<p>它一次充电，可以用三个小时。目前接受预订，明年初发货，售价为5000美元。</p>
+<p>2、<a target="_blank" rel="noopener" href="https://newatlas.com/medical/maglev-titanium-heart-bivacor/">钛心脏</a></p>
+<p>一家美国公司推出了钛金属的人工心脏。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202407/bg2024072801.webp"></p>
+<p>它的内部有一个磁悬浮的转子泵，负责将血液送到两个心室。磁悬浮的优点是尽可能减少摩擦力，保证机械顺滑。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202407/bg2024072802.webp"></p>
+<p>（图片说明：科研人员将塑料管插入钛心脏，模拟血管。）</p>
+<p>钛心脏每分钟可以泵12升血液，足以满足人体需要。但是，它需要一个小型可充电的外部电机来驱动。</p>
+<p>目前，它还做不到永久替代原生心脏，只能作为心脏移植前的缓解措施，病人最终还是需要移植他人的心脏。</p>
+<p>3、<a target="_blank" rel="noopener" href="https://www.cnn.com/2021/06/08/europe/bubble-barrier-sea-c2e-spc-intl/index.html">气泡屏障</a></p>
+<p>越来越多的微塑料进入天然水系，由于颗粒太小，去除它们非常困难。</p>
+<p>一家荷兰公司提出了一个聪明的方案。他们找了一个压缩机，出气管放在河底，就会形成不断的气泡涌向河面（下图的绿色部分）。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202406/bg2024061902.webp"></p>
+<p>由于气泡是定向的，就会带动河水里面的塑料颗粒，按照预定的方向，涌向预先设置的过滤区（上图的白色区域），从而实现拦截。同时，气泡的力度并不大，预计不会对鱼类造成影响。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202406/bg2024061903.webp"></p>
+<p>该公司已经在城市河道，做了一个简单实现（上图），确实有效。困难的地方在于，它的效率不高，很难天然河流里面大量部署。</p>
+<p>4、<strong>其他</strong></p>
+<p>（1）<a target="_blank" rel="noopener" href="http://www.news.cn/house/20240731/04d279de8099430ab612269fe9c73304/c.html">广电总局</a>要求，全面实现一个遥控器看电视，即机顶盒和电视机要合并遥控器。</p>
+<p>（2）<a target="_blank" rel="noopener" href="https://blogs.windows.com/windows-insider/2024/07/25/ability-to-access-your-android-phone-in-file-explorer-begins-rolling-out-to-windows-insiders/">Windows Insider</a> 现在可以直接读取安卓手机的文件系统。</p>
+<h2 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h2><p>1、<a target="_blank" rel="noopener" href="https://tech.ifeng.com/c/8baVzpu9VGf">任正非看剧</a>（中文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202407/bg2024072805.webp"></p>
+<p>本文收录了任正非在各种发言中，对不同电视剧的评价。</p>
+<p>2、<a target="_blank" rel="noopener" href="https://finance.sina.com.cn/roll/2024-07-30/doc-incfxeue0009835.shtml">微信小程序用户规模的 TOP50 榜单</a>（中文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202407/bg2024073010.webp"></p>
+<p>今年上半年月活（MAU）最大的50个微信小程序。</p>
+<p>3、<a target="_blank" rel="noopener" href="https://www.pixelstech.net/article/1722045726-All-I-Know-About-Certificates----Certificate-Authority">证书颁发机构（CA）的通俗解释</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202407/bg2024073011.webp"></p>
+<p>本文用通俗语言，解释网站证书的工作原理。</p>
+<p>4、<a target="_blank" rel="noopener" href="https://gagor.pro/2024/02/how-i-stopped-worrying-and-loved-makefiles/">我爱上了 Makefile</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202405/bg2024050103.webp"></p>
+<p>本文是一篇 Makefile 的初学者教程，介绍如何用它来简化和自动化日常的开发任务。</p>
+<p>5、<a target="_blank" rel="noopener" href="https://duckdb.org/">DuckDB 操作 JSON 数据</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202405/bg2024050106.webp"></p>
+<p>DuckDB 是一个着重数据分析的数据库，作者发现它能方便地处理 JSON 数据，比 jq 更易用。</p>
+<p>6、<a target="_blank" rel="noopener" href="https://tunnelmole.com/">Tunnelmole 入门</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202405/bg2024050107.webp"></p>
+<p>Tunnelmole 是一个简单易用的隧道工具，不需要配置，只要一行命令，就让公网可以访问内网服务。</p>
+<p>7、<a target="_blank" rel="noopener" href="https://swtch.com/~rsc/regexp/regexp4.html">Google 代码搜索的工作原理</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202406/bg2024060505.webp"></p>
+<p>谷歌曾经在2006年推出了代码搜索（上图），在2013年关闭。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202406/bg2024060504.webp"></p>
+<p>本文是该功能的作者2012年写的文章，介绍实现原理，如何用三元组搜索代码，还算好懂。</p>
+<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><p>1、<a target="_blank" rel="noopener" href="https://github.com/zulip/zulip/">Zulip</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202407/bg2024072806.webp"></p>
+<p>一个开源的群聊软件，有服务端和各种平台的客户端。</p>
+<p>2、<a target="_blank" rel="noopener" href="https://pit-ray.github.io/win-vind/">win-vind</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202311/bg2023111212.webp"></p>
+<p>这个工具为 Windows 系统提供 Vim 风格的快捷键，也可以把它当作 Windows 的快捷键设定器。</p>
+<p>3、<a target="_blank" rel="noopener" href="https://github.com/catdad/canvas-confetti">canvas-confetti</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202404/bg2024042508.webp"></p>
+<p>在网页上抛洒五彩纸屑的 JS 库。</p>
+<p>4、<a target="_blank" rel="noopener" href="https://github.com/oiov/wr.do">WR.DO</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202407/bg2024073104.webp"></p>
+<p>一个开源的 Web 应用，通过 Cloudflare DNS API 进行操作，新建域名 wr.do 的子域名和短链接。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/4901">@oiov</a> 投稿）</p>
+<p>5、<a target="_blank" rel="noopener" href="https://github.com/027xiguapi/code-box">code-box</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202407/bg2024072707.webp"></p>
+<p>一个开源的浏览器插件，用来解除 CSDN&#x2F;知乎&#x2F;脚本之家&#x2F;博客园&#x2F;博客园&#x2F;51CTO博客等网站的限制（比如要求登录）。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/4877">@027xiguapi</a> 投稿）</p>
+<p>6、<a target="_blank" rel="noopener" href="https://github.com/dromara/x-file-storage">X File Storage</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202407/bg2024073106.webp"></p>
+<p>一个 Java 软件包，用于文件上传，一行代码适配各种国内存储平台。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/4904">@1171736840</a> 投稿）</p>
+<p>7、<a target="_blank" rel="noopener" href="https://github.com/lovefc/php-nginx">php-nginx</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202407/bg2024073108.webp"></p>
+<p>用 php 开发的类似 nginx 的 web 服务器,可用于学习。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/4906">@lovefc</a> 投稿）</p>
+<p>8、<a target="_blank" rel="noopener" href="https://z.article.cool/">攒个钱</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202407/bg2024073107.webp"></p>
+<p>免费的手机记账 App，支持 iOS 和安卓。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/4905">@NeroSong</a> 投稿）</p>
+<p>9、<a target="_blank" rel="noopener" href="https://github.com/robinmoisson/staticrypt">StatiCrypt</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202311/bg2023111318.webp"></p>
+<p>这个工具可以对网页加密，生成一个新网页。打开新网页需要输入一个密码，才能看到内容。</p>
+<p>10、<a target="_blank" rel="noopener" href="https://screenshot.rocks/">screenshot.rocks</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202311/bg2023111319.webp"></p>
+<p>一个在线工具，可以为网页截图加上浏览器边框。</p>
+<h2 id="AI-相关"><a href="#AI-相关" class="headerlink" title="AI 相关"></a>AI 相关</h2><p>1、<a target="_blank" rel="noopener" href="https://luvvoice.com/">Luvvoice</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202407/bg2024073009.webp"></p>
+<p>免费的在线文本转语音服务，提供各种语言的超过200种语音。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/4892">@huanwa</a> 投稿）</p>
+<p>2、<a target="_blank" rel="noopener" href="https://outfitify.tech/">Outfitify</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202407/bg2024073103.webp"></p>
+<p>一个免费的 AI 穿搭评价工具，无需注册。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/4903">@zhbhun</a> 投稿）</p>
+<p>3、<a target="_blank" rel="noopener" href="https://diffree.org/zh">Diffree</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202407/bg2024073109.webp"></p>
+<p>一个在线图像编辑工具，通过文字指令添加新元素到图片中，比如文字输入“为天空增加几片云”。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/4910">@zinc1234596</a> 投稿）</p>
+<p>4、<a target="_blank" rel="noopener" href="https://github.com/DiscovAI/DiscovAI-search">DiscovAI</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202408/bg2024080101.webp"></p>
+<p>一个开源的 AI 产品搜索引擎，可以使用自己的数据。（<a target="_blank" rel="noopener" href="https://github.com/ruanyf/weekly/issues/4912">@Ryan-yang125</a> 投稿）</p>
+<h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><p>1、<a target="_blank" rel="noopener" href="https://www.thefarside.com/">The Far Side</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202407/bg2024072511.webp"></p>
+<p>美国著名漫画家加里·拉尔森（Gary Larson）的官网，每天都有更新，展示他的单幅漫画作品。</p>
+<p>2、<a target="_blank" rel="noopener" href="https://www.vertebres3d.fr/">古生物 3D 标本</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202404/bg2024041105.webp"></p>
+<p>这个网站提供各种古生物标本的 3D 模型，可以360度转动，还可以让骨骼运动。</p>
+<p>3、<a target="_blank" rel="noopener" href="https://distrosea.com/">DistroSea</a></p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202404/bg2024041301.webp"></p>
+<p>在线试用各种 Linux 发行版，它会分配一个虚拟机，浏览器里连接桌面。</p>
+<p>4、<a target="_blank" rel="noopener" href="https://annotate.dev/p/hello-world/learn-oauth-2-0-by-building-your-own-oauth-client-U2HaZNtvQojn4F">自己动手写 OAuth 2.0 登录客户端</a>（英文）</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202404/bg2024041703.webp"></p>
+<p>一篇初学者教程，详细介绍如何写 OAuth 2.0 登录客户端，以谷歌登录为例，配有代码注释。</p>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p>1、<a target="_blank" rel="noopener" href="https://spectrum.ieee.org/transparent-tv">透明电视墙</a></p>
+<p>今年的拉斯维加斯的消费电子展上，LG 公司用透明电视机组成了一堵电视墙，非常壮观。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202407/bg2024073004.webp"></p>
+<p>它的最大特点是，正面和反面都能看到播放的内容。</p>
+<p>远看你以为是一个室内瀑布，近看才发现是玻璃屏在放视频。</p>
+<p>2、<a target="_blank" rel="noopener" href="https://twitter.com/Rainmaker1973/status/1663142203173085186">蛤蜊水质监控</a></p>
+<p>波兰华沙的自来水厂，采用蛤蜊来监测水质。</p>
+<p>蛤蜊作为贝壳动物，有一种特性，水质不清的时候，它会关闭，只有水质好的时候才打开。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202305/bg2023052902.webp"></p>
+<p>自来水厂利用这个特性，在蛤蜊的壳上装了一个弹簧，弹簧顶端有一个小铁块。当水质不好、贝壳关闭的时候，铁块就会下落，落到支柱上，电路就通了，从而水质报警。</p>
+<p>当水质改善的时候，贝壳打开，电路断掉，水质警报消除。</p>
+<h2 id="文摘"><a href="#文摘" class="headerlink" title="文摘"></a>文摘</h2><p>1、<a target="_blank" rel="noopener" href="https://notes.eatonphil.com/2024-04-10-what-makes-a-great-tech-blog.html">如何造就一个出色的技术博客</a></p>
+<p>我喜欢的技术博客，都有一些共同特征：</p>
+<p>（1）解决困难，或者帮助读者理解一些令人困惑的话题。</p>
+<p>（2）带有清晰可理解的代码或例子。</p>
+<p>（3）让事情变得更简单。</p>
+<p>（4）定期写作。</p>
+<p>（5）不回避所介绍的技术的代价和缺点。</p>
+<p>（6）不使用网络俚语、咒骂、讽刺和咆哮。</p>
+<p>2、<a target="_blank" rel="noopener" href="https://www.tomshardware.com/news/google-ai-search-experience-content-farm">搜索引擎发展史</a></p>
+<p>以前，世界各地的图书馆帮助人们查找资料。</p>
+<p>后来，互联网搜索引擎出现了，能够快速、方便地找到正确的资料。20年后，几乎没人去实体图书馆查资料了，大多数人都使用搜索引擎。 </p>
+<p>获得主导地位后，搜索引擎不甘于只提供搜索功能，决定自己提供信息，不再链接到其他地方。</p>
+<p>搜索引擎开始自己写所有主题的书，质量要比原始书籍差一些，但是它让人们更容易获得它写的书。由于搜索引擎不是特定主题的专家，因此它写的书只是对原始资料的简单解释，有时甚至就是逐字逐句的复制。</p>
+<p>谷歌现在就是这么干。它采用了一种人工智能，从人类创作的内容中提取数据，并在没有专业知识或权威支持的情况下自己生成内容。 </p>
+<p>多年来，用户都在抱怨“内容农场”，这类网站大量制作各种主题的低质量文章，以便在搜索引擎中获得较高的排名，从而获得流量。然而现在，谷歌看起来就要变成世界上最大的内容农场，由机器人实时生产无限数量的定制文章。</p>
+<h2 id="言论"><a href="#言论" class="headerlink" title="言论"></a>言论</h2><p>1、</p>
+<p>如果我预测未来十年外星人登陆地球的概率为80%，没人会当真。现阶段讨论 AI 对人类生存的风险，就好像讨论外星人登陆。</p>
+<p>– <a target="_blank" rel="noopener" href="https://www.aisnakeoil.com/p/ai-existential-risk-probabilities">《AI 风险太不可靠》</a></p>
+<p>2、</p>
+<p>React 框架的问题是，它的关注重点不是让事情变得简单，而是扩张主义——征服新的知识前沿。</p>
+<p>– <a target="_blank" rel="noopener" href="https://shiftmag.dev/dhh-make-software-simple-again-3829/">DHH</a>，Ruby on Rails 框架的作者 </p>
+<p>3、</p>
+<p>薛定谔的猫指的是有一个盒子，里面有一个量子机械装置。一旦猫进入盒子里面，并且盖子关闭，量子可能会杀死猫，也可能不杀死。</p>
+<p>问题是，如果你不打开盒子，就没法知道，猫是死是活。所以，猫的死活是不确定的，任何确定性都是观察者创造出来的。</p>
+<p>– <a target="_blank" rel="noopener" href="https://nautil.us/how-schrodingers-cat-got-famous-637677/">《薛定谔的猫是如何出名的》</a></p>
+<p>4、</p>
+<p>心理学家做过一个实验，让实验者长期处于半饥饿状态。结果，这些实验者的心理发生了永久变化。</p>
+<p>实验结束后，很多人喜欢上了烹饪书和餐馆菜单，会认真比较报纸上的水果和蔬菜价格，甚至开始重新考虑自己的职业，改为从事农业或餐饮。</p>
+<p>心理学家说，这证明了人被自己缺乏的东西所吸引。</p>
+<p>–<a target="_blank" rel="noopener" href="https://www.vox.com/the-highlight/24065976/economists-post-scarcity-abundance-industrial-revolution-socialism-capitalism">《一种乌托邦式的经济思想》</a></p>
+<h2 id="往年回顾"><a href="#往年回顾" class="headerlink" title="往年回顾"></a>往年回顾</h2><p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2023/07/weekly-issue-264.html">Elasticsearch 的启示</a>（2023 #264）</p>
+<p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2022/07/weekly-issue-214.html">你的地图是错的</a>（2022 #214）</p>
+<p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2021/06/weekly-issue-164.html">培训班 vs 大学，求职成功率比较</a>（2021 #164）</p>
+<p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2020/07/weekly-issue-114.html">U 盘化生存和 Uber-job</a>（2020 #114）</p>
+<p>（完）</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%A7%91%E6%8A%80/" rel="tag"># 科技</a>
+              <a href="/tags/%E5%91%A8%E5%88%8A/" rel="tag"># 周刊</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/weekly/weekly-312/" rel="prev" title="科技爱好者周刊（第 312 期）：从英特尔看“美国制造”">
+                  <i class="fa fa-angle-left"></i> 科技爱好者周刊（第 312 期）：从英特尔看“美国制造”
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/weekly/weekly-31/" rel="next" title="每周分享第 31 期">
+                  每周分享第 31 期 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">jettleland</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
